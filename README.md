@@ -11,4 +11,7 @@ Liitostauluja ovat: TilausAnnos, AnnosRaakaAine
 
  
 Tietokantakaavio
-https://github.com/juissijohtaja/Pizzapalvelu/blob/master/Pizzapalvelu-dbdiagram.png
+- https://github.com/juissijohtaja/Pizzapalvelu/blob/master/Pizzapalvelu-dbdiagram.png
+
+Sovellus Herokussa
+- https://desolate-bayou-52025.herokuapp.com/

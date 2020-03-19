@@ -1,4 +1,4 @@
-Dokumentaatiokansiossa sovelluksen toiminnallisuuden kannalta oleelliset käyttötapaukset tai user storyt
+Pizzapalvelu-sovelluksen käyttötapaukset
 
 done
 - Ylläpitäjänä voin lisätä täytteen

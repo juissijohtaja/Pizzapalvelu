@@ -15,7 +15,7 @@ Sovellus Herokussa
 - https://desolate-bayou-52025.herokuapp.com/
  
 Tietokantakaavio
-- https://github.com/juissijohtaja/Pizzapalvelu/blob/master/Pizzapalvelu-dbdiagram.png
+- https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png
 
 Käyttötapaukset / user storyt
 - https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md

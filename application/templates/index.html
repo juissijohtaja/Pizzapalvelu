@@ -4,4 +4,14 @@
   <p>
     Tervetuloa pizzapalveluun!
   </p>
+  <table>
+    <tr>
+      <th>Pizzat</th>
+    </tr>
+    {% for pizza in pizzat %}
+    <tr>
+      <td>{{ pizza.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 {% endblock %}

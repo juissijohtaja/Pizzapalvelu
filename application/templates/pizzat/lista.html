@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Pizza</th>
+      <th></th>
+    </tr>
+    {% for pizza in pizzat %}
+    <tr>
+      <td>{{ pizza.name }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('pizzat_set_name', pizza_id=pizza.id) }}">
+          <input type="text" name="name"/>
+          <input type="submit" value="Päivitä nimi!"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

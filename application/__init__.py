@@ -13,6 +13,9 @@ from application import views
 from application.taytteet import models
 from application.taytteet import views
 
+from application.pizzat import models
+from application.pizzat import views
+
 from application.tasks import models
 from application.tasks import views
   

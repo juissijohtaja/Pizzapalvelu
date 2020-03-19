@@ -3,27 +3,22 @@
     <head>
       <meta charset="utf-8">
       <title>Pizzapalvelu</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
     
     <body>
-      <p>User</p>
       <ul>
-        <li><a href="/">Etusivu/Pizzat</a></li>
+        <li><a href="/">Etusivu</a></li>
+	      <li style="float:right"><a href="{{ url_for('taytteet_index') }}">Täytteet</a></li>
+        <li style="float:right"><a href="{{ url_for('taytteet_form') }}">Lisää täyte</a></li>
+        <li style="float:right"><a href="{{ url_for('pizzat_index') }}">Pizzat</a></li>
+        <li style="float:right"><a href="{{ url_for('pizzat_form') }}">Lisää pizza</a></li>
         <!--
-        <li><a href="#">Ostoskori</a></li>
-        <li><a href="#">Kirjaudu</a></li>
-        <li><a href="#">Rekisteröidy</a></li>
-        -->
-      </ul>
-      <p>Admin</p>
-      <ul>
-	      <li><a href="{{ url_for('taytteet_index') }}">Täytteet</a></li>
-        <li><a href="{{ url_for('taytteet_form') }}">Lisää täyte</a></li>
-        <li><a href="{{ url_for('pizzat_index') }}">Pizzat</a></li>
-        <li><a href="{{ url_for('pizzat_form') }}">Lisää pizza</a></li>
-        <!--
-        <li><a href="#">Asiakkaat</a></li>
-        <li><a href="#">Tilaukset</a></li>
+          <li><a href="#">Ostoskori</a></li>
+          <li><a href="#">Kirjaudu</a></li>
+          <li><a href="#">Rekisteröidy</a></li>
+          <li><a href="#">Asiakkaat</a></li>
+          <li><a href="#">Tilaukset</a></li>
         -->
       </ul>
       

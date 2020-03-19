@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
+<h4>Lisää täyte</h4>
 <form method="POST" action="{{ url_for('taytteet_create') }}">
   <input type="text" name="name"/>
   <input type="submit" value="Lisää uusi täyte"/>

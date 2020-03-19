@@ -16,4 +16,4 @@ Tietokantakaavio
 - https://github.com/juissijohtaja/Pizzapalvelu/blob/master/Pizzapalvelu-dbdiagram.png
 
 Käyttötapaukset / user storyt
-- ##linkki##
+- https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md

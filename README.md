@@ -11,11 +11,8 @@ Tietokannan taulut ovat: Asiakas, Tilaus, Pizza, Tayte
 Liitostauluja ovat: TilausPizza, PizzaTayte
 
 
-Sovellus Herokussa
-- https://desolate-bayou-52025.herokuapp.com/
+[Sovellus Herokussa](https://desolate-bayou-52025.herokuapp.com/)
  
-Tietokantakaavio
-- https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png
+[Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
 
-Käyttötapaukset / user storyt
-- https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md
+[Käyttötapaukset / user storyt](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md)

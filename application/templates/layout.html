@@ -13,6 +13,7 @@
         <li style="float:right"><a href="{{ url_for('taytteet_form') }}">Lisää täyte</a></li>
         <li style="float:right"><a href="{{ url_for('pizzat_index') }}">Pizzat</a></li>
         <li style="float:right"><a href="{{ url_for('pizzat_form') }}">Lisää pizza</a></li>
+        <li style="float:right"><a href="{{ url_for('auth_login') }}">Kirjaudu</a></li>
         <!--
           <li><a href="#">Ostoskori</a></li>
           <li><a href="#">Kirjaudu</a></li>
@@ -21,10 +22,18 @@
           <li><a href="#">Tilaukset</a></li>
         -->
       </ul>
+
+      {% if current_user.is_authenticated %}
+      <p>
+        Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+      </p>
+      {% else %}
+      <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+      {% endif %}
       
       {% block body %}
       <p>
-	Content.
+	      Content.
       </p>
       {% endblock %}
     </body>

@@ -1,7 +1,10 @@
 from application import app, db
-from flask import render_template, request, redirect, url_for
 from application.taytteet.models import Tayte
 from application.taytteet.forms import TayteForm
+
+from flask import render_template, request, redirect, url_for
+from flask_login import login_required
+
 
 
 @app.route("/taytteet/", methods=["GET"])
@@ -9,10 +12,12 @@ def taytteet_index():
     return render_template("taytteet/lista.html", taytteet = Tayte.query.all())
 
 @app.route("/taytteet/uusi/")
+@login_required
 def taytteet_form():
     return render_template("taytteet/uusi.html", form = TayteForm())
 
 @app.route("/taytteet/<tayte_id>/", methods=["POST"])
+@login_required
 def taytteet_set_name(tayte_id):
 
     t = Tayte.query.get(tayte_id)
@@ -22,6 +27,7 @@ def taytteet_set_name(tayte_id):
     return redirect(url_for("taytteet_index"))
 
 @app.route("/taytteet/", methods=["POST"])
+@login_required
 def taytteet_create():
     form = TayteForm(request.form)
 

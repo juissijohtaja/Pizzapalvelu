@@ -35,7 +35,7 @@ def taytteet_create():
         return render_template("taytteet/uusi.html", form = form)
 
     t = Tayte(form.name.data)
-    t.done = form.done.data
+    #t.done = form.done.data
 
     db.session().add(t)
     db.session().commit()

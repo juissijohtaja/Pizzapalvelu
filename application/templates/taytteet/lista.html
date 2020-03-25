@@ -4,11 +4,13 @@
   <table>
     <tr>
       <th>Täyte</th>
+      <th>Done</th>
       <th></th>
     </tr>
     {% for tayte in taytteet %}
     <tr>
       <td>{{ tayte.name }}</td>
+      <td>{{ tayte.done }}</td>
       <td>
         <form method="POST" action="{{ url_for('taytteet_set_name', tayte_id=tayte.id) }}">
           <input type="text" name="name"/>

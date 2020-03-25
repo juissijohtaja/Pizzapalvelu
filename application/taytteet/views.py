@@ -1,6 +1,8 @@
 from application import app, db
-from flask import redirect, render_template, request, url_for
+from flask import render_template, request, redirect, url_for
 from application.taytteet.models import Tayte
+from application.taytteet.forms import TayteForm
+
 
 @app.route("/taytteet/", methods=["GET"])
 def taytteet_index():
@@ -8,7 +10,7 @@ def taytteet_index():
 
 @app.route("/taytteet/uusi/")
 def taytteet_form():
-    return render_template("taytteet/uusi.html")
+    return render_template("taytteet/uusi.html", form = TayteForm())
 
 @app.route("/taytteet/<tayte_id>/", methods=["POST"])
 def taytteet_set_name(tayte_id):
@@ -21,7 +23,13 @@ def taytteet_set_name(tayte_id):
 
 @app.route("/taytteet/", methods=["POST"])
 def taytteet_create():
-    t = Tayte(request.form.get("name"))
+    form = TayteForm(request.form)
+
+    if not form.validate():
+        return render_template("taytteet/uusi.html", form = form)
+
+    t = Tayte(form.name.data)
+    t.done = form.done.data
 
     db.session().add(t)
     db.session().commit()

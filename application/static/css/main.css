@@ -24,7 +24,39 @@ ul#menu li a {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 ul#menu li a:hover {
   background-color: #111;
 }
+
+table {
+
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5em 1em;
+}
+th {
+  text-align: left;
+}
+
+input {
+  padding: 0.2em 0.6em;
+  font-size: 0.8em;
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+}
+
+input[type=button], input[type=submit], input[type=reset], button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 0.6em 1em;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+

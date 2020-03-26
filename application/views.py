@@ -1,6 +1,6 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
-from application.pizzat.models import Pizza
+from application.pizzas.models import Pizza
 
 
 

@@ -9,18 +9,10 @@
     <body>
       <ul id="menu">
         <li><a href="/">Etusivu</a></li>
-	      <li style="float:right"><a href="{{ url_for('taytteet_index') }}">Täytteet</a></li>
+	      <li style="float:right"><a href="{{ url_for('toppings_index') }}">Täytteet</a></li>
         <li style="float:right"><a href="{{ url_for('user_index') }}">Käyttäjät</a></li>
         <li style="float:right"><a href="{{ url_for('auth_login') }}">Kirjaudu</a></li>
         <li style="float:right"><a href="{{ url_for('auth_signup') }}">Rekisteröidy</a></li>
-        <!--
-          <li><a href="#">Ostoskori</a></li>
-          <li style="float:right"><a href="{{ url_for('pizzat_index') }}">Pizzat</a></li>
-          <li style="float:right"><a href="{{ url_for('pizzat_form') }}">Lisää pizza</a></li>
-          <li><a href="#">Asiakkaat</a></li>
-          <li><a href="#">Tilaukset</a></li>
-          <li style="float:right"><a href="{{ url_for('taytteet_form') }}">Lisää täyte</a></li>
-        -->
       </ul>
 
       {% if current_user.is_authenticated %}

@@ -6,11 +6,11 @@
       <th>Pizza</th>
       <th></th>
     </tr>
-    {% for pizza in pizzat %}
+    {% for pizza in pizzas %}
     <tr>
       <td>{{ pizza.name }}</td>
       <td>
-        <form method="POST" action="{{ url_for('pizzat_set_name', pizza_id=pizza.id) }}">
+        <form method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
           <input type="text" name="name"/>
           <input type="submit" value="Päivitä nimi!"/>
         </form>

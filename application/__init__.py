@@ -18,11 +18,13 @@ db = SQLAlchemy(app)
 # oman sovelluksen toiminnallisuudet
 from application import views
 
-from application.taytteet import models
-from application.taytteet import views
+from application.toppings import models
+from application.toppings import views
 
-from application.pizzat import models
-from application.pizzat import views
+from application.pizzas import models
+from application.pizzas import views
+
+from application.users import views
 
 from application.auth import models
 from application.auth import views

@@ -19,7 +19,7 @@
       <td>{{ user.address }}</td>
       <td>{{ user.username }}</td>
       <td>{{ user.password }}</td>
-      <td><a href="{{ url_for('user_get_name', user_id=user.id) }}">Muokkaa</a></td>
+      <td><button><a href="{{ url_for('user_get_item', user_id=user.id) }}">Muokkaa</a></button></td>
     </tr>
     {% endfor %}
   </table>

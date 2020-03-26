@@ -16,6 +16,11 @@ def taytteet_index():
 def taytteet_form():
     return render_template("taytteet/uusi.html", form = TayteForm())
 
+@app.route("/taytteet/<tayte_id>/", methods=["GET"])
+def taytteet_get_name(tayte_id):
+    t = Tayte.query.get(tayte_id)
+    return render_template("taytteet/tayte.html", tayte = t)
+
 @app.route("/taytteet/<tayte_id>/", methods=["POST"])
 @login_required
 def taytteet_set_name(tayte_id):
@@ -26,7 +31,7 @@ def taytteet_set_name(tayte_id):
   
     return redirect(url_for("taytteet_index"))
 
-@app.route("/taytteet/", methods=["POST"])
+@app.route("/taytteet/uusi/", methods=["POST"])
 @login_required
 def taytteet_create():
     form = TayteForm(request.form)

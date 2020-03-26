@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Täyte</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>{{ tayte.name }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('taytteet_set_name', tayte_id=tayte.id) }}">
+          <input type="text" name="name"/>
+          <input type="submit" value="Päivitä nimi!"/>
+        </form>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

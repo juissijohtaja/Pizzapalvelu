@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Käyttäjä</th>
+      <th></th>
+    </tr>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.name }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('user_set_name', user_id=user.id) }}">
+          <input type="text" name="name"/>
+          <input type="submit" value="Päivitä nimi!"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

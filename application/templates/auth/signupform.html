@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<p>{{ error }}</p>
+<h3>
+  Rekisteröidy
+</h3>
+<form method="POST" action="{{ url_for('auth_signup') }}">
+  <table>
+    <tr>
+      <td>
+	      {{ form.name.label }}
+      </td>
+      <td>
+	      {{ form.name }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+	      {{ form.phone.label }}
+      </td>
+      <td>
+	      {{ form.phone }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+	      {{ form.address.label }}
+      </td>
+      <td>
+	      {{ form.address }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+	      {{ form.username.label }}
+      </td>
+      <td>
+	      {{ form.username }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+	      {{ form.password.label }}
+      </td>
+      <td>
+	      {{ form.password }}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	      <input type="submit" value="Lähetä"/>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

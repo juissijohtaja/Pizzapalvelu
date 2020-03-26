@@ -8,13 +8,7 @@
     </tr>
     {% for tayte in taytteet %}
     <tr>
-      <td>{{ tayte.name }}</td>
-      <td>
-        <form method="POST" action="{{ url_for('taytteet_set_name', tayte_id=tayte.id) }}">
-          <input type="text" name="name"/>
-          <input type="submit" value="Päivitä nimi!"/>
-        </form>
-      </td>
+      <td><a href="{{ url_for('taytteet_get_name', tayte_id=tayte.id) }}">{{ tayte.name }}</a></td>
     </tr>
     {% endfor %}
   </table>

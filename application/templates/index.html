@@ -4,14 +4,17 @@
   <h3>
     Tervetuloa pizzapalveluun!
   </h3>
-  <table>
-    <tr>
-      <th>Pizzat</th>
-    </tr>
-    {% for pizza in pizzat %}
-    <tr>
-      <td>{{ pizza.name }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+  {% if pizzat %}
+    <table>
+      <tr>
+        <th>Pizzat</th>
+      </tr>
+      
+        {% for pizza in pizzat %}
+        <tr>
+          <td>{{ pizza.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  {% endif %}
 {% endblock %}

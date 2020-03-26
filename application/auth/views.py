@@ -6,12 +6,18 @@ from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm, SignupForm
 
-@app.route("/auth/", methods=["GET"])
+@app.route("/kayttajat/", methods=["GET"])
 @login_required
-def auth_index():
+def user_index():
     return render_template("auth/lista.html", users = User.query.all())
 
-@app.route("/auth/<user_id>/", methods=["POST"])
+@app.route("/kayttajat/<user_id>/", methods=["GET"])
+@login_required
+def user_get_name(user_id):
+    t = User.query.get(user_id)
+    return render_template("auth/user.html", user = t)
+
+@app.route("/kayttajat/<user_id>/", methods=["POST"])
 @login_required
 def user_set_name(user_id):
 
@@ -19,7 +25,17 @@ def user_set_name(user_id):
     t.name = request.form.get("name")
     db.session().commit()
   
-    return redirect(url_for("auth_index"))
+    return redirect(url_for("user_index"))
+
+@app.route("/kayttajat/delete/<user_id>/", methods=["POST"])
+@login_required
+def user_delete(user_id):  
+
+    u = User.query.get(user_id)
+    db.session().delete(u)
+    db.session().commit()
+
+    return redirect(url_for("user_index"))
 
 @app.route("/auth/login/", methods = ["GET", "POST"])
 def auth_login():
@@ -32,7 +48,7 @@ def auth_login():
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
         return render_template("auth/loginform.html", form = form,
-                                error = "No such username or password")
+                                error = "Käyttäjätunnus tai salasana ei kelpaa.")
 
 
     login_user(user)

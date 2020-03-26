@@ -1,15 +1,19 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Täyte</th>
-      <th></th>
-    </tr>
-    {% for tayte in taytteet %}
-    <tr>
-      <td><a href="{{ url_for('taytteet_get_name', tayte_id=tayte.id) }}">{{ tayte.name }}</a></td>
-    </tr>
-    {% endfor %}
-  </table>
+<h3>Täytteet</h3>
+<p>
+  <button type="button"><a href="{{ url_for('taytteet_form') }}">Lisää täyte</a></button>
+</p>
+<table>
+  <tr>
+    <th>Nimi</th>
+  </tr>
+  {% for tayte in taytteet %}
+  <tr>
+    <td><a href="{{ url_for('taytteet_get_name', tayte_id=tayte.id) }}">{{ tayte.name }}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+  
 {% endblock %}

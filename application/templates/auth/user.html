@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{{ error }}
+<form method="POST" action="{{ url_for('user_set_name', user_id=user.id) }}">
+  <table>
+    <tr>
+      <th>Käyttäjä</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Nimi</td>
+      <td>
+          <input type="text" name="name" value="{{ user.name }}" />
+      </td>
+    </tr>
+    <tr>
+      <td>Puhelinnumero</td>
+      <td>
+          <input type="text" name="phone" value="{{ user.phone }}" />
+      </td>
+    </tr>
+    <tr>
+      <td>Osoite</td>
+      <td>
+          <input type="text" name="phone" value="{{ user.address }}" />
+      </td>
+    </tr>
+    <tr>
+      <td>Käyttäjätunnus</td>
+      <td>
+          <input type="text" name="phone" value="{{ user.username }}" />
+      </td>
+    </tr>
+    <tr>
+      <td>Salasana</td>
+      <td>
+          <input type="text" name="phone" value="{{ user.password }}" />
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Päivitä"/>
+
+</form>
+
+  <form method="POST" action="{{ url_for('user_delete', user_id=user.id) }}">
+    <input type="submit" value="Poista"/>
+</form>
+{% endblock %}

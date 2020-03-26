@@ -1,20 +1,25 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<h3>Käyttäjät</h3>
+
   <table>
     <tr>
-      <th>Käyttäjä</th>
+      <th>Nimi</th>
+      <th>Puhelinnumero</th>
+      <th>Osoite</th>
+      <th>Käyttäjätunnus</th>
+      <th>Salasana</th>
       <th></th>
     </tr>
     {% for user in users %}
     <tr>
       <td>{{ user.name }}</td>
-      <td>
-        <form method="POST" action="{{ url_for('user_set_name', user_id=user.id) }}">
-          <input type="text" name="name"/>
-          <input type="submit" value="Päivitä nimi!"/>
-        </form>
-      </td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.address }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.password }}</td>
+      <td><a href="{{ url_for('user_get_name', user_id=user.id) }}">Muokkaa</a></td>
     </tr>
     {% endfor %}
   </table>

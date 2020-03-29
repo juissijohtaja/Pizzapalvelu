@@ -12,12 +12,12 @@
         {{ form.name }}
       </td>
       <td>
-        <input type="submit" value="Tallenna"/>
-      </td>
-      <td>
         {{ error }}
       </td>
     </tr>
   </table>
+  <button><a href="{{ url_for('toppings_index') }}">Peruuta</a></button>
+  <input type="submit" value="Tallenna"/>
 </form>
+
 {% endblock %}

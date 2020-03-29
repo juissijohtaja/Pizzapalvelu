@@ -9,7 +9,7 @@
       <th>Puhelinnumero</th>
       <th>Osoite</th>
       <th>Käyttäjätunnus</th>
-      <th>Salasana</th>
+      <th></th>
       <th></th>
     </tr>
     {% for user in users %}
@@ -18,8 +18,12 @@
       <td>{{ user.phone }}</td>
       <td>{{ user.address }}</td>
       <td>{{ user.username }}</td>
-      <td>{{ user.password }}</td>
       <td><button><a href="{{ url_for('user_get_item', user_id=user.id) }}">Muokkaa</a></button></td>
+      <td>
+        <form method="POST" action="{{ url_for('user_delete_item', user_id=user.id) }}">
+          <input type="submit" value="Poista"/>
+      </form>
+      </td>
     </tr>
     {% endfor %}
   </table>

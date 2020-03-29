@@ -39,11 +39,8 @@
       </td>
     </tr>
   </table>
+  <button><a href="{{ url_for('user_index') }}">Peruuta</a></button>
   <input type="submit" value="Tallenna"/>
-
 </form>
 
-  <form method="POST" action="{{ url_for('user_delete_item', user_id=user.id) }}">
-    <input type="submit" value="Poista"/>
-</form>
 {% endblock %}

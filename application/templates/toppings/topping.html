@@ -3,22 +3,22 @@
 {% block body %}
 
 <h3>Muokkaa täytettä</h3>
+<form method="POST" action="{{ url_for('toppings_set_item', topping_id=topping.id) }}">
   <table>
     <tr>
       <td>
-        <form method="POST" action="{{ url_for('toppings_set_item', topping_id=topping.id) }}">
-          <input type="text" name="name" value="{{ topping.name }}" />
-          <input type="submit" value="Tallenna"/>
-        </form>
+        Nimi:
       </td>
       <td>
-        <form method="POST" action="{{ url_for('toppings_delete_item', topping_id=topping.id) }}">
-            <input type="submit" value="Poista"/>
-        </form>
-    </td>
+          <input type="text" name="name" value="{{ topping.name }}" />
+      </td>
     <td>
       {{ error }}
     </td>
     </tr>
   </table>
+  <button><a href="{{ url_for('toppings_index') }}">Peruuta</a></button>
+  <input type="submit" value="Tallenna"/>
+</form>
+
 {% endblock %}

@@ -8,11 +8,18 @@
 <table>
   <tr>
     <th>Nimi</th>
+    <th></th>
+    <th></th>
   </tr>
   {% for topping in toppings %}
   <tr>
     <td>{{ topping.name }}</td>
     <td><button><a href="{{ url_for('toppings_get_item', topping_id=topping.id) }}">Muokkaa</a></button></td>
+    <td>
+      <form method="POST" action="{{ url_for('toppings_delete_item', topping_id=topping.id) }}">
+          <input type="submit" value="Poista"/>
+      </form>
+  </td>
   </tr>
   {% endfor %}
 </table>

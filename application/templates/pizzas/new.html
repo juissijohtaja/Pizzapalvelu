@@ -3,7 +3,31 @@
 {% block body %}
 <h4>Lisää pizza</h4>
 <form method="POST" action="{{ url_for('pizzas_create') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Lisää uusi pizza"/>
+  <table>
+    <tr>
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+      <td>
+        {{ error }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.price.label }}
+      </td>
+      <td>
+        {{ form.price }}
+      </td>
+      <td>
+        {{ error }}
+      </td>
+    </tr>
+  </table>
+  <button><a href="{{ url_for('toppings_index') }}">Peruuta</a></button>
+  <input type="submit" value="Tallenna"/>
 </form>
 {% endblock %}

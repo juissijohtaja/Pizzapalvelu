@@ -1,15 +1,16 @@
 from application import db
+from application.models import Base, Name
 
-class User(db.Model):
+class User(Base, Name):
 
     __tablename__ = "account"
   
-    id = db.Column(db.Integer, primary_key=True)
+    #id = db.Column(db.Integer, primary_key=True)
     #date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     #date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
     #                          onupdate=db.func.current_timestamp())
 
-    name = db.Column(db.String(144), nullable=False)
+    #name = db.Column(db.String(144), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)

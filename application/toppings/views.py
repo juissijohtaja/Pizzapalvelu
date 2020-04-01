@@ -53,7 +53,7 @@ def toppings_create():
     form = ToppingsForm(request.form)
 
     if not form.validate():
-        return render_template("toppings/new.html", form = form, error = "Nimi ei kelpaa.")
+        return render_template("toppings/new.html", form = form, error = "Tarkista lomake.")
 
     t = Topping(form.name.data)
 

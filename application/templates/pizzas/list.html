@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<h3>Pizzat</h3>
+<p>
+  <button type="button"><a href="{{ url_for('pizzas_form') }}">Lisää pizza</a></button>
+</p>
   <table>
     <tr>
       <th>Pizza</th>
@@ -9,12 +13,8 @@
     {% for pizza in pizzas %}
     <tr>
       <td>{{ pizza.name }}</td>
-      <td>
-        <form method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
-          <input type="text" name="name"/>
-          <input type="submit" value="Päivitä nimi!"/>
-        </form>
-      </td>
+      <td>{{ pizza.price }}</td>
+      <td><button><a href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}">Muokkaa</a></button></td>
     </tr>
     {% endfor %}
   </table>

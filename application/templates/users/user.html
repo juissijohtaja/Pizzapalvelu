@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
+<h3>Muokkaa käyttäjää</h3>
 {{ error }}
 <form method="POST" action="{{ url_for('user_set_item', user_id=user.id) }}">
   <table>

@@ -1,11 +1,12 @@
 from application import db
+from application.models import Base, Name
 
-class Topping(db.Model):
+class Topping(Base, Name):
 
     __tablename__ = "topping"
     
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(144), nullable=False)
+    #id = db.Column(db.Integer, primary_key=True)
+    #name = db.Column(db.String(144), nullable=False)
 
     def __init__(self, name):
         self.name = name

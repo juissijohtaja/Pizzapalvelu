@@ -20,3 +20,13 @@ Testitunnukset:
 [Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
 
 [Käyttötapaukset / user storyt](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md)
+
+
+# Osan 4 etapit
+
+- kolme tietokantataulua käytössä: pizza, täytteet, käyttäjät
+- monimutkainen SQL:llä kirjoitettu toimii lokaalisti, mutta hajotti herokun, joten se on vielä työn alla
+- - many-to-many liitostaulu toimii, mutta ei vielä herokussa johtuen edellä mainitusta ongelmasta
+- bootstrap käytössä
+- menupalkki toimii nyt paremmin ja reagoi kirjautuneen tilaan paremmin
+- lomakkeissa paluu-napit ja muita parannuksia

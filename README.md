@@ -14,8 +14,8 @@ Liitostauluja ovat: OrderPizza, PizzaTopping
 [Sovellus Herokussa](https://desolate-bayou-52025.herokuapp.com/)
 
 Testitunnukset:
-teppo
-testaaja
+- teppo
+- testaaja
  
 [Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
 

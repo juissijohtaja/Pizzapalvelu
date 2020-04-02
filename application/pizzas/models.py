@@ -14,17 +14,4 @@ class Pizza(Base, Name):
     def __init__(self, name):
         self.name = name
 
-    @staticmethod
-    def find_pizzas_with_pineapple():
-        stmt = text("SELECT P.id, P.name, T.id, T.name"
-                     " FROM pizza P, topping T, pizza_topping PT"
-                     " WHERE P.id = PT.pizza_id AND T.id = PT.topping_id"
-                     " GROUP BY P.id, T.id"
-                     " HAVING T.name = 'ananas'")
-        res = db.engine.execute(stmt)
 
-        response = []
-        for row in res:
-            response.append({"id":row[0], "name":row[1]})
-
-        return response

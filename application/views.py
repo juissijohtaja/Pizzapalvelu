@@ -9,3 +9,4 @@ from application.pizzatoppings.models import PizzaTopping
 def index():
     pizzas = Pizza.query.all()
     return render_template("index.html", pizzas = pizzas)
+    

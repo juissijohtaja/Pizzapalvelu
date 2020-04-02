@@ -24,6 +24,8 @@ from application.toppings import views
 from application.pizzas import models
 from application.pizzas import views
 
+from application.pizzatoppings import models
+
 from application.users import views
 
 from application.auth import models

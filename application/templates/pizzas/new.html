@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
   
 {% block body %}
+{% if error %}
+  <div class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+{% endif %} 
+
 <h4>Lisää pizza</h4>
 <form method="POST" action="{{ url_for('pizzas_create') }}">
   <table>
@@ -11,9 +17,6 @@
       <td>
         {{ form.name }}
       </td>
-      <td>
-        {{ error }}
-      </td>
     </tr>
     <tr>
       <td>
@@ -22,12 +25,19 @@
       <td>
         {{ form.price }}
       </td>
+    </tr>
+    <tr>
       <td>
-        {{ error }}
+        {{ form.topping1.label }}
+      </td>
+      <td>
+        {{ form.topping1 }}
       </td>
     </tr>
   </table>
-  <button><a href="{{ url_for('toppings_index') }}">Peruuta</a></button>
+
+  
+  <button><a href="{{ url_for('pizzas_index') }}">Peruuta</a></button>
   <input type="submit" value="Tallenna"/>
 </form>
 {% endblock %}

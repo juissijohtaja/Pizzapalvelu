@@ -1,6 +1,8 @@
 from application import app, db
 from application.pizzas.models import Pizza
 from application.pizzas.forms import PizzasForm
+from application.toppings.models import Topping
+
 
 from flask import redirect, render_template, request, url_for
 from flask_login import login_required
@@ -40,6 +42,12 @@ def pizzas_create():
 
     p = Pizza(form.name.data)
     p.price = form.price.data
+
+    topping_ids = [1,2,3]
+    for id in topping_ids:
+        topping=Topping.query.get(id)
+        if topping is not None:
+            p.toppings.append(topping)
 
     db.session().add(p)
     db.session().commit()

@@ -1,20 +1,40 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <h3>
-    Tervetuloa pizzapalveluun!
-  </h3>
-  {% if pizzat %}
-    <table>
-      <tr>
-        <th>Pizzat</th>
-      </tr>
-      
-        {% for pizza in pizzat %}
+  <h2>
+    Pizzat
+  </h2>
+  {% if pizzas %}
+    <table class="table">
+        {% for pizza in pizzas %}
         <tr>
           <td>{{ pizza.name }}</td>
+          <td>
+          {% for topping in pizza.toppings %}
+            {{ topping.name }} 
+          {% endfor %}
+        </td>
         </tr>
         {% endfor %}
     </table>
   {% endif %}
+
+  <h2>
+    Ananas Pizzat
+  </h2>
+  {% if pineapplePizzas %}
+    <table class="table">
+        {% for pizza in pineapplePizzas %}
+        <tr>
+          <td>{{ pizza.name }}</td>
+          <td>
+          {% for topping in pizza.toppings %}
+            {{ topping.name }} 
+          {% endfor %}
+        </td>
+        </tr>
+        {% endfor %}
+    </table>
+  {% endif %}
+
 {% endblock %}

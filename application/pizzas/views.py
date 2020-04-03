@@ -26,10 +26,10 @@ def pizzas_get_item(pizza_id):
 def pizzas_set_item(pizza_id):
 
     p = Pizza.query.get(pizza_id)
-    form = PizzasEditForm(request.form)
+    #form = PizzasEditForm(request.form)
 
-    if not form.validate():
-        return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
+    #if not form.validate():
+        #return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
     p.name = request.form.get("name")
     p.price = request.form.get("price")
@@ -46,7 +46,7 @@ def pizzas_set_item(pizza_id):
         if topping is not None:
             p.toppings.append(topping)
 
-    #db.session().add(p)
+    db.session().add(p)
     db.session().commit()
   
     return redirect(url_for("pizzas_index"))

@@ -3,18 +3,31 @@
 {% block body %}
 <h3>Pizzat</h3>
 <p>
-  <button type="button"><a href="{{ url_for('pizzas_form') }}">Lisää pizza</a></button>
+  <a class="btn btn-primary" href="{{ url_for('pizzas_form') }}" role="button"><i class="fas fa-plus"></i> Lisää pizza</a>
 </p>
-  <table>
+  <table class="table">
     <tr>
-      <th>Pizza</th>
-      <th></th>
+      <th>Nimi</th>
+      <th>Hinta</th>
+      <th>Täytteet</th>
+      <th width="5%">Muokkaa</th>
+      <th width="5%">Poista</th>
     </tr>
     {% for pizza in pizzas %}
     <tr>
       <td>{{ pizza.name }}</td>
       <td>{{ pizza.price }}</td>
-      <td><button><a href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}">Muokkaa</a></button></td>
+      <td>
+        {% for topping in pizza.toppings %}
+          {{ topping.name }} 
+        {% endfor %}
+      </td>
+      <td>
+        <a class="btn btn-light" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}" role="button"><i class="fas fa-edit"></i></a>
+      </td>
+      <td>
+        <a class="btn btn-light disabled" href="#" role="button"><i class="fas fa-trash-alt"></i></i></a>
+      </td>
     </tr>
     {% endfor %}
   </table>

@@ -19,4 +19,23 @@
     </table>
   {% endif %}
 
+  <h2>
+    Ananas Pizzat
+  </h2>
+  {% if pineapplePizzas %}
+    <table class="table">
+        {% for pizza in pineapplePizzas %}
+        <tr>
+          <td>{{ pizza.name }}</td>
+          <td>
+          {% for topping in pizza.toppings %}
+            {{ topping.name }} 
+          {% endfor %}
+        </td>
+        </tr>
+        {% endfor %}
+    </table>
+  {% endif %}
+
 {% endblock %}
+

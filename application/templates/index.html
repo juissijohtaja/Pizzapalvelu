@@ -27,11 +27,6 @@
         {% for pizza in pineapplePizzas %}
         <tr>
           <td>{{ pizza.name }}</td>
-          <td>
-          {% for topping in pizza.toppings %}
-            {{ topping.name }} 
-          {% endfor %}
-        </td>
         </tr>
         {% endfor %}
     </table>

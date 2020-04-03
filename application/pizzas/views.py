@@ -14,7 +14,7 @@ def pizzas_index():
 @app.route("/pizzat/uusi/")
 @login_required
 def pizzas_form():
-    return render_template("pizzas/new.html", form = PizzasForm())
+    return render_template("pizzas/new.html", form = PizzasForm(), toppings = Topping.query.all())
 
 @app.route("/pizzat/<pizza_id>/", methods=["GET"])
 @login_required
@@ -38,12 +38,18 @@ def pizzas_create():
     form = PizzasForm(request.form)
 
     if not form.validate():
-        return render_template("pizzas/new.html", form = form, error = "Tarkista lomake.")
+        return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
     p = Pizza(form.name.data)
     p.price = form.price.data
 
-    topping_ids = [1,2,3]
+    topping_ids = []
+    topping_ids.append(form.topping1.data)
+    topping_ids.append(form.topping2.data)
+    topping_ids.append(form.topping3.data)
+    topping_ids.append(form.topping4.data)
+
+    #topping_ids = [1,2,3]
     for id in topping_ids:
         topping=Topping.query.get(id)
         if topping is not None:

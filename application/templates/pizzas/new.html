@@ -1,43 +1,71 @@
 {% extends "layout.html" %}
   
 {% block body %}
-{% if error %}
-  <div class="alert alert-danger" role="alert">
-    {{ error }}
-  </div>
-{% endif %} 
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
 
-<h4>Lisää pizza</h4>
-<form method="POST" action="{{ url_for('pizzas_create') }}">
-  <table>
-    <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        {{ form.price.label }}
-      </td>
-      <td>
-        {{ form.price }}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        {{ form.topping1.label }}
-      </td>
-      <td>
-        {{ form.topping1 }}
-      </td>
-    </tr>
-  </table>
+  <h3>Lisää pizza</h3>
+  <form method="POST" action="{{ url_for('pizzas_create') }}">
+    <table>
+      <tr>
+        <td>
+          {{ form.name.label }}
+        </td>
+        <td>
+          {{ form.name }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.price.label }}
+        </td>
+        <td>
+          {{ form.price }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.topping1.label }}
+        </td>
+        <td>
+          {{ form.topping1 }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.topping2.label }}
+        </td>
+        <td>
+          {{ form.topping2 }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.topping3.label }}
+        </td>
+        <td>
+          {{ form.topping3 }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.topping4.label }}
+        </td>
+        <td>
+          {{ form.topping4 }}
+        </td>
+      </tr>
+    </table>
+    <button><a href="{{ url_for('pizzas_index') }}">Peruuta</a></button>
+    <input type="submit" value="Tallenna"/>
+  </form>
 
-  
-  <button><a href="{{ url_for('pizzas_index') }}">Peruuta</a></button>
-  <input type="submit" value="Tallenna"/>
-</form>
+  <h4>Täytteet</h4>
+  {% for topping in toppings %}
+    <p>{{ topping.id }} {{ topping.name }}</p>
+  {% endfor %}
+
 {% endblock %}

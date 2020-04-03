@@ -2,29 +2,62 @@
 
 {% block body %}
 
-<h3>Muokkaa pizzaa</h3>
-{{ error }}
-<form method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
-  <table>
-    <tr>
-      <th>Pizza</th>
-      <th></th>
-    </tr>
-    <tr>
-      <td>Nimi</td>
-      <td>
-          <input type="text" name="name" value="{{ pizza.name }}" />
-      </td>
-    </tr>
-    <tr>
-      <td>Hinta</td>
-      <td>
-          <input type="text" name="price" value="{{ pizza.price }}" />
-      </td>
-    </tr>
-  </table>
-  <button><a href="{{ url_for('pizzas_index') }}">Peruuta</a></button>
-  <input type="submit" value="Tallenna"/>
-</form>
+
+<div class="container">
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+  <div class="row">
+    <div class="col">
+      <h3>Muokkaa pizzaa</h3>
+      <form method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
+        <div class="form-group">
+          {{ form.name.label }}
+          {{ form.name(value=pizza.name) }}
+        </div>
+        <div class="form-group">
+          {{ form.price.label }}
+          {{ form.price(value=pizza.price) }}
+        </div>
+        <div class="form-group">
+          {{ form.topping1.label }}
+          {% if pizza.toppings|length >= 1 %}
+            {{ form.topping1(value=pizza.toppings[0].id) }}
+          {% else %}
+            {{ form.topping1 }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.topping2.label }}
+          {% if pizza.toppings|length >= 2 %}
+            {{ form.topping2(value=pizza.toppings[1].id) }}
+          {% else %}
+            {{ form.topping2 }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.topping3.label }}
+          {% if pizza.toppings|length >= 3 %}
+            {{ form.topping3(value=pizza.toppings[2].id) }}
+          {% else %}
+            {{ form.topping3 }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.topping4.label }}
+          {% if pizza.toppings|length >= 4 %}
+            {{ form.topping4(value=pizza.toppings[3].id) }}
+          {% else %}
+            {{ form.topping4 }}
+          {% endif %}
+        </div>  
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+        <a class="btn btn-light" href="{{ url_for('pizzas_index') }}" role="button">Peruuta</a>
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

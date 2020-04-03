@@ -46,7 +46,7 @@ def pizzas_set_item(pizza_id):
         if topping is not None:
             p.toppings.append(topping)
 
-    db.session().add(p)
+    #db.session().add(p)
     db.session().commit()
   
     return redirect(url_for("pizzas_index"))

@@ -1,27 +1,42 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h3>Täytteet</h3>
-<p>
-  <button type="button"><a href="{{ url_for('toppings_form') }}">Lisää täyte</a></button>
-</p>
-<table>
-  <tr>
-    <th>Nimi</th>
-    <th></th>
-    <th></th>
-  </tr>
-  {% for topping in toppings %}
-  <tr>
-    <td>{{ topping.name }}</td>
-    <td><button><a href="{{ url_for('toppings_get_item', topping_id=topping.id) }}">Muokkaa</a></button></td>
-    <td>
-      <form method="POST" action="{{ url_for('toppings_delete_item', topping_id=topping.id) }}">
-          <input type="submit" value="Poista"/>
-      </form>
-  </td>
-  </tr>
-  {% endfor %}
-</table>
-  
+<div class="container">
+  <div class="row">
+    <div class="col-auto mr-auto">
+      <h3>Täytteet</h3>
+    </div>
+    <div class="col-auto">
+      <p>
+        <a class="btn btn-primary" href="{{ url_for('toppings_form') }}" role="button"><i class="fas fa-plus"></i> Lisää täyte</a>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th width="5%"></th>
+            <th width="5%"></th>
+          </tr>
+        </thead>
+        {% for topping in toppings %}
+        <tr>
+          <td>{{ topping.name }}</td>
+          <td>
+            <a class="btn btn-sm btn-outline-secondary" role="button" title="Muokkaa" href="{{ url_for('toppings_get_item', topping_id=topping.id) }}"><i class="fas fa-pen"></i></a>
+          </td>
+          <td>
+            <form method="POST" action="{{ url_for('toppings_delete_item', topping_id=topping.id) }}">
+                <button class="btn btn-sm btn-outline-danger" type="submit" title="Poista"><i class="far fa-trash-alt"></i></button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock %}

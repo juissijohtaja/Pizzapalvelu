@@ -6,65 +6,69 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
-    </head>
-
-      
-      
-      <nav class="navbar navbar-expand-lg navbar-dark my-red">
-        <a class="navbar-brand pizzeria-logo" href="/">Pizzeria</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-              {% if current_user.is_authenticated %}
+    </head> 
+    <body>   
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-dark my-red">
+          <a class="navbar-brand pizzeria-logo" href="/">Pizzeria</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-collapse w-100 order-3 dual-collapse2">
+              <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+                  <li class="nav-item">
+                    <span class="navbar-text"><i class="fas fa-user"></i> Terve, {{ current_user.name }}</span>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth_logout') }}"><i class="fas fa-sign-out-alt"></i> Kirjaudu ulos</a>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth_signup') }}"><i class="fas fa-user-plus"></i> Luo tili</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth_login') }}"><i class="fas fa-sign-in-alt"></i> Kirjaudu</a>
+                  </li>
+                {% endif %}
                 <li class="nav-item">
-                  <span class="navbar-text"><i class="fas fa-user"></i> Terve, {{ current_user.name }}</span>
+                  <a class="nav-link disabled" href="#"><i class="fas fa-shopping-basket"></i> Ostoskori</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('auth_logout') }}"><i class="fas fa-sign-out-alt"></i> Kirjaudu ulos</a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('auth_signup') }}"><i class="fas fa-user-plus"></i> Luo tili</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('auth_login') }}"><i class="fas fa-sign-in-alt"></i> Kirjaudu</a>
-                </li>
-              {% endif %}
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#"><i class="fas fa-shopping-basket"></i> Ostoskori</a>
-              </li>
-              {% if current_user.username == "juissi" or current_user.username == "teppo" %}
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admin
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ url_for('toppings_index') }}">Täytteet</a>
-                    <a class="dropdown-item" href="{{ url_for('pizzas_index') }}">Pizzat</a>
-                    <a class="dropdown-item" href="{{ url_for('user_index') }}">Käyttäjät</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item disabled" href="#">Tilaukset</a>
-                  </div>
-                </li>
-              {% endif %}
-            </ul>            
+                {% if current_user.username == "juissi" or current_user.username == "teppo" %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Admin
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ url_for('toppings_index') }}">Täytteet</a>
+                      <a class="dropdown-item" href="{{ url_for('pizzas_index') }}">Pizzat</a>
+                      <a class="dropdown-item" href="{{ url_for('user_index') }}">Käyttäjät</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item disabled" href="#">Tilaukset</a>
+                    </div>
+                  </li>
+                {% endif %}
+              </ul>            
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
-      
-
-      <main role="main" class="container mt-5">
+      <main role="main" class="container mt-5 mb-5">
         {% block body %}
           <p>
             Content.
           </p>
         {% endblock %}
       </main>
+
+      <footer class="text-muted bg-dark pt-4 pb-4">
+        <div class="container">
+          <p>&copy; Pizzeria</p>
+          <p>Tämä sivusto on tehty Helsingin Ylipiston harjoitustyökurssilla <a href="https://materiaalit.github.io/tsoha-20/">Tietokantasovellus</a>.</p>
+        </div>
+      </footer>
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

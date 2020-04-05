@@ -12,34 +12,39 @@
       </p>
     </div>
   </div>
-  
-  <div class="table-responsive">
-    <table class="table">
-      <tr>
-        <th>Nimi</th>
-        <th>Hinta</th>
-        <th>Täytteet</th>
-        <th width="5%"></th>
-        <th width="5%"></th>
-      </tr>
-      {% for pizza in pizzas %}
-      <tr>
-        <td>{{ pizza.name }}</td>
-        <td>{{ pizza.price }}</td>
-        <td>
-          {% for topping in pizza.toppings %}
-            {{ topping.name }} 
-          {% endfor %}
-        </td>
-        <td>
-          <a class="btn-light" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-edit"></i></a>
-        </td>
-        <td>
-          <a class="btn-light disabled" href="#" role="button" title="Poista"><i class="far fa-trash-alt"></i></a>
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th>Hinta</th>
+            <th>Täytteet</th>
+            <th width="5%"></th>
+            <th width="5%"></th>
+          </tr>
+        </thead>
+        {% for pizza in pizzas %}
+        <tr>
+          <td>{{ pizza.name }}</td>
+          <td>{{ pizza.price }}</td>
+          <td>
+            {% for topping in pizza.toppings %}
+              {{ topping.name }} 
+            {% endfor %}
+          </td>
+          <td>
+            <a class="btn btn-sm btn-outline-secondary" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-pen"></i></a>
+          </td>
+          <td>
+            <form method="POST" action="#">
+              <button class="btn btn-sm btn-outline-danger" type="submit" title="Poista"><i class="far fa-trash-alt"></i></button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
   </div>
 </div>
 {% endblock %}

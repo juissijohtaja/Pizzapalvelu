@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
 body {
   background-color: #F5F4F1;
 }
@@ -8,5 +7,5 @@ body {
   background-color:#B82E2D;
 }
 .pizzeria-logo{
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Slackey', cursive;
 }

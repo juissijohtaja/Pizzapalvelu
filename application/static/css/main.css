@@ -1,62 +1,9 @@
 
 body {
-  background-color: #ececec;
+  background-color: #F5F4F1;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-ul#menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+.my-red{
+  background-color:#B82E2D;
 }
-
-ul#menu li {
-  float: left;
-}
-
-ul#menu li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul#menu li a:hover {
-  background-color: #111;
-}
-
-table {
-
-}
-th, td {
-  border-bottom: 1px solid #ddd;
-  padding: 0.5em 1em;
-}
-th {
-  text-align: left;
-}
-
-input {
-  padding: 0.2em 0.6em;
-  font-size: 0.8em;
-}
-
-button a {
-  color: white;
-  text-decoration: none;
-}
-
-input[type=button], input[type=submit], input[type=reset], button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 0.6em 1em;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-size: 0.8em;
-}
-

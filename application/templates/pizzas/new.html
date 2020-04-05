@@ -1,53 +1,52 @@
 {% extends "layout.html" %}
   
 {% block body %}
-
-  <div class="container">
-    {% if error %}
-      <div class="alert alert-danger" role="alert">
-        {{ error }}
-      </div>
-    {% endif %}
-    <div class="row mb-5">
-      <div class="col">
-        <h3>Lisää pizza</h3>
-        <form method="POST" action="{{ url_for('pizzas_create') }}">
-          <div class="form-group">
-            {{ form.name.label }}
-            {{ form.name }}
-          </div>
-          <div class="form-group">
-            {{ form.price.label }}
-            {{ form.price }}
-          </div>
-          <div class="form-group">
-            {{ form.topping1.label }}
-            {{ form.topping1 }}
-          </div>
-          <div class="form-group">
-            {{ form.topping2.label }}
-            {{ form.topping2 }}
-          </div>
-          <div class="form-group">
-            {{ form.topping3.label }}
-            {{ form.topping3 }}
-          </div>
-          <div class="form-group">
-            {{ form.topping4.label }}
-            {{ form.topping4 }}
-          </div>  
-          <button type="submit" class="btn btn-primary">Tallenna</button>
-          <a class="btn btn-light" href="{{ url_for('pizzas_index') }}" role="button">Peruuta</a>
-        </form>
-      </div>
-      <div class="col">
-        <h4>Täytteet</h4>
-        {% for topping in toppings %}
-          <p>{{ topping.id }} {{ topping.name }}</p>
-        {% endfor %}
-      </div>
+<div class="container">
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+  <div class="row mb-5">
+    <div class="col">
+      <h3>Lisää pizza</h3>
+      <form method="POST" action="{{ url_for('pizzas_create') }}">
+        <div class="form-group">
+          {{ form.name.label }}
+          {{ form.name }}
+        </div>
+        <div class="form-group">
+          {{ form.price.label }}
+          {{ form.price }}
+        </div>
+        <div class="form-group">
+          {{ form.topping1.label }}
+          {{ form.topping1 }}
+        </div>
+        <div class="form-group">
+          {{ form.topping2.label }}
+          {{ form.topping2 }}
+        </div>
+        <div class="form-group">
+          {{ form.topping3.label }}
+          {{ form.topping3 }}
+        </div>
+        <div class="form-group">
+          {{ form.topping4.label }}
+          {{ form.topping4 }}
+        </div>  
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+        <a class="btn btn-light" href="{{ url_for('pizzas_index') }}" role="button">Peruuta</a>
+      </form>
+    </div>
+    <div class="col">
+      <h4>Täytteet</h4>
+      {% for topping in toppings %}
+        <p>{{ topping.id }} {{ topping.name }}</p>
+      {% endfor %}
     </div>
   </div>
+</div>
 
   
 

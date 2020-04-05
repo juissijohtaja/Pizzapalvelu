@@ -1,23 +1,25 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<h4>Lisää täyte</h4>
-<form method="POST" action="{{ url_for('toppings_create') }}">
-  <table>
-    <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
-      <td>
-        {{ error }}
-      </td>
-    </tr>
-  </table>
-  <button><a href="{{ url_for('toppings_index') }}">Peruuta</a></button>
-  <input type="submit" value="Tallenna"/>
-</form>
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-6">
+      {% if error %}
+        <div class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+      {% endif %}
+      <h4>Lisää täyte</h4>
+      <form method="POST" action="{{ url_for('toppings_create') }}">
+        <div class="form-group">
+          {{ form.name.label }}
+          {{ form.name }}
+        </div>
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+        <a class="btn btn-light" href="{{ url_for('toppings_index') }}" role="button">Peruuta</a>
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

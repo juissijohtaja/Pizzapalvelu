@@ -1,6 +1,6 @@
 from application import app, db
 from application.toppings.models import Topping
-from application.toppings.forms import ToppingsForm
+from application.toppings.forms import ToppingsForm, ToppingsEditForm
 
 from flask import render_template, request, redirect, url_for
 from flask_login import login_required
@@ -20,7 +20,7 @@ def toppings_form():
 @login_required
 def toppings_get_item(topping_id):
     t = Topping.query.get(topping_id)
-    return render_template("toppings/topping.html", topping = t)
+    return render_template("toppings/topping.html", topping = t, form = ToppingsEditForm())
 
 @app.route("/taytteet/<topping_id>/", methods=["POST"])
 @login_required

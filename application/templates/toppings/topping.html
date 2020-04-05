@@ -2,23 +2,24 @@
 
 {% block body %}
 
-<h3>Muokkaa täytettä</h3>
-<form method="POST" action="{{ url_for('toppings_set_item', topping_id=topping.id) }}">
-  <table>
-    <tr>
-      <td>
-        Nimi:
-      </td>
-      <td>
-          <input type="text" name="name" value="{{ topping.name }}" />
-      </td>
-    <td>
+<div class="container">
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
       {{ error }}
-    </td>
-    </tr>
-  </table>
-  <button><a href="{{ url_for('toppings_index') }}">Peruuta</a></button>
-  <input type="submit" value="Tallenna"/>
-</form>
-
+    </div>
+  {% endif %}
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <h3>Muokkaa täytettä</h3>
+      <form method="POST" action="{{ url_for('toppings_set_item', topping_id=topping.id) }}">
+        <div class="form-group">
+          {{ form.name.label }}
+          {{ form.name(value=topping.name) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+        <a class="btn btn-light" href="{{ url_for('toppings_index') }}" role="button">Peruuta</a>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

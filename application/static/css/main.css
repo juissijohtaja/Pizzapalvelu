@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 body {
   background-color: #F5F4F1;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .my-red{
   background-color:#B82E2D;
+}
+.pizzeria-logo{
+  font-family: 'Fredericka the Great', cursive;
 }

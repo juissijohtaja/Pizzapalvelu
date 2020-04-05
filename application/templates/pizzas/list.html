@@ -1,34 +1,45 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h3>Pizzat</h3>
-<p>
-  <a class="btn btn-primary" href="{{ url_for('pizzas_form') }}" role="button"><i class="fas fa-plus"></i> Lisää pizza</a>
-</p>
-  <table class="table">
-    <tr>
-      <th>Nimi</th>
-      <th>Hinta</th>
-      <th>Täytteet</th>
-      <th width="5%">Muokkaa</th>
-      <th width="5%">Poista</th>
-    </tr>
-    {% for pizza in pizzas %}
-    <tr>
-      <td>{{ pizza.name }}</td>
-      <td>{{ pizza.price }}</td>
-      <td>
-        {% for topping in pizza.toppings %}
-          {{ topping.name }} 
-        {% endfor %}
-      </td>
-      <td>
-        <a class="btn btn-light" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}" role="button"><i class="fas fa-edit"></i></a>
-      </td>
-      <td>
-        <a class="btn btn-light disabled" href="#" role="button"><i class="fas fa-trash-alt"></i></i></a>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-auto mr-auto">
+      <h3>Pizzat</h3>
+    </div>
+    <div class="col-auto">
+      <p>
+        <a class="btn btn-primary" href="{{ url_for('pizzas_form') }}" role="button"><i class="fas fa-plus"></i> Lisää pizza</a>
+      </p>
+    </div>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Nimi</th>
+        <th>Hinta</th>
+        <th>Täytteet</th>
+        <th width="5%"></th>
+        <th width="5%"></th>
+      </tr>
+      {% for pizza in pizzas %}
+      <tr>
+        <td>{{ pizza.name }}</td>
+        <td>{{ pizza.price }}</td>
+        <td>
+          {% for topping in pizza.toppings %}
+            {{ topping.name }} 
+          {% endfor %}
+        </td>
+        <td>
+          <a class="btn-light" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-edit"></i></a>
+        </td>
+        <td>
+          <a class="btn-light disabled" href="#" role="button" title="Poista"><i class="far fa-trash-alt"></i></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
 {% endblock %}

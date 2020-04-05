@@ -5,14 +5,17 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       {% if error %}
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
           {{ error }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       {% endif %}
-      <h3>
-        Rekisteröidy
+      <h3 class="text-center">
+        Luo tili Pizzapalveluun
       </h3>
-      <form method="POST" action="{{ url_for('auth_signup') }}">
+      <form method="POST" action="{{ url_for('auth_signup') }}" class="mt-4">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name }}
@@ -33,9 +36,10 @@
           {{ form.password.label }}
           {{ form.password }}
         </div>
-        <button type="submit" class="btn btn-primary">Lähetä</button>
-        <a class="btn btn-light" href="{{ url_for('index') }}" role="button">Peruuta</a>
+        <button type="submit" class="btn btn-primary btn-block">Luo tili</button>
       </form>
+      <hr>
+      <p class="text-center">Onko tili jo olemassa? <a href="{{ url_for('auth_login') }}">Kirjaudu</a></p>
     </div>
   </div>
 </div>

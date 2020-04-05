@@ -28,7 +28,7 @@
                 </li>
               {% else %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('auth_signup') }}"><i class="fas fa-user-plus"></i> Rekisteröidy</a>
+                  <a class="nav-link" href="{{ url_for('auth_signup') }}"><i class="fas fa-user-plus"></i> Luo tili</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('auth_login') }}"><i class="fas fa-sign-in-alt"></i> Kirjaudu</a>
@@ -58,7 +58,7 @@
 
       
 
-      <main role="main" class="container">
+      <main role="main" class="container mt-5">
         {% block body %}
           <p>
             Content.

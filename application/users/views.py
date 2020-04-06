@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user, login_required
 
 from application import app, db
 from application.auth.models import User
-#from application.auth.forms import LoginForm, SignupForm
+from application.users.forms import UserEditForm
 
 @app.route("/kayttajat/", methods=["GET"])
 @login_required
@@ -13,19 +13,19 @@ def user_index():
 @app.route("/kayttajat/<user_id>/", methods=["GET"])
 @login_required
 def user_get_item(user_id):
-    t = User.query.get(user_id)
-    return render_template("users/user.html", user = t)
+    u = User.query.get(user_id)
+    return render_template("users/user.html", user = u, form = UserEditForm())
 
 @app.route("/kayttajat/<user_id>/", methods=["POST"])
 @login_required
 def user_set_item(user_id):
 
-    t = User.query.get(user_id)
-    t.name = request.form.get("name")
-    t.phone = request.form.get("phone")
-    t.address = request.form.get("address")
-    t.username = request.form.get("username")
-    t.password = request.form.get("password")
+    u = User.query.get(user_id)
+    u.name = request.form.get("name")
+    u.phone = request.form.get("phone")
+    u.address = request.form.get("address")
+    u.username = request.form.get("username")
+    u.password = request.form.get("password")
     db.session().commit()
   
     return redirect(url_for("user_index"))

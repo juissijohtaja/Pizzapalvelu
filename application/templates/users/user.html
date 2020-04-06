@@ -2,47 +2,40 @@
 
 {% block body %}
 
-<h3>Muokkaa käyttäjää</h3>
-{{ error }}
-<form method="POST" action="{{ url_for('user_set_item', user_id=user.id) }}">
-  <table>
-    <tr>
-      <th>Käyttäjä</th>
-      <th></th>
-    </tr>
-    <tr>
-      <td>Nimi</td>
-      <td>
-          <input type="text" name="name" value="{{ user.name }}" />
-      </td>
-    </tr>
-    <tr>
-      <td>Puhelinnumero</td>
-      <td>
-          <input type="text" name="phone" value="{{ user.phone }}" />
-      </td>
-    </tr>
-    <tr>
-      <td>Osoite</td>
-      <td>
-          <input type="text" name="address" value="{{ user.address }}" />
-      </td>
-    </tr>
-    <tr>
-      <td>Käyttäjätunnus</td>
-      <td>
-          <input type="text" name="username" value="{{ user.username }}" />
-      </td>
-    </tr>
-    <tr>
-      <td>Salasana</td>
-      <td>
-          <input type="text" name="password" value="{{ user.password }}" />
-      </td>
-    </tr>
-  </table>
-  <button><a href="{{ url_for('user_index') }}">Peruuta</a></button>
-  <input type="submit" value="Tallenna"/>
-</form>
+<div class="container">
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <h3>Muokkaa käyttäjää</h3>
+      <form method="POST" action="{{ url_for('user_set_item', user_id=user.id) }}">
+        <div class="form-group">
+          {{ form.name.label }}
+          {{ form.name(value=user.name) }}
+        </div>
+        <div class="form-group">
+          {{ form.phone.label }}
+          {{ form.phone(value=user.phone) }}
+        </div>
+        <div class="form-group">
+          {{ form.address.label }}
+          {{ form.address(value=user.address) }}
+        </div>
+        <div class="form-group">
+          {{ form.username.label }}
+          {{ form.username(value=user.username) }}
+        </div>
+        <div class="form-group">
+          {{ form.password.label }}
+          {{ form.password(value=user.password) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+        <a class="btn btn-light" href="{{ url_for('user_index') }}" role="button">Peruuta</a>
+      </form>
+    </div>
+  </div>
 
 {% endblock %}

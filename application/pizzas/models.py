@@ -4,8 +4,6 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import text
 
 class Pizza(Base, Name):
-    #id = db.Column(db.Integer, primary_key=True)
-    #name = db.Column(db.String(144), nullable=False)
     price = db.Column(db.Integer, nullable=False)
 
     toppings = relationship("Topping", secondary="pizza_topping")
@@ -24,6 +22,6 @@ class Pizza(Base, Name):
 
         response = []
         for row in res:
-            response.append({"id":row[0], "name":row[1]})
+            response.append({"id":row[0], "name":row[1], "topping":row[3]})
 
         return response

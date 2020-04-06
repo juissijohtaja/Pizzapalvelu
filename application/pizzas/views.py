@@ -3,7 +3,6 @@ from application.pizzas.models import Pizza
 from application.pizzas.forms import PizzasForm, PizzasEditForm
 from application.toppings.models import Topping
 
-
 from flask import redirect, render_template, request, url_for
 from flask_login import login_required
 

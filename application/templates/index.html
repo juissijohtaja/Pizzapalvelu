@@ -2,38 +2,25 @@
 
 {% block body %}
 <div class="container">
-  <div class="row">
-    <div>
-      <h3>Pizzat</h3>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for pizza in pizzas %}
+    <div class="col mb-4">
+      <div class="card h-100">
+        <h5 class="card-header text-white mahogany">{{ pizza.name }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ pizza.price }} €</h5>
+          <p class="card-text">
+            {% for topping in pizza.toppings %}
+              {{ topping.name }} 
+            {% endfor %}
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-light">
+          <button class="btn btn-outline-secondary btn-block"><i class="fas fa-cart-plus"></i> Tilaa</button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nimi</th>
-            <th>Täytteet</th>
-            <th>Hinta</th>
-            <th></th>
-          </tr>
-        </thead>
-        {% for pizza in pizzas %}
-          <tr>
-            <td>{{ pizza.name }}</td>
-            <td>
-              {% for topping in pizza.toppings %}
-                {{ topping.name }} 
-              {% endfor %}
-            </td>
-            <td>{{ pizza.price }}</td>
-            <td class="text-right">
-                <button class="btn btn-outline-info disabled"><i class="fas fa-cart-plus"></i> Tilaa</button>
-            </td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
+    {% endfor %}
   </div>
 </div>
 

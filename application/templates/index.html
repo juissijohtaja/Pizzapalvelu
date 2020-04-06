@@ -1,23 +1,43 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <h2>
-    Pizzat
-  </h2>
-  {% if pizzas %}
-    <table class="table">
+<div class="container">
+  <div class="row">
+    <div>
+      <h3>Pizzat</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th>Täytteet</th>
+            <th>Hinta</th>
+            <th></th>
+          </tr>
+        </thead>
         {% for pizza in pizzas %}
-        <tr>
-          <td>{{ pizza.name }}</td>
-          <td>
-          {% for topping in pizza.toppings %}
-            {{ topping.name }} 
-          {% endfor %}
-        </td>
-        </tr>
+          <tr>
+            <td>{{ pizza.name }}</td>
+            <td>
+              {% for topping in pizza.toppings %}
+                {{ topping.name }} 
+              {% endfor %}
+            </td>
+            <td>{{ pizza.price }}</td>
+            <td class="text-right">
+              <form method="POST" action="#">
+                <button class="btn btn-outline-info disabled" type="submit">Lisää tilaukseen</button>
+              </form>
+            </td>
+          </tr>
         {% endfor %}
-    </table>
-  {% endif %}
+      </table>
+    </div>
+  </div>
+</div>
 
   <h2>
     Ananas Pizzat

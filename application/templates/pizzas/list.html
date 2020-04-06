@@ -18,8 +18,8 @@
         <thead>
           <tr>
             <th>Nimi</th>
-            <th>Hinta</th>
             <th>Täytteet</th>
+            <th>Hinta</th>
             <th width="5%"></th>
             <th width="5%"></th>
           </tr>
@@ -27,12 +27,12 @@
         {% for pizza in pizzas %}
           <tr>
             <td>{{ pizza.name }}</td>
-            <td>{{ pizza.price }}</td>
             <td>
               {% for topping in pizza.toppings %}
                 {{ topping.name }} 
               {% endfor %}
             </td>
+            <td>{{ pizza.price }}</td>
             <td>
               <a class="btn btn-sm btn-outline-secondary" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-pen"></i></a>
             </td>

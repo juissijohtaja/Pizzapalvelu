@@ -6,7 +6,7 @@
     {% for pizza in pizzas %}
     <div class="col mb-4">
       <div class="card h-100">
-        <h5 class="card-header text-white text-capitalize bg-danger">{{ pizza.name }}</h5>
+        <h5 class="card-header text-capitalize bg-transparent">{{ pizza.name }}</h5>
         <div class="card-body">
           <h5 class="card-title">{{ pizza.price }} €</h5>
           <p class="card-text text-capitalize">
@@ -16,7 +16,7 @@
           </p>
         </div>
         <div class="card-footer bg-transparent border-light">
-          <button class="btn btn-outline-info btn-block"><i class="fas fa-cart-plus"></i> Tilaa</button>
+          <button class="btn btn-info btn-block"><i class="fas fa-cart-plus"></i> Tilaa</button>
         </div>
       </div>
     </div>

@@ -12,30 +12,24 @@
   </div>
   <div class="row bg-white p-4 rounded border">
     <div class="table-responsive">
-      <table class="table table-hover table-borderless">
+      <table class="table table-borderless">
         <thead>
           <tr>
             <th>Nimi</th>
             <th>Puhelinnumero</th>
             <th>Osoite</th>
             <th>Käyttäjätunnus</th>
-            <th width="5%"></th>
-            <th width="5%"></th>
+            <th></th>
           </tr>
         </thead>
         {% for user in users %}
         <tr class="border-top">
-            <td>{{ user.name }}</td>
+            <td><a class="text-dark" title="{{ user.name }}" href="{{ url_for('user_get_item', user_id=user.id) }}">{{ user.name }}</a></td>
             <td>{{ user.phone }}</td>
             <td>{{ user.address }}</td>
             <td>{{ user.username }}</td>
-            <td>
+            <td class="text-right">
               <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('user_get_item', user_id=user.id) }}"><i class="fas fa-pen"></i></a>
-            </td>
-            <td>
-              <form method="POST" action="{{ url_for('user_delete_item', user_id=user.id) }}">
-                <button class="btn btn-sm btn-outline-danger" type="submit" title="Poista"><i class="far fa-trash-alt"></i></button>
-              </form>
             </td>
           </tr>
         {% endfor %}

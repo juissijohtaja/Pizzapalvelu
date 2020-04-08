@@ -25,7 +25,7 @@ def pizzas_get_item(pizza_id):
 @app.route("/pizzat/<pizza_id>/", methods=["POST"])
 @login_required
 def pizzas_set_item(pizza_id):
-
+    
     form = PizzasEditForm(request.form)
     p = Pizza.query.get(pizza_id)
 
@@ -34,10 +34,19 @@ def pizzas_set_item(pizza_id):
     p.toppings = []
 
     topping_ids = []
-    topping_ids.append(request.form.get('topping1', type=int))
-    topping_ids.append(request.form.get('topping2', type=int))
-    topping_ids.append(request.form.get('topping3', type=int))
-    topping_ids.append(request.form.get('topping4', type=int))
+    topping1 = form.topping1.data
+    topping2 = form.topping2.data
+    topping3 = form.topping3.data
+    topping4 = form.topping4.data
+
+    if topping1 not in topping_ids:
+        topping_ids.append(topping1)
+    if topping2 not in topping_ids:
+        topping_ids.append(topping2)
+    if topping3 not in topping_ids:
+        topping_ids.append(topping3)
+    if topping4 not in topping_ids:
+        topping_ids.append(topping4)
 
     if not form.validate():
         return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
@@ -55,15 +64,25 @@ def pizzas_set_item(pizza_id):
 @app.route("/pizzat/uusi/", methods=["POST"])
 @login_required
 def pizzas_create():
+
     form = PizzasForm(request.form)
     p = Pizza(form.name.data)
     p.price = form.price.data
 
+    topping1 = form.topping1.data
+    topping2 = form.topping2.data
+    topping3 = form.topping3.data
+    topping4 = form.topping4.data
+
     topping_ids = []
-    topping_ids.append(form.topping1.data)
-    topping_ids.append(form.topping2.data)
-    topping_ids.append(form.topping3.data)
-    topping_ids.append(form.topping4.data)
+    if topping1 not in topping_ids:
+        topping_ids.append(topping1)
+    if topping2 not in topping_ids:
+        topping_ids.append(topping2)
+    if topping3 not in topping_ids:
+        topping_ids.append(topping3)
+    if topping4 not in topping_ids:
+        topping_ids.append(topping4)
 
     if not form.validate():
         return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")

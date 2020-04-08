@@ -14,32 +14,26 @@
   </div>
   <div class="row bg-white p-4 rounded border">
     <div class="table-responsive">
-      <table class="table table-hover table-borderless">
+      <table class="table table-borderless text-capitalize">
         <thead>
           <tr>
             <th>Nimi</th>
             <th>Täytteet</th>
             <th>Hinta</th>
-            <th width="5%"></th>
-            <th width="5%"></th>
+            <th></th>
           </tr>
         </thead>
         {% for pizza in pizzas %}
           <tr class="border-top">
-            <td>{{ pizza.name }}</td>
+            <td><a class="text-dark" title="{{ pizza.name }}" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}">{{ pizza.name }}</a></td>
             <td>
               {% for topping in pizza.toppings %}
                 {{ topping.name }} 
               {% endfor %}
             </td>
             <td>{{ pizza.price }}</td>
-            <td>
+            <td class="text-right">
               <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-pen"></i></a>
-            </td>
-            <td>
-              <form method="POST" action="{{ url_for('pizzas_delete_item', pizza_id=pizza.id) }}">
-                <button class="btn btn-sm btn-outline-danger" type="submit" title="Poista"><i class="far fa-trash-alt"></i></button>
-              </form>
             </td>
           </tr>
         {% endfor %}

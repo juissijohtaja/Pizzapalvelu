@@ -10,7 +10,7 @@
           <h3>Käyttäjä</h3>
         </div>
         <div class="col-auto">
-          <a class="btn btn-sm btn-light" href="{{ url_for('user_index') }}" role="button"><i class="fas fa-times"></i></a>
+          <a class="btn close" href="{{ url_for('user_index') }}" role="button"><span aria-hidden="true">&times;</span></a>
         </div>
       </div>
       {% if error %}
@@ -44,6 +44,33 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block mt-4">Tallenna käyttäjä</button>
       </form>
+      <hr>
+      <h6>Poista tämä käyttäjä</h6>
+      <p><small>Mikäli poistat tämän käyttäjän, sitä ei voi enää palauttaa.</small> </p>
+      <button type="button" class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt"></i> Poista käyttäjä</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Varoitus!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Haluatko varmasti poistaa tämän käyttäjän:</p>
+            <h5>{{ user.name }}</h5>
+          </div>
+          <div class="modal-footer">
+            <form method="POST" action="{{ url_for('user_delete_item', user_id=user.id) }}">
+              <button class="btn btn-danger btn-block" type="submit" title="Poista">Kyllä, poista käyttäjä</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

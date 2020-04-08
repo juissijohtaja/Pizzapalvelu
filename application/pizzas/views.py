@@ -26,11 +26,8 @@ def pizzas_get_item(pizza_id):
 @login_required
 def pizzas_set_item(pizza_id):
 
-    p = Pizza.query.get(pizza_id)
     form = PizzasEditForm(request.form)
-
-    if not form.validate():
-        return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
+    p = Pizza.query.get(pizza_id)
 
     p.name = request.form.get("name")
     p.price = request.form.get("price")
@@ -41,6 +38,9 @@ def pizzas_set_item(pizza_id):
     topping_ids.append(request.form.get('topping2', type=int))
     topping_ids.append(request.form.get('topping3', type=int))
     topping_ids.append(request.form.get('topping4', type=int))
+
+    if not form.validate():
+        return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
     for id in topping_ids:
         topping=Topping.query.get(id)
@@ -56,10 +56,6 @@ def pizzas_set_item(pizza_id):
 @login_required
 def pizzas_create():
     form = PizzasForm(request.form)
-
-    if not form.validate():
-        return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
-
     p = Pizza(form.name.data)
     p.price = form.price.data
 
@@ -68,6 +64,9 @@ def pizzas_create():
     topping_ids.append(form.topping2.data)
     topping_ids.append(form.topping3.data)
     topping_ids.append(form.topping4.data)
+
+    if not form.validate():
+        return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
     for id in topping_ids:
         topping=Topping.query.get(id)

@@ -27,12 +27,11 @@ def toppings_get_item(topping_id):
 def toppings_set_item(topping_id):
     form = ToppingsForm(request.form)
     t = Topping.query.get(topping_id)
+    t.name = request.form.get("name")
 
     if not form.validate():
-        return render_template("toppings/topping.html", form = form, topping = t, error = "Nimi ei kelpaa.")
+        return render_template("toppings/topping.html", form = form, topping = t, error = "Tarkista lomake.")
 
-    t = Topping.query.get(topping_id)
-    t.name = request.form.get("name")
     db.session().commit()
   
     return redirect(url_for("toppings_index"))

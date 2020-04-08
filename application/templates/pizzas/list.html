@@ -12,9 +12,9 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row bg-white p-4 rounded border">
     <div class="table-responsive">
-      <table class="table">
+      <table class="table table-hover table-borderless">
         <thead>
           <tr>
             <th>Nimi</th>
@@ -25,7 +25,7 @@
           </tr>
         </thead>
         {% for pizza in pizzas %}
-          <tr>
+          <tr class="border-top">
             <td>{{ pizza.name }}</td>
             <td>
               {% for topping in pizza.toppings %}
@@ -34,7 +34,7 @@
             </td>
             <td>{{ pizza.price }}</td>
             <td>
-              <a class="btn btn-sm btn-outline-secondary" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-pen"></i></a>
+              <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-pen"></i></a>
             </td>
             <td>
               <form method="POST" action="#">

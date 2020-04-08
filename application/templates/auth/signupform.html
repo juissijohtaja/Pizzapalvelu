@@ -2,8 +2,8 @@
 
 {% block body %}
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-md-6 bg-white p-4 rounded border">
       {% if error %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           {{ error }}
@@ -15,7 +15,7 @@
       <h3 class="text-center">
         Luo tili Pizzeriaan
       </h3>
-      <form method="POST" action="{{ url_for('auth_signup') }}" class="mt-4">
+      <form class="py-3"  method="POST" action="{{ url_for('auth_signup') }}" class="mt-4">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name }}
@@ -36,7 +36,7 @@
           {{ form.password.label }}
           {{ form.password }}
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Luo tili</button>
+        <button type="submit" class="btn btn-primary btn-block mt-4">Luo tili</button>
       </form>
       <hr>
       <p class="text-center">Onko sinulla käyttäjätili? <a href="{{ url_for('auth_login') }}">Kirjaudu sisään</a></p>

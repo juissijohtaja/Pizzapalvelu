@@ -77,3 +77,13 @@ def pizzas_create():
     db.session().commit()
   
     return redirect(url_for("pizzas_index"))
+
+@app.route("/pizzat/delete/<pizza_id>/", methods=["POST"])
+@login_required
+def pizzas_delete_item(pizza_id):  
+
+    p = Pizza.query.get(pizza_id)
+    db.session().delete(p)
+    db.session().commit()
+
+    return redirect(url_for("pizzas_index"))

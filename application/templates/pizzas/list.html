@@ -37,7 +37,7 @@
               <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}"><i class="fas fa-pen"></i></a>
             </td>
             <td>
-              <form method="POST" action="#">
+              <form method="POST" action="{{ url_for('pizzas_delete_item', pizza_id=pizza.id) }}">
                 <button class="btn btn-sm btn-outline-danger" type="submit" title="Poista"><i class="far fa-trash-alt"></i></button>
               </form>
             </td>

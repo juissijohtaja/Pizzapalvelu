@@ -26,8 +26,35 @@
           {{ form.name.label }}
           {{ form.name(value=topping.name) }}
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Tallenna</button>
+        <button type="submit" class="btn btn-success btn-block mt-4">Tallenna täyte</button>
       </form>
+      <hr>
+      <h6>Poista tämä täyte</h6>
+      <p><small>Mikäli poistat tämän täytteen, sitä ei voi enää palauttaa.</small> </p>
+      <button type="button" class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt"></i> Poista täyte</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Varoitus!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Haluatko varmasti poistaa tämän täytteen:</p>
+          <h5>{{ topping.name }}</h5>
+        </div>
+        <div class="modal-footer">
+          <form method="POST" action="{{ url_for('toppings_delete_item', topping_id=topping.id) }}">
+            <button class="btn btn-danger btn-block" type="submit" title="Poista">Kyllä, poista täyte</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

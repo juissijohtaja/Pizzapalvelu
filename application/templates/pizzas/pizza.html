@@ -21,7 +21,7 @@
           </button>
         </div>
       {% endif %}
-      <form class="py-3" method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
+      <form class="py-3" novalidate method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name(value=pizza.name) }}
@@ -32,35 +32,19 @@
         </div>
         <div class="form-group">
           {{ form.topping1.label }}
-          {% if pizza.toppings|length >= 1 %}
-            {{ form.topping1(value=pizza.toppings[0].id) }}
-          {% else %}
-            {{ form.topping1 }}
-          {% endif %}
+          {{ form.topping1 }}
         </div>
         <div class="form-group">
           {{ form.topping2.label }}
-          {% if pizza.toppings|length >= 2 %}
-            {{ form.topping2(value=pizza.toppings[1].id) }}
-          {% else %}
-            {{ form.topping2 }}
-          {% endif %}
+          {{ form.topping2 }}
         </div>
         <div class="form-group">
           {{ form.topping3.label }}
-          {% if pizza.toppings|length >= 3 %}
-            {{ form.topping3(value=pizza.toppings[2].id) }}
-          {% else %}
-            {{ form.topping3 }}
-          {% endif %}
+          {{ form.topping3 }}
         </div>
         <div class="form-group">
           {{ form.topping4.label }}
-          {% if pizza.toppings|length >= 4 %}
-            {{ form.topping4(value=pizza.toppings[3].id) }}
-          {% else %}
-            {{ form.topping4 }}
-          {% endif %}
+          {{ form.topping4 }}
         </div>  
         <button type="submit" class="btn btn-success btn-block mt-4">Tallenna pizza</button>
       </form>

@@ -20,7 +20,15 @@ def pizzas_form():
 @login_required
 def pizzas_get_item(pizza_id):
     t = Pizza.query.get(pizza_id)
-    return render_template("pizzas/pizza.html", pizza = t, form = PizzasEditForm())
+    f = PizzasEditForm()
+    f.topping1.data = t.toppings[0].id
+    if len(t.toppings) > 1:
+        f.topping2.data = t.toppings[1].id
+    if len(t.toppings) > 2:
+        f.topping3.data = t.toppings[2].id
+    if len(t.toppings) > 3:
+        f.topping4.data = t.toppings[3].id
+    return render_template("pizzas/pizza.html", pizza = t, form = f)
 
 @app.route("/pizzat/<pizza_id>/", methods=["POST"])
 @login_required
@@ -39,17 +47,17 @@ def pizzas_set_item(pizza_id):
     topping3 = form.topping3.data
     topping4 = form.topping4.data
 
-    if topping1 not in topping_ids:
-        topping_ids.append(topping1)
-    if topping2 not in topping_ids:
-        topping_ids.append(topping2)
-    if topping3 not in topping_ids:
-        topping_ids.append(topping3)
-    if topping4 not in topping_ids:
-        topping_ids.append(topping4)
-
     if not form.validate():
         return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
+
+    if topping1 not in topping_ids and topping1 > 0:
+        topping_ids.append(topping1)
+    if topping2 not in topping_ids and topping1 > 0:
+        topping_ids.append(topping2)
+    if topping3 not in topping_ids and topping1 > 0:
+        topping_ids.append(topping3)
+    if topping4 not in topping_ids and topping1 > 0:
+        topping_ids.append(topping4)
 
     for id in topping_ids:
         topping=Topping.query.get(id)
@@ -74,19 +82,20 @@ def pizzas_create():
     topping3 = form.topping3.data
     topping4 = form.topping4.data
 
-    topping_ids = []
-    if topping1 not in topping_ids and topping1 is not None:
-        topping_ids.append(topping1)
-    if topping2 not in topping_ids and topping2 is not None:
-        topping_ids.append(topping2)
-    if topping3 not in topping_ids and topping3 is not None:
-        topping_ids.append(topping3)
-    if topping4 not in topping_ids and topping4 is not None:
-        topping_ids.append(topping4)
-
     if not form.validate():
         return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
+    topping_ids = []
+    if topping1 not in topping_ids and topping1 > 0:
+        topping_ids.append(topping1)
+    if topping2 not in topping_ids and topping2 > 0:
+        topping_ids.append(topping2)
+    if topping3 not in topping_ids and topping3 > 0:
+        topping_ids.append(topping3)
+    if topping4 not in topping_ids and topping4 > 0:
+        topping_ids.append(topping4)
+
+    
     topping_ids.sort()
     for id in topping_ids:
         topping=Topping.query.get(id)

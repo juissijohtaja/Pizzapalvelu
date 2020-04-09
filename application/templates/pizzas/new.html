@@ -20,7 +20,7 @@
           </button>
         </div>
       {% endif %}
-      <form class="py-3 needs-validation was-validated" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
+      <form class="py-3" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name }}

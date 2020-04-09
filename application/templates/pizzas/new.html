@@ -20,7 +20,7 @@
           </button>
         </div>
       {% endif %}
-      <form class="py-3" method="POST" action="{{ url_for('pizzas_create') }}">
+      <form class="py-3 needs-validation was-validated" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name }}
@@ -45,19 +45,10 @@
           {{ form.topping4.label }}
           {{ form.topping4 }}
         </div>  
-        <button type="submit" class="btn btn-primary btn-block mt-4">Lisää pizza</button>
+        <button type="submit" class="btn btn-success btn-block mt-4">Lisää pizza</button>
       </form>
-      <hr>
-      <h4>Täytteet</h4>
-      {% for topping in toppings %}
-        <span>{{ topping.id }} {{ topping.name }} </span>
-      {% endfor %}
     </div>
   </div>
-</div>
-
-  
-
-  
+</div>  
 
 {% endblock %}

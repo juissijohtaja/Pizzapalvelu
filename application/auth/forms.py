@@ -1,19 +1,21 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, IntegerField, validators
-  
+from wtforms import PasswordField, BooleanField, StringField, IntegerField, SelectField
+from wtforms.validators import InputRequired, required, Length, optional
+from wtforms.widgets import PasswordInput
+
 class LoginForm(FlaskForm):
-    username = StringField("Käyttäjätunnus", [validators.Length(min=2)], render_kw={'class':'form-control form-control-sm'})
-    password = PasswordField("Salasana", [validators.Length(min=2)], render_kw={'class':'form-control form-control-sm'})
+    username = StringField("Käyttäjätunnus", [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
+    password = PasswordField("Salasana", [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
   
     class Meta:
         csrf = False
 
 class SignupForm(FlaskForm):
-    name = StringField("Nimi", [validators.Length(min=2)], render_kw={'class':'form-control form-control-sm'})
-    phone = IntegerField("Puhelinnumero", render_kw={'class':'form-control form-control-sm'})
-    address = StringField("Osoite", [validators.Length(min=2)], render_kw={'class':'form-control form-control-sm'})
-    username = StringField("Käyttäjätunnus", [validators.Length(min=2)], render_kw={'class':'form-control form-control-sm'})
-    password = PasswordField("Salasana", [validators.Length(min=2)], render_kw={'class':'form-control form-control-sm'})
+    name = StringField('Nimi', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
+    phone = IntegerField('Puhelinnumero', [required()], render_kw={'class':'form-control form-control-sm', 'pattern':'[0-9]{5,20}'})
+    address = StringField('Osoite', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
+    username = StringField('Käyttäjätunnus', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
+    password = StringField('Salasana', [required(), Length(min=2, max=50)], widget=PasswordInput(hide_value=False), render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
   
     class Meta:
         csrf = False

@@ -4,6 +4,9 @@
 <div class="container">
   <div class="row mb-5 justify-content-center">
     <div class="col-md-6 bg-white p-4 rounded border">
+      <h3 class="text-center">
+        Luo tili Pizzeriaan
+      </h3>
       {% if error %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           {{ error }}
@@ -12,29 +15,41 @@
           </button>
         </div>
       {% endif %}
-      <h3 class="text-center">
-        Luo tili Pizzeriaan
-      </h3>
-      <form class="py-3"  method="POST" action="{{ url_for('auth_signup') }}" class="mt-4">
+      <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('auth_signup') }}" class="mt-4">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name }}
+          <div class="invalid-feedback">
+            Tarkista nimi (2-50 merkkiä)
+          </div>
         </div>
         <div class="form-group">
           {{ form.phone.label }}
           {{ form.phone }}
+          <div class="invalid-feedback">
+            Tarkista puhelinnumero (5-20 numeroa)
+          </div>
         </div>
         <div class="form-group">
           {{ form.address.label }}
           {{ form.address }}
+          <div class="invalid-feedback">
+            Tarkista osoite (2-50 merkkiä)
+          </div>
         </div>
         <div class="form-group">
           {{ form.username.label }}
           {{ form.username }}
+          <div class="invalid-feedback">
+            Tarkista käyttäjätunnus (2-50 merkkiä)
+          </div>
         </div>
         <div class="form-group">
           {{ form.password.label }}
           {{ form.password }}
+          <div class="invalid-feedback">
+            Tarkista salasana (2-50 merkkiä)
+          </div>
         </div>
         <button type="submit" class="btn btn-info btn-block mt-4">Luo tili</button>
       </form>

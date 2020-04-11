@@ -20,7 +20,7 @@
           </button>
         </div>
       {% endif %}
-      <form class="py-3" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
+      <form class="py-3 needs-validation was-validated" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
         <div class="form-group">
           {{ form.name.label }}
           {{ form.name }}
@@ -45,10 +45,33 @@
           {{ form.topping4.label }}
           {{ form.topping4 }}
         </div>  
-        <button type="submit" class="btn btn-success btn-block mt-4">Lisää pizza</button>
+        <button type="submit" class="btn btn-info btn-block mt-4">Lisää pizza</button>
       </form>
     </div>
   </div>
 </div>  
-
+<script>
+  document.getElementById('topping1').firstChild.setAttribute("disabled", "true");
+  //document.getElementById('topping1').firstChild.value = "";
+</script>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
 {% endblock %}

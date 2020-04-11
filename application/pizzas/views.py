@@ -19,16 +19,16 @@ def pizzas_form():
 @app.route("/pizzat/<pizza_id>/", methods=["GET"])
 @login_required
 def pizzas_get_item(pizza_id):
-    t = Pizza.query.get(pizza_id)
+    p = Pizza.query.get(pizza_id)
     f = PizzasEditForm()
-    f.topping1.data = t.toppings[0].id
-    if len(t.toppings) > 1:
-        f.topping2.data = t.toppings[1].id
-    if len(t.toppings) > 2:
-        f.topping3.data = t.toppings[2].id
-    if len(t.toppings) > 3:
-        f.topping4.data = t.toppings[3].id
-    return render_template("pizzas/pizza.html", pizza = t, form = f)
+    f.topping1.data = p.toppings[0].id
+    if len(p.toppings) > 1:
+        f.topping2.data = p.toppings[1].id
+    if len(p.toppings) > 2:
+        f.topping3.data = p.toppings[2].id
+    if len(p.toppings) > 3:
+        f.topping4.data = p.toppings[3].id
+    return render_template("pizzas/pizza.html", pizza = p, form = f)
 
 @app.route("/pizzat/<pizza_id>/", methods=["POST"])
 @login_required

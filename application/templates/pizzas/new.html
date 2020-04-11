@@ -25,21 +25,21 @@
           {{ form.name.label }} <small class="text-muted align-top">*</small>
           {{ form.name }}
           <div class="invalid-feedback">
-            Tarkista pizzan nimi (2-50 merkkiä).
+            Tarkista nimi (2-50 merkkiä)
           </div>
         </div>
         <div class="form-group">
           {{ form.price.label }} <small class="text-muted align-top">*</small>
           {{ form.price }}
           <div class="invalid-feedback">
-            Tarkista pizzan hinta (0-99).
+            Tarkista hinta (0-99)
           </div>
         </div>
         <div class="form-group">
           {{ form.topping1.label }} <small class="text-muted align-top">*</small>
           {{ form.topping1 }}
           <div class="invalid-feedback">
-            Valitse vähintään yksi täyte.
+            Valitse täyte
           </div>
         </div>
         <div class="form-group">
@@ -63,9 +63,7 @@
 </div>  
 <script>
   document.getElementById('topping1').firstChild.setAttribute("disabled", "true");
-  //document.getElementById('topping1').firstChild.value = "";
-</script>
-<script>
+
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function() {
     'use strict';

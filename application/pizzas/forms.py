@@ -7,7 +7,7 @@ from application.pizzas.models import Pizza
 
 class PizzasForm(FlaskForm):
     name = StringField('Nimi', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
-    price = IntegerField('Hinta', [required()], render_kw={'class':'form-control form-control-sm', 'pattern':'[0-9]{1,2}'})
+    price = IntegerField('Hinta, €', [required()], render_kw={'class':'form-control form-control-sm', 'pattern':'[0-9]{1,2}'})
 
     topping1 = SelectField('Täyte 1', [required()], render_kw={'class':'custom-select'})
     topping2 = SelectField('Täyte 2', [optional()], render_kw={'class':'custom-select'})
@@ -29,8 +29,8 @@ class PizzasForm(FlaskForm):
         self.topping4.choices = choices
 
 class PizzasEditForm(FlaskForm):
-    name = StringField('Nimi', [Length(min=2)], render_kw={'class':'form-control form-control-sm'})
-    price = IntegerField('Hinta', [required()], render_kw={'class':'form-control form-control-sm'})
+    name = StringField('Nimi', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
+    price = IntegerField('Hinta, €', [required()], render_kw={'class':'form-control form-control-sm', 'pattern':'[0-9]{1,2}'})
 
     topping1 = SelectField('Täyte 1', [required()], render_kw={'class':'custom-select'}, coerce=int)
     topping2 = SelectField('Täyte 2', render_kw={'class':'custom-select'}, coerce=int)
@@ -42,7 +42,7 @@ class PizzasEditForm(FlaskForm):
 
     def __init__(self, *args, **kwargs):
         super(PizzasEditForm, self).__init__(*args, **kwargs)
-        choices = [(0, "Valitse täyte")]
+        choices = [(0, "Ei täytettä")]
         for topping in Topping.query.order_by(Topping.id).all():
             choices.append((topping.id, topping.name))
         self.topping1.choices = choices

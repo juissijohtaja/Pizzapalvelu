@@ -21,18 +21,27 @@
           </button>
         </div>
       {% endif %}
-      <form class="py-3" novalidate method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
+      <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('pizzas_set_item', pizza_id=pizza.id) }}">
         <div class="form-group">
-          {{ form.name.label }}
+          {{ form.name.label }} <small class="text-muted align-top">*</small>
           {{ form.name(value=pizza.name) }}
+          <div class="invalid-feedback">
+            Tarkista nimi (2-50 merkkiä)
+          </div>
         </div>
         <div class="form-group">
-          {{ form.price.label }}
+          {{ form.price.label }} <small class="text-muted align-top">*</small>
           {{ form.price(value=pizza.price) }}
+          <div class="invalid-feedback">
+            Tarkista hinta (0-99)
+          </div>
         </div>
         <div class="form-group">
-          {{ form.topping1.label }}
+          {{ form.topping1.label }} <small class="text-muted align-top">*</small>
           {{ form.topping1 }}
+          <div class="invalid-feedback">
+            Valitse täyte
+          </div>
         </div>
         <div class="form-group">
           {{ form.topping2.label }}
@@ -79,4 +88,26 @@
   </div>
 </div>
 
+<script>
+  document.getElementById('topping1').firstChild.setAttribute("disabled", "true");
+
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
 {% endblock %}

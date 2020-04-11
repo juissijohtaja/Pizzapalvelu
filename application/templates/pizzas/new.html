@@ -20,18 +20,27 @@
           </button>
         </div>
       {% endif %}
-      <form class="py-3 needs-validation was-validated" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
+      <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('pizzas_create') }}">
         <div class="form-group">
-          {{ form.name.label }}
+          {{ form.name.label }} <small class="text-muted align-top">*</small>
           {{ form.name }}
+          <div class="invalid-feedback">
+            Syötä pizzan nimi.
+          </div>
         </div>
         <div class="form-group">
-          {{ form.price.label }}
+          {{ form.price.label }} <small class="text-muted align-top">*</small>
           {{ form.price }}
+          <div class="invalid-feedback">
+            Syötä pizzan hinta.
+          </div>
         </div>
         <div class="form-group">
-          {{ form.topping1.label }}
+          {{ form.topping1.label }} <small class="text-muted align-top">*</small>
           {{ form.topping1 }}
+          <div class="invalid-feedback">
+            Valitse vähintään yksi täyte.
+          </div>
         </div>
         <div class="form-group">
           {{ form.topping2.label }}
@@ -44,9 +53,11 @@
         <div class="form-group">
           {{ form.topping4.label }}
           {{ form.topping4 }}
-        </div>  
+        </div>
+        <p><small class="text-muted">* Vaadittu tieto</small></p>
         <button type="submit" class="btn btn-info btn-block mt-4">Lisää pizza</button>
       </form>
+      
     </div>
   </div>
 </div>  

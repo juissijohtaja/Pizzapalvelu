@@ -81,19 +81,28 @@ def pizzas_create():
     topping2 = form.topping2.data
     topping3 = form.topping3.data
     topping4 = form.topping4.data
+    
 
     if not form.validate():
         return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
     topping_ids = []
-    if topping1 not in topping_ids and topping1 > 0:
-        topping_ids.append(topping1)
-    if topping2 not in topping_ids and topping2 > 0:
-        topping_ids.append(topping2)
-    if topping3 not in topping_ids and topping3 > 0:
-        topping_ids.append(topping3)
-    if topping4 not in topping_ids and topping4 > 0:
-        topping_ids.append(topping4)
+    if topping1:
+        topping1_id = int(topping1)
+        if topping1_id not in topping_ids:
+            topping_ids.append(topping1_id)
+    if topping2:
+        topping2_id = int(topping2)
+        if topping2_id not in topping_ids:
+            topping_ids.append(topping2_id)
+    if topping3:
+        topping3_id = int(topping3)
+        if topping3_id not in topping_ids:
+            topping_ids.append(topping3_id)
+    if topping4:
+        topping4_id = int(topping4)
+        if topping4_id not in topping_ids:
+            topping_ids.append(topping4_id)
 
     
     topping_ids.sort()

@@ -10,11 +10,12 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
+    if not form.validate():
+        return render_template("auth/loginform.html", form = form, error = "Tarkista lomake.")
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
-        return render_template("auth/loginform.html", form = form, error = "Tarkista lomake.")
+        return render_template("auth/loginform.html", form = form, error = "Käyttäjää ei löydy.")
 
     login_user(user)
     return redirect(url_for("index"))
@@ -30,8 +31,6 @@ def auth_signup():
         return render_template("auth/signupform.html", form = SignupForm())
 
     form = SignupForm(request.form)
-    # mahdolliset validoinnit
-
     if not form.validate():
         return render_template("auth/signupform.html", form = form, error = "Tarkista lomake.")
 

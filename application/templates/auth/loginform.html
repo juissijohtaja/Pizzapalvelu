@@ -20,8 +20,15 @@
           {{ form.username.label }}
           {{ form.username }}
           <div class="invalid-feedback">
-            Tarkista käyttäjänimi (2-50 merkkiä)
+            Tarkista käyttäjätunnus (2-50 merkkiä)
           </div>
+          {% if form.username.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.username.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.password.label }}
@@ -29,6 +36,13 @@
           <div class="invalid-feedback">
             Tarkista salasana (2-50 merkkiä)
           </div>
+          {% if form.password.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.password.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <button type="submit" class="btn btn-info btn-block mt-4">Kirjaudu sisään</button>
       </form>

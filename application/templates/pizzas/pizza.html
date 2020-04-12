@@ -28,6 +28,13 @@
           <div class="invalid-feedback">
             Tarkista nimi (2-50 merkkiä)
           </div>
+          {% if form.name.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.name.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.price.label }} <small class="text-muted align-top">*</small>
@@ -35,6 +42,13 @@
           <div class="invalid-feedback">
             Tarkista hinta (0-99)
           </div>
+          {% if form.price.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.price.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.topping1.label }} <small class="text-muted align-top">*</small>
@@ -42,18 +56,46 @@
           <div class="invalid-feedback">
             Valitse täyte
           </div>
+          {% if form.topping1.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.topping1.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.topping2.label }}
           {{ form.topping2 }}
+          {% if form.topping2.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.topping2.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.topping3.label }}
           {{ form.topping3 }}
+          {% if form.topping3.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.topping3.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.topping4.label }}
           {{ form.topping4 }}
+          {% if form.topping4.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.topping4.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>  
         <button type="submit" class="btn btn-info btn-block mt-4">Tallenna pizza</button>
       </form>

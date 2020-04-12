@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<div class="container">
+  <div class="jumbotron card card-image" style="background-image: url(https://images.unsplash.com/photo-1582861664549-093b53fc0d53?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2450&q=80); background-size: cover; background-position: center;">
+    <div class="text-white text-center py-5 px-4">
+      <div>
+        <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong></h2>
+        <p class="mx-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <a href="#" class="btn btn-lg btn-info"><i class="fas fa-pizza-slice"></i> Lorem ipsum</a>
+      </div>
+    </div>
+  </div>
   <div class="row row-cols-1 row-cols-md-3">
     {% for pizza in pizzas %}
     <div class="col mb-4">

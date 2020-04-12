@@ -28,6 +28,13 @@
           <div class="invalid-feedback">
             Tarkista nimi (2-50 merkkiä)
           </div>
+          {% if form.name.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.name.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.phone.label }} <small class="text-muted align-top">*</small>
@@ -35,6 +42,13 @@
           <div class="invalid-feedback">
             Tarkista puhelinnumero (5-20 numeroa)
           </div>
+          {% if form.phone.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.phone.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.address.label }} <small class="text-muted align-top">*</small>
@@ -42,6 +56,13 @@
           <div class="invalid-feedback">
             Tarkista osoite (2-50 merkkiä)
           </div>
+          {% if form.address.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.address.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.username.label }} <small class="text-muted align-top">*</small>
@@ -49,6 +70,13 @@
           <div class="invalid-feedback">
             Tarkista käyttäjätunnus (2-50 merkkiä)
           </div>
+          {% if form.username.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.username.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <div class="form-group">
           {{ form.password.label }} <small class="text-muted align-top">*</small>
@@ -56,6 +84,13 @@
           <div class="invalid-feedback">
             Tarkista salasana (2-50 merkkiä)
           </div>
+          {% if form.password.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.password.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <p><small class="text-muted">* Vaadittu tieto</small></p>
         <button type="submit" class="btn btn-info btn-block mt-4">Tallenna käyttäjä</button>

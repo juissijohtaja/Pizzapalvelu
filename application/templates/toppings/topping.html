@@ -28,6 +28,13 @@
           <div class="invalid-feedback">
             Tarkista nimi (2-50 merkkiä)
           </div>
+          {% if form.name.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.name.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
         </div>
         <p><small class="text-muted">* Vaadittu tieto</small></p>
         <button type="submit" class="btn btn-info btn-block mt-4">Tallenna täyte</button>

@@ -21,11 +21,11 @@ def user_get_item(user_id):
 def user_set_item(user_id):
     form = UserEditForm(request.form)
     u = User.query.get(user_id)
-    u.name = request.form.get("name")
-    u.phone = request.form.get("phone")
-    u.address = request.form.get("address")
-    u.username = request.form.get("username")
-    u.password = request.form.get("password")
+    u.name = form.name.data
+    u.phone = form.phone.data
+    u.address = form.address.data
+    u.username = form.username.data
+    u.password = form.password.data
 
     if not form.validate():
         return render_template("users/user.html", form = form, user = u, error = "Tarkista lomake.")

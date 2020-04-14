@@ -9,6 +9,7 @@ class User(Base, Name):
     address = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    admin = db.Column(db.Boolean, unique=False, default=False)
 
     def __init__(self, name):
         self.name = name
@@ -26,7 +27,7 @@ class User(Base, Name):
         return True
     
     def roles(self):
-        if (self.username == "juissi" or self.username == "teppo"):
+        if (self.admin):
             return ["ADMIN"]
         else:
             return ["USER"]

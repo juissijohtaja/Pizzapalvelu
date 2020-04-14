@@ -33,7 +33,7 @@
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#"><i class="fas fa-shopping-cart"></i> Tilaus</a>
                 </li>
-                {% if current_user.username == "juissi" or current_user.username == "teppo" %}
+                {% if current_user.admin %}
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle btn btn-dark btn-sm" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-cog"></i> Ylläpito
@@ -74,7 +74,7 @@
                 <a class="nav-link text-muted disabled" href="#">Tilaus</a>
               </nav>
             </div>
-            {% if current_user.username == "juissi" or current_user.username == "teppo" %}
+            {% if current_user.admin %}
               <div class="col">
                 <nav class="nav flex-column">
                   <h5 class="text-dark pl-3">Ylläpito</h5>

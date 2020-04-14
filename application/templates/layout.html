@@ -126,7 +126,7 @@
               $(this).find("option").prop('hidden', false);
               var sel = $(this);
               $.each(myOpt, function(key, value) {
-                  if((value != "") && (value != sel.val())) {
+                  if((value != "") && value != "0" && (value != sel.val())) {
                       sel.find("option").filter('[value="' + value +'"]').prop('hidden', true);
                   }
               });

@@ -5,12 +5,6 @@ class User(Base, Name):
 
     __tablename__ = "account"
   
-    #id = db.Column(db.Integer, primary_key=True)
-    #date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    #date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-    #                          onupdate=db.func.current_timestamp())
-
-    #name = db.Column(db.String(144), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
@@ -30,3 +24,9 @@ class User(Base, Name):
 
     def is_authenticated(self):
         return True
+    
+    def roles(self):
+        if (self.username == "juissi" or self.username == "teppo"):
+            return ["ADMIN"]
+        else:
+            return ["USER"]

@@ -8,49 +8,55 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head> 
-    <body class="bg-light">   
+    <body class="bg-light">
       <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-          <a class="navbar-brand pizzeria-logo" href="{{ url_for('index') }}">Pizzeria</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-md navbar-dark bg-danger flex-row">
+          {% if current_user.admin %}
+          <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-cog"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-collapse w-100 order-3 dual-collapse2">
-              <ul class="navbar-nav ml-auto">
-                {% if current_user.is_authenticated %}
-                  <li class="nav-item">
-                    <span class="navbar-text"><i class="fas fa-user-circle"></i> {{ current_user.name }}</span>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth_logout') }}"><i class="fas fa-sign-out-alt"></i> Kirjaudu ulos</a>
-                  </li>
-                {% else %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth_login') }}"><i class="fas fa-user-circle"></i> Kirjaudu sisään</a>
-                  </li>
-                {% endif %}
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#"><i class="fas fa-shopping-cart"></i> Tilaus</a>
-                </li>
-                {% if current_user.admin %}
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn btn-dark btn-sm" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-cog"></i> Ylläpito
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ url_for('pizzas_index') }}"><i class="fas fa-pizza-slice"></i> Pizzat</a>
-                      <a class="dropdown-item" href="{{ url_for('toppings_index') }}"><i class="fas fa-pepper-hot"></i> Täytteet</a>
-                      <a class="dropdown-item" href="{{ url_for('user_index') }}"><i class="fas fa-user"></i> Käyttäjät</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item disabled" href="#"><i class="fas fa-cube"></i> Tilaukset</a>
-                    </div>
-                  </li>
-                {% endif %}
-              </ul>            
-            </div>
+          {% endif %}
+          <a class="navbar-brand mr-auto pizzeria-logo" href="{{ url_for('index') }}">Pizzeria</a>
+          <ul class="navbar-nav flex-row mr-lg-0">
+            <li class="nav-item">
+              <a class="nav-link pr-2 disabled" href="#"><i class="fas fa-shopping-cart"></i></a>
+            </li>
+            {% if current_user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle pr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user-circle"></i> {{ current_user.name }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="position: absolute !important;">
+                  <a class="dropdown-item" href="{{ url_for('auth_logout') }}"><i class="fas fa-sign-out-alt"></i> Kirjaudu ulos</a>
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link pr-2" href="{{ url_for('auth_login') }}"><i class="fas fa-user-circle"></i> Kirjaudu sisään</a>
+              </li>
+            {% endif %}
+          </ul>
+      </nav>
+      {% if current_user.admin %}
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md flex-sm-row py-0">
+          <div class="collapse navbar-collapse py-1" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('pizzas_index') }}"><i class="fas fa-pizza-slice"></i> Pizzat</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('toppings_index') }}"><i class="fas fa-pepper-hot"></i> Täytteet</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('user_index') }}"><i class="fas fa-user"></i> Käyttäjät</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#"><i class="fas fa-cube"></i> Tilaukset</a>
+              </li>
+            </ul>
           </div>
         </nav>
+      {% endif %}
       </header>
 
       <main role="main" class="container mt-5 mb-5">

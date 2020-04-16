@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<div class="container">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-md-6 bg-white p-4 rounded border">
+      <div class="row mb-3">
+        <div class="col-auto mr-auto">
+          <h3>Tilaus</h3>
+        </div>
+        <div class="col-auto">
+          <a class="btn close" href="{{ url_for('orders_index') }}" role="button"><span aria-hidden="true">&times;</span></a>
+        </div>
+      </div>
+      {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ error }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+      <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_create') }}">
+        <div class="form-group">
+          {{ form.delivery.label }} <small class="text-muted align-top">*</small>
+          {{ form.delivery }}
+          <div class="invalid-feedback">
+            Tarkista toimitustapa (2-50 merkkiä)
+          </div>
+          {% if form.delivery.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.delivery.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <p><small class="text-muted">* Vaadittu tieto</small></p>
+        <button type="submit" class="btn btn-info btn-block mt-4">Lisää tilaus</button>
+      </form>
+      
+    </div>
+  </div>
+</div>  
+
+{% endblock %}

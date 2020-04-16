@@ -6,19 +6,30 @@ Asiakas voi valita pizzat valikosta ja tehdä tilauksen. Asiakkaan tulee rekiste
 
 Ylläpitäjä voi hallita sisältöjä. Eli katsella, lisätä, muokata ja poistaa täytteitä, pizzoja, tilauksia sekä asiakkaita.
 
-Tietokannan taulut ovat: Account, Order, Pizza, Topping
+Tietokannan taulut ovat: Account, Orders, Pizza, Topping
 
 Liitostauluja ovat: OrderPizza, PizzaTopping
 
+## Sovellus netissä
 
-[Sovellus Herokussa](https://desolate-bayou-52025.herokuapp.com/)
+[Pizzapalvelu Herokussa](https://desolate-bayou-52025.herokuapp.com/)
 
-Testitunnukset:
+## Testitunnukset
+
+Admin
 - teppo
 - testaaja
+
+Asiakas
+- ari
+- asiakas
+
+## Dokumentaatio
  
 [Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
 
 [Käyttötapaukset / user storyt](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md)
 
+[Käyttöohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/kayttoohje.md)
 
+[Asennusohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/asennusohje.md)

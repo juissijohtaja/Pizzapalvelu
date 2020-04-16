@@ -81,7 +81,6 @@ def pizzas_create():
     topping2 = form.topping2.data
     topping3 = form.topping3.data
     topping4 = form.topping4.data
-    
 
     if not form.validate():
         return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")

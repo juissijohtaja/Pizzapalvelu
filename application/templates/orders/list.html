@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-auto mr-auto">
+      <h3>Tilaukset</h3>
+    </div>
+    <div class="col-auto">
+      <p>
+        <a class="btn btn-info" href="{{ url_for('orders_form') }}" role="button"><i class="fas fa-plus"></i> Lisää tilaus</a>
+      </p>
+    </div>
+  </div>
+  <div class="row bg-white p-4 rounded border">
+    <div class="table-responsive">
+      <table class="table table-borderless text-capitalize">
+        <thead>
+          <tr>
+            <th>Toimitustapa</th>
+            <th>Vastaanotettu</th>
+            <th>Toimitettu</th>
+            <th>Tilaaja</th>
+            <th>Pizza</th>
+            <th></th>
+          </tr>
+        </thead>
+        {% for order in orders %}
+          <tr class="border-top">
+            <td><a class="text-dark" title="{{ order.delivery }}" href="{{ url_for('orders_get_item', order_id=order.id) }}">{{ order.delivery }}</a></td>
+            <td>{{ order.received }}</td>
+            <td>{{ order.delivered }}</td>
+            <td>{{ order.account.name }}</td>
+            <td>
+              {% for pizza in order.pizzas %}
+                {{ pizza.name }}
+              {% endfor %}
+            </td>
+            <td class="text-right">
+              <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('orders_get_item', order_id=order.id) }}"><i class="fas fa-pen"></i></a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

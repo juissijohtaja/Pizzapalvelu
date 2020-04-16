@@ -7,6 +7,7 @@ class Pizza(Base, Name):
     price = db.Column(db.Integer, nullable=False)
 
     toppings = relationship("Topping", secondary="pizza_topping")
+    orders = relationship("Order", secondary="order_pizza")
 
     def __init__(self, name):
         self.name = name

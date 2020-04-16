@@ -51,10 +51,15 @@ from application import views
 from application.toppings import models
 from application.toppings import views
 
+from application.pizzatoppings import models
+
 from application.pizzas import models
 from application.pizzas import views
 
-from application.pizzatoppings import models
+from application.orderpizzas import models
+
+from application.orders import models
+from application.orders import views
 
 from application.users import views
 

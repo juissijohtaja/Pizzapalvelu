@@ -33,3 +33,28 @@ Asiakas
 [Käyttöohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/kayttoohje.md)
 
 [Asennusohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/asennusohje.md)
+
+
+# Osan 5 etapit
+
+- Autorisointi 
+  - kirjauneella asiakkaalla (USER) ja ylläpitäjällä (ADMIN) on eri oikeudet sisältöihin
+  - ylläpitäjälle näytetään navigaatiossa linkit hallinnointisivuille
+  - sisältöjen lisäys/muokkaus/poisto onnistuu vain ylläpitäjäroolilla
+
+- Käytettävyyden viilausta
+  - Bootstrap käytössä koko sivustolla
+  - visuaalisuutta sekä käytettävyyttä parannettu
+  - navigaatiota muokattu
+  - lomakkeet muotoiltu uudelleen ja ne reagoivat täytettyyn tietoon
+
+- Toiminnallisuuden täydentäminen (uusia ominaisuuksia)
+  - pizzalomakkeet saavat täytteet dynaamisesti ja käyttöliittymä reagoi tehtyhin valintoihin
+  - lomakkeiden validointia parannettu, nyt tarkistukset sekä front- että backendissä
+  - käyttäjärooleihin reagoiva käyttöliittymä
+  - Tilaukset-osion alustava versio olemassa, mutta siitä puuttuu vielä paljon ominaisuuksia
+
+- Kirjoita työhösi alustava asennusohje ja käyttöohje
+  - työstö aloitettu
+  - tietokantakaavio ja backlog päivitetty
+

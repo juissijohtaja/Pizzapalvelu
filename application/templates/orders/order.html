@@ -21,6 +21,19 @@
           </button>
         </div>
       {% endif %}
+      <div class="bg-light px-4 pt-3 pb-2 mb-3 border rounded">
+        <address>
+          <i class="fas fa-user-circle text-muted pr-1"></i> <strong>{{ order.account.name }}</strong><br>
+          {{ order.account.address }}<br>
+          {{ order.account.phone }}
+        </address>
+        <hr>
+        <p><i class="fas fa-pizza-slice text-muted pr-1"></i> 
+          {% for pizza in order.pizzas %}
+            {{ pizza.name }}
+          {% endfor %}
+        </p>
+      </div>
       <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_set_item', order_id=order.id) }}">
         <fieldset class="form-group">
           <legend class="col-form-label">{{ form.delivery.label }}  <small class="text-muted align-top">*</small></legend>

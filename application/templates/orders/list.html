@@ -18,8 +18,8 @@
         <thead>
           <tr>
             <th>Toimitustapa</th>
-            <th>Vastaanotettu</th>
-            <th>Toimitettu</th>
+            <th class="text-center">Vastaanotettu</th>
+            <th class="text-center">Toimitettu</th>
             <th>Tilaaja</th>
             <th>Pizza</th>
             <th></th>
@@ -28,8 +28,20 @@
         {% for order in orders %}
           <tr class="border-top">
             <td><a class="text-dark" title="{{ order.delivery }}" href="{{ url_for('orders_get_item', order_id=order.id) }}">{{ order.delivery }}</a></td>
-            <td>{{ order.received }}</td>
-            <td>{{ order.delivered }}</td>
+            <td class="text-center">
+              {% if order.received %}
+                <i class="far fa-check-circle text-success"></i>
+              {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+              {% endif %}
+            </td>
+            <td class="text-center">
+              {% if order.delivered %}
+                <i class="far fa-check-circle text-success"></i>
+              {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+              {% endif %}
+            </td>
             <td>{{ order.account.name }}</td>
             <td>
               {% for pizza in order.pizzas %}

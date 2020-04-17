@@ -24,6 +24,7 @@ def user_set_item(user_id):
     u.name = form.name.data
     u.phone = form.phone.data
     u.address = form.address.data
+    u.admin = form.admin.data
     u.username = form.username.data
     u.password = form.password.data
 

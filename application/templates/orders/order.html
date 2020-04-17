@@ -56,9 +56,9 @@
           <div class="invalid-feedback">
             Tarkista toimitettu tila
           </div>
-          {% if form.received.errors %}
+          {% if form.delivered.errors %}
             <div class="alert alert-danger mt-2 py-0" role="alert">
-              {% for error in form.received.errors %}
+              {% for error in form.delivered.errors %}
                 <small>{{ error }}</small>
               {% endfor %}
             </div>  

@@ -6,11 +6,12 @@ from application.pizzas.models import Pizza
 
 class OrdersForm(FlaskForm):
     delivery = RadioField('Toimitustapa', [required()], choices=[('kuljetus','Kuljetus'),('nouto','Nouto'),('paikan päällä','Paikan päällä')])
+    pizza_id = IntegerField('Pizza id', [required(), NumberRange(min=1, max=999)], render_kw={'class':'form-control form-control-sm', 'pattern':'[0-9]{1,3}', 'readonly':'true', 'type':'hidden'})
+
     class Meta:
         csrf = False
 
 class OrdersEditForm(FlaskForm):
-    #delivery = StringField('Toimitustapa', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
     delivery = RadioField('Toimitustapa', [required()], choices=[('kuljetus','Kuljetus'),('nouto','Nouto'),('paikan päällä','Paikan päällä')])
     received = BooleanField('Vastaanotettu', [optional()], render_kw={'class':'custom-control-input'})
     delivered = BooleanField('Toimitettu', [optional()], render_kw={'class':'custom-control-input'})

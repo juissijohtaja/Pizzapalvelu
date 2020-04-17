@@ -24,7 +24,7 @@
           </p>
         </div>
         <div class="card-footer bg-transparent border-light">
-          <button class="btn btn-info btn-block"><i class="fas fa-cart-plus"></i> Tilaa</button>
+          <a class="btn btn-info btn-block" href="{{ url_for('orders_form', pizza_id=pizza.id) }}" role="button"><i class="fas fa-cart-plus"></i> Tilaa</a>
         </div>
       </div>
     </div>

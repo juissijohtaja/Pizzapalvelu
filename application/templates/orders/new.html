@@ -20,18 +20,46 @@
           </button>
         </div>
       {% endif %}
+      <div class="bg-light px-4 pt-3 pb-2 border rounded">
+        <address>
+          <i class="fas fa-user-circle text-muted pr-1"></i> <strong>{{ current_user.name }}</strong><br>
+          {{ current_user.address }}<br>
+          {{ current_user.phone }}
+        </address>
+        <hr>
+        <p><i class="fas fa-pizza-slice text-muted pr-1"></i> 
+          {{ pizza.name }}
+        </p>
+      </div>
       <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_create') }}">
-        <fieldset class="form-group">
+        <div class="form-group">
+          {{ form.pizza_id(value=pizza.id) }}
+          <div class="invalid-feedback">
+            Tarkista pizza id
+          </div>
+          {% if form.pizza_id.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.pizza_id.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="form-group">
           <legend class="col-form-label">{{ form.delivery.label }}  <small class="text-muted align-top">*</small></legend>
           {% for subfield in form.delivery %}
-            <div class="form-check">
-                  {{ subfield(class="form-check-input") }}
-                  {{ subfield.label(class="form-check-label") }}
+            <div class="custom-control custom-radio">
+              {{ subfield(class="custom-control-input", required="true") }}
+              {{ subfield.label(class="custom-control-label") }}
+              
+              {% if subfield.data == form.delivery.choices[-1][0] %}
+                <div class="invalid-feedback">
+                  Valitse toimitustapa
+                </div>
+              {% endif %}
             </div>
           {% endfor %}
-          <div class="invalid-feedback">
-            Valitse toimitustapa
-          </div>
+          
           {% if form.delivery.errors %}
             <div class="alert alert-danger mt-2 py-0" role="alert">
               {% for error in form.delivery.errors %}
@@ -39,7 +67,7 @@
               {% endfor %}
             </div>  
           {% endif %}
-        </fieldset>
+        </div>
         <p><small class="text-muted">* Vaadittu tieto</small></p>
         <button type="submit" class="btn btn-info btn-block mt-4">Lisää tilaus</button>
       </form>

@@ -73,31 +73,33 @@
         <div class="container">
           <hr>
           <div class="row">
-            <div class="col">
+            <div class="col-6 col-md-4">
               <nav class="nav flex-column">
-                <h5 class="text-dark pl-3">Pizzeria</h5>
-                <a class="nav-link text-dark" href="{{ url_for('index') }}">Etusivu</a>
-                <a class="nav-link text-dark" href="{{ url_for('auth_login') }}">Kirjaudu sisään</a>
-                <a class="nav-link text-dark" href="{{ url_for('auth_signup') }}">Luo tili</a>
-                <a class="nav-link text-muted disabled" href="#">Tilaus</a>
+                <h6 class="text-dark text-uppercase pl-3"><small>Pizzeria</small></h6>
+                <small><a class="nav-link text-dark" href="{{ url_for('index') }}">Etusivu</a></small>
+                <small><a class="nav-link text-dark" href="{{ url_for('auth_login') }}">Kirjaudu sisään</a></small>
+                <small><a class="nav-link text-dark" href="{{ url_for('auth_signup') }}">Luo tili</a></small>
+                <small><a class="nav-link text-muted disabled" href="#">Tilaus</a></small>
               </nav>
             </div>
             {% if current_user.admin %}
-              <div class="col">
+              <div class="col-6 col-md-4">
                 <nav class="nav flex-column">
-                  <h5 class="text-dark pl-3">Ylläpito</h5>
-                  <a class="nav-link text-dark" href="{{ url_for('pizzas_index') }}">Pizzat</a>
-                  <a class="nav-link text-dark" href="{{ url_for('toppings_index') }}">Täytteet</a>
-                  <a class="nav-link text-dark" href="{{ url_for('user_index') }}">Käyttäjät</a>
-                  <a class="nav-link text-dark" href="{{ url_for('orders_index') }}">Tilaukset</a>
+                  <h6 class="text-dark text-uppercase pl-3"><small>Ylläpito</small></h6>
+                  <small><a class="nav-link text-dark" href="{{ url_for('pizzas_index') }}">Pizzat</a></small>
+                  <small><a class="nav-link text-dark" href="{{ url_for('toppings_index') }}">Täytteet</a></small>
+                  <small><a class="nav-link text-dark" href="{{ url_for('user_index') }}">Käyttäjät</a></small>
+                  <small><a class="nav-link text-dark" href="{{ url_for('orders_index') }}">Tilaukset</a></small>
                 </nav>
               </div>
             {% endif %}
-            <div class="col">
-              <h5 class="text-dark mb-3">Tietoa sivustosta</h5>
-              <p>Kurssisivu: <a class="text-dark" href="https://materiaalit.github.io/tsoha-20/">Tietokantasovellus</a></p>
-              <p>Github: <a class="text-dark" href="https://github.com/juissijohtaja/Pizzapalvelu">Pizzapalvelu</a></p>
-              <p>Kuvat: <a class="text-dark" href="https://unsplash.com/">Unsplash</a></p>
+            <div class="col-12 col-md-4">
+              <nav class="nav flex-column ml-3 ml-md-0 pt-4 pt-md-0">
+                <h6 class="text-dark text-uppercase mb-3"><small>Tietoa sivustosta</small></h6>
+                <p><small>Kurssisivu: <a class="text-dark" href="https://materiaalit.github.io/tsoha-20/">Tietokantasovellus</a></small></p>
+                <p><small>Github: <a class="text-dark" href="https://github.com/juissijohtaja/Pizzapalvelu">Pizzapalvelu</a></small></p>
+                <p><small>Kuvat: <a class="text-dark" href="https://unsplash.com/">Unsplash</a></small></p>
+              </nav>
             </div>
           </div>
         </div>

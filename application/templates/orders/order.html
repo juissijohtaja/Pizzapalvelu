@@ -22,11 +22,16 @@
         </div>
       {% endif %}
       <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_set_item', order_id=order.id) }}">
-        <div class="form-group">
-          {{ form.delivery.label }} <small class="text-muted align-top">*</small>
-          {{ form.delivery(value=order.delivery) }}
+        <fieldset class="form-group">
+          <legend class="col-form-label">{{ form.delivery.label }}  <small class="text-muted align-top">*</small></legend>
+          {% for subfield in form.delivery %}
+            <div class="form-check">
+                  {{ subfield(class="form-check-input") }}
+                  {{ subfield.label(class="form-check-label") }}
+            </div>
+          {% endfor %}
           <div class="invalid-feedback">
-            Tarkista toimitustapa (2-50 merkkiä)
+            Valitse toimitustapa
           </div>
           {% if form.delivery.errors %}
             <div class="alert alert-danger mt-2 py-0" role="alert">
@@ -35,7 +40,7 @@
               {% endfor %}
             </div>  
           {% endif %}
-        </div>
+        </fieldset>
         <div class="custom-control custom-switch">
           {{ form.received(checked=order.received) }}
           {{ form.received.label(class="custom-control-label") }} <small class="text-muted align-top">*</small>

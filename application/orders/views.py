@@ -23,6 +23,9 @@ def orders_form():
 def orders_get_item(order_id):
     o = Order.query.get(order_id)
     f = OrdersEditForm()
+
+    f.delivery.default = o.delivery
+    f.process() # process choices & default
     
     return render_template("orders/order.html", order = o, form = f)
 

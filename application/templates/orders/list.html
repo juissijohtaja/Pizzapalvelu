@@ -17,17 +17,23 @@
       <table class="table table-borderless text-capitalize">
         <thead>
           <tr>
-            <th>Toimitustapa</th>
+            <th>Tilaus</th>
             <th class="text-center">Vastaanotettu</th>
+            <th>Toimitustapa</th>
             <th class="text-center">Toimitettu</th>
             <th>Tilaaja</th>
-            <th>Pizza</th>
             <th></th>
           </tr>
         </thead>
         {% for order in orders %}
           <tr class="border-top">
-            <td><a class="text-dark" title="{{ order.delivery }}" href="{{ url_for('orders_get_item', order_id=order.id) }}">{{ order.delivery }}</a></td>
+            <td>
+              <a class="text-dark" title="{{ order.delivery }}" href="{{ url_for('orders_get_item', order_id=order.id) }}">
+                {% for pizza in order.pizzas %}
+                  {{ pizza.name }}
+                {% endfor %}
+              </a>
+            </td>
             <td class="text-center">
               {% if order.received %}
                 <i class="far fa-check-circle text-success"></i>
@@ -35,6 +41,7 @@
                 <i class="far fa-times-circle text-danger"></i>
               {% endif %}
             </td>
+            <td>{{ order.delivery }}</td>
             <td class="text-center">
               {% if order.delivered %}
                 <i class="far fa-check-circle text-success"></i>
@@ -43,11 +50,6 @@
               {% endif %}
             </td>
             <td>{{ order.account.name }}</td>
-            <td>
-              {% for pizza in order.pizzas %}
-                {{ pizza.name }}
-              {% endfor %}
-            </td>
             <td class="text-right">
               <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('orders_get_item', order_id=order.id) }}"><i class="fas fa-pen"></i></a>
             </td>

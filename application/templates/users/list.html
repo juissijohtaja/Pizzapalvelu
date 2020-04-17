@@ -18,15 +18,23 @@
             <th>Nimi</th>
             <th>Puhelinnumero</th>
             <th>Osoite</th>
+            <th class="text-center">Ylläpitäjä</th>
             <th>Käyttäjätunnus</th>
             <th></th>
           </tr>
         </thead>
         {% for user in users %}
-        <tr class="border-top">
+          <tr class="border-top">
             <td><a class="text-dark" title="{{ user.name }}" href="{{ url_for('user_get_item', user_id=user.id) }}">{{ user.name }}</a></td>
             <td>{{ user.phone }}</td>
             <td>{{ user.address }}</td>
+            <td class="text-center">
+              {% if user.admin %}
+                <i class="far fa-check-circle text-success"></i>
+              {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+              {% endif %}
+            </td>
             <td>{{ user.username }}</td>
             <td class="text-right">
               <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('user_get_item', user_id=user.id) }}"><i class="fas fa-pen"></i></a>

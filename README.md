@@ -32,15 +32,11 @@ Asiakas
 
 Dokumentaatio vastaa sovelluksen todellista tilaa kaikilta osin.
 
-[Sovelluksen käyttöohje](documentation/kayttoohje.md)
-
-[Sovelluksen asennusohje](documentation/asennusohje.md)
-
-[Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet](documentation/rajoitteet.md)
-
-[Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt](documentation/userstoryt.md)
-
-[Tietokantarakenteen kuvaus](documentation/tietokantarakenne.md)
+- [Sovelluksen käyttöohje](documentation/kayttoohje.md)
+- [Sovelluksen asennusohje](documentation/asennusohje.md)
+- [Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet](documentation/rajoitteet.md)
+- [Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt](documentation/userstoryt.md)
+- [Tietokantarakenteen kuvaus](documentation/tietokantarakenne.md)
 
 
 ## Osan 5 etapit

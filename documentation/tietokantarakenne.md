@@ -6,7 +6,7 @@
 
 ### CREATE TABLE -lauseet
 
-#### Käyttäjä
+#### User
 CREATE TABLE account (
         id INTEGER NOT NULL, 
         date_created DATETIME, 
@@ -21,7 +21,7 @@ CREATE TABLE account (
         CHECK (admin IN (0, 1))
 );
 
-#### Tilaus
+#### Order
 CREATE TABLE orders (
         id INTEGER NOT NULL, 
         date_created DATETIME, 
@@ -36,7 +36,7 @@ CREATE TABLE orders (
         FOREIGN KEY(account_id) REFERENCES account (id)
 );
 
-#### TilausPizza
+#### OrderPizza
 CREATE TABLE order_pizza (
         id INTEGER NOT NULL, 
         date_created DATETIME, 
@@ -58,7 +58,7 @@ CREATE TABLE pizza (
         PRIMARY KEY (id)
 );
 
-#### PizzaTäyte
+#### PizzaTopping
 CREATE TABLE pizza_topping (
         id INTEGER NOT NULL, 
         date_created DATETIME, 
@@ -70,7 +70,7 @@ CREATE TABLE pizza_topping (
         FOREIGN KEY(topping_id) REFERENCES topping (id)
 );
 
-#### Täyte
+#### Topping
 CREATE TABLE topping (
         id INTEGER NOT NULL, 
         date_created DATETIME, 

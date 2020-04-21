@@ -1,6 +1,6 @@
 # Pizzapalvelu
 
-## Aiheen kuvaus
+### Aiheen kuvaus
 
 Aiheena on tehdä yhden ravintolan pizzatilauspalvelu. Ravintolassa on tarjolla useita eri pizzoja, jotka koostuvat eri täytteistä. Pizzoilla on eri hinnat ja niitä voidaan lisätä tilaukseen haluttu määrä.
 
@@ -12,9 +12,11 @@ Tietokannan taulut ovat: Account, Orders, Pizza, Topping
 
 Liitostauluja ovat: OrderPizza, PizzaTopping
 
+
 ### Sovellus netissä
 
 [Pizzapalvelu Herokussa](https://desolate-bayou-52025.herokuapp.com/)
+
 
 ### Testitunnukset
 
@@ -26,31 +28,39 @@ Asiakas
 - ari
 - asiakas
 
-## Sovelluksen käyttöohje
 
-[Käyttöohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/kayttoohje.md)
+### Sovelluksen käyttöohje
 
-## Sovelluksen asennusohje
+[Käyttöohje](documentation/kayttoohje.md)
 
-[Asennusohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/asennusohje.md)
+
+### Sovelluksen asennusohje
+
+[Asennusohje](documentation/asennusohje.md)
+
 
 ## Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet
 
-tbd
+[Rajoitteet](documentation/rajoitteet.md)
 
-## Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt
 
-[Käyttötapaukset / user storyt](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md)
+### Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt
 
-## Tietokantarakenteen kuvaus
+[Käyttötapaukset / user storyt](documentation/userstoryt.md)
 
-[Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
 
-## Dokumentaation vastaavuus toteutettuun työhön
+### Tietokantarakenteen kuvaus
 
-tbd
+[Tietokantarakenne](documentation/userstoryt.md)
 
-# Osan 5 etapit
+
+### Dokumentaation vastaavuus toteutettuun työhön
+
+Dokumentaatio vastaa sovelluksen todellista tilaa kaikilta osin.
+
+
+
+## Osan 5 etapit
 
 - Autorisointi 
   - kirjauneella asiakkaalla (USER) ja ylläpitäjällä (ADMIN) on eri oikeudet sisältöihin

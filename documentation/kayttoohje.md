@@ -12,7 +12,7 @@ Mene sivustolle ja selaile sivuja
 
 # Kirjautumaton asiakas
 
-(Huom. mikäli olet jo kirjautunut ylläpitäjänä, klikkaa ensin Kirjaudu ulos -nappia)
+(Huom. mikäli olet jo kirjautunut ylläpitäjänä, kirjaudu ensin ulos)
 
 ## Kirjaudu sisään
 
@@ -58,7 +58,7 @@ Klikkaa navigaatiopalkin oikeasta reunasta "käyttäjä" ikonia
 
 # Ylläpitäjä
 
-(Huom. mikäli olet jo kirjautunut asiakkaana, klikkaa ensin Kirjaudu ulos -nappia)
+(Huom. mikäli olet jo kirjautunut asiakkaana, kirjaudu ensin ulos)
 
 ## Kirjaudu sisään
 

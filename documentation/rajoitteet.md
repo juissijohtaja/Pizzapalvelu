@@ -9,6 +9,8 @@
 
 - Pizzapohjia voisi olla useampi vaihtoehto
 
+- Pizzoihin pitäisi voida valita oregano ja valkosipuli
+
 ### Käyttäjät
 - Uuden käyttäjän lisäys onnistuu ainoastaan rekisteröintilomakkeen kautta "julkisella" puolella
   - Näin luodusta käyttäjästä tulee automaattisesti "asiakas" roolin omaava käyttäjä

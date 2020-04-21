@@ -1,5 +1,7 @@
 # Pizzapalvelu
 
+## Aiheen kuvaus
+
 Aiheena on tehdä yhden ravintolan pizzatilauspalvelu. Ravintolassa on tarjolla useita eri pizzoja, jotka koostuvat eri täytteistä. Pizzoilla on eri hinnat ja niitä voidaan lisätä tilaukseen haluttu määrä.
 
 Asiakas voi valita pizzat valikosta ja tehdä tilauksen. Asiakkaan tulee rekisteröityä ja olla kirjautunut, jotta voi tehdä tilauksen. Rekistöitymisessä asiakas täyttää yhteystietonsa ja tekee käyttäjätunnukset.
@@ -10,11 +12,11 @@ Tietokannan taulut ovat: Account, Orders, Pizza, Topping
 
 Liitostauluja ovat: OrderPizza, PizzaTopping
 
-## Sovellus netissä
+### Sovellus netissä
 
 [Pizzapalvelu Herokussa](https://desolate-bayou-52025.herokuapp.com/)
 
-## Testitunnukset
+### Testitunnukset
 
 Admin
 - teppo
@@ -24,16 +26,29 @@ Asiakas
 - ari
 - asiakas
 
-## Dokumentaatio
- 
-[Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
-
-[Käyttötapaukset / user storyt](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md)
+## Sovelluksen käyttöohje
 
 [Käyttöohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/kayttoohje.md)
 
+## Sovelluksen asennusohje
+
 [Asennusohje](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/asennusohje.md)
 
+## Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet
+
+tbd
+
+## Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt
+
+[Käyttötapaukset / user storyt](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/userstoryt.md)
+
+## Tietokantarakenteen kuvaus
+
+[Tietokantakaavio](https://github.com/juissijohtaja/Pizzapalvelu/blob/master/documentation/Pizzapalvelu-dbdiagram.png)
+
+## Dokumentaation vastaavuus toteutettuun työhön
+
+tbd
 
 # Osan 5 etapit
 

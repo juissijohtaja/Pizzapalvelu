@@ -1,6 +1,6 @@
 # Pizzapalvelu-sovelluksen käyttötapaukset
 
-## done
+### done
 - Ylläpitäjänä voin lisätä täytteen
 - Ylläpitäjänä voin selailla täytteitä
 - Ylläpitäjänä voin muokata täytteen nimeä
@@ -16,7 +16,7 @@
 - asiakkaana voin selata pizzoja ja nähdä niiden täytteet
 - kirjautunut ylläpitäjä / asiakas käyttäjärooleilla on eri oikeudet muokata sisältöä
 
-## backlog
+### backlog
 - ylläpitäjänä voin selata tilauksia
 - ylläpitäjänä voin muuttaa tilauksen statusta
 - ylläpitäjänä voin poistaa tilauksen

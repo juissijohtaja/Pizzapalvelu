@@ -2,7 +2,7 @@
 
 ### Täytteet
 
-## Pizzat
+### Pizzat
 - Pizzoihin voi valita vain neljä täytettä ja samaa täytettä ei voi valita kahdesti
   - Täytteiden mahdollinen määrä voisi olla suurempi ja saman voisi valita useamman kerran
   - Täytteitä ei myöskään voi vaihtaa tilauksen yhteydessä tällä hetkellä

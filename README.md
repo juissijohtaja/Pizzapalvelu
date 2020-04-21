@@ -39,7 +39,7 @@ Asiakas
 [Asennusohje](documentation/asennusohje.md)
 
 
-## Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet
+### Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet
 
 [Rajoitteet](documentation/rajoitteet.md)
 
@@ -51,7 +51,7 @@ Asiakas
 
 ### Tietokantarakenteen kuvaus
 
-[Tietokantarakenne](documentation/userstoryt.md)
+[Tietokantarakenne](documentation/tietokantarakenne.md)
 
 
 ### Dokumentaation vastaavuus toteutettuun työhön

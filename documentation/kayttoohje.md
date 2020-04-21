@@ -10,11 +10,11 @@ Mene sivustolle ja selaile sivuja
 - sivusto toimii responsiivisesti, joten kokeile sivustoa eri päätelaitteilla tai muuta selainikkunan kokoa
 
 
-# Kirjautumaton asiakas
+## Kirjautumaton asiakas
 
 (Huom. mikäli olet jo kirjautunut ylläpitäjänä, kirjaudu ensin ulos)
 
-## Kirjaudu sisään
+### Kirjaudu sisään
 
 Klikkaa Kirjaudu sisään -nappia
 - [Kirjaudu sisään](https://desolate-bayou-52025.herokuapp.com/auth/login/)
@@ -24,7 +24,7 @@ Klikkaa Kirjaudu sisään -nappia
   - salasana: asiakas
 - klikkaa Kirjaudu sisään -nappia  
 
-## Luo tunnukset
+### Luo tunnukset
 
 Voit halutessasi luoda omat käyttäjätunnukset
 - [Luo tunnukset](https://desolate-bayou-52025.herokuapp.com/auth/signup/)
@@ -33,34 +33,34 @@ Voit halutessasi luoda omat käyttäjätunnukset
 - klikkaa Luo tunnukset -nappia
 
 
-# Kirjautunut asiakas
+## Kirjautunut asiakas
 
-## Tilaa pizza
+### Tilaa pizza
 
 Klikkaa haluamasi pizzan kohdalla Tilaa-nappia
 - tarkista, että yhteystietosi ja haluamasi pizza on tilauksessa oikein
 - valitse tilauksen toimitustapa
 - klikkaa Lähetä tilaus -nappia
 
-## Katsele asiakastietoja
+### Katsele asiakastietoja
 
 - (toiminnallisuus kehityksessä)
 
-## Katsele tilauksia
+### Katsele tilauksia
 
 - (toiminnallisuus kehityksessä)
 
-## Kirjaudu ulos
+### Kirjaudu ulos
 
 Klikkaa navigaatiopalkin oikeasta reunasta "käyttäjä" ikonia
 - tästä aukeaa valikko, josta voi klikata Kirjaudu ulos -nappia
 
 
-# Ylläpitäjä
+## Ylläpitäjä
 
 (Huom. mikäli olet jo kirjautunut asiakkaana, kirjaudu ensin ulos)
 
-## Kirjaudu sisään
+### Kirjaudu sisään
 
 Klikkaa Kirjaudu sisään -nappia
 - [Kirjaudu sisään](https://desolate-bayou-52025.herokuapp.com/auth/login/)
@@ -76,7 +76,7 @@ Ylläpitonavigaatio
 - muilta osin toiminnallisuudet ovat sama päätelaitteesta riippumatta
   - Huom. kaikkien tietojen listaukset eivät välttämättä mahdu kokonaan mobiililaitteen ruudulle, joten niitä voi joutua "skrollaamaan# sivuttaissuunnassa
 
-## Täytteet
+### Täytteet
 
 Mene ylläpitosivun Täytteet-välilehdelle
 - [Täytteet](https://desolate-bayou-52025.herokuapp.com/taytteet/)
@@ -93,7 +93,7 @@ Klikkaa jonkin täytteen kohdalta sen nimeä tai sivun oikeassa reunassa olevaa 
 
 Tallennetut muutokset näkyvät Täytteet-listauksessa
 
-## Pizzat
+### Pizzat
 
 Mene ylläpitosivun Pizzat-välilehdelle
 - [Pizzat](https://desolate-bayou-52025.herokuapp.com/pizzat/)
@@ -111,7 +111,7 @@ Klikkaa jonkin pizaan kohdalta sen nimeä tai sivun oikeassa reunassa olevaa Muo
 
 Tallennetut muutokset näkyvät Pizzat-listauksessa
 
-## Käyttäjät
+### Käyttäjät
 
 Mene ylläpitosivun Käyttäjät-välilehdelle
 - [Käyttäjät](https://desolate-bayou-52025.herokuapp.com/kayttajat/)
@@ -125,7 +125,7 @@ Klikkaa jonkin käyttäjän kohdalta sen nimeä tai sivun oikeassa reunassa olev
 
 Tallennetut muutokset näkyvät Käyttäjät-listauksessa
 
-## Tilaukset
+### Tilaukset
 
 Mene ylläpitosivun Tilaukset-välilehdelle
 - [Tilaukset](https://desolate-bayou-52025.herokuapp.com/tilaukset/)
@@ -139,7 +139,7 @@ Klikkaa jonkin tilauksen kohdalta sen nimeä tai sivun oikeassa reunassa olevaa 
 
 Tallennetut muutokset näkyvät Tilaukset-listauksessa
 
-## Kirjaudu ulos
+### Kirjaudu ulos
 
 Klikkaa navigaatiopalkin oikeasta reunasta "käyttäjä" ikonia
 - tästä aukeaa valikko, josta voi klikata Kirjaudu ulos -nappia

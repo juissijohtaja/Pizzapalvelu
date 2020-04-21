@@ -1,9 +1,9 @@
 # Asennusohje
 
-# Sovelluksen asennus lokaalisti
+## Sovelluksen asennus lokaalisti
 
 tbd
 
-# Sovelluksen asennus Herokuun
+## Sovelluksen asennus Herokuun
 
 tbd

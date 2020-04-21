@@ -28,36 +28,19 @@ Asiakas
 - ari
 - asiakas
 
-
-### Sovelluksen käyttöohje
-
-[Käyttöohje](documentation/kayttoohje.md)
-
-
-### Sovelluksen asennusohje
-
-[Asennusohje](documentation/asennusohje.md)
-
-
-### Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet
-
-[Rajoitteet](documentation/rajoitteet.md)
-
-
-### Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt
-
-[Käyttötapaukset / user storyt](documentation/userstoryt.md)
-
-
-### Tietokantarakenteen kuvaus
-
-[Tietokantarakenne](documentation/tietokantarakenne.md)
-
-
-### Dokumentaation vastaavuus toteutettuun työhön
+### Dokumentaatio
 
 Dokumentaatio vastaa sovelluksen todellista tilaa kaikilta osin.
 
+[Sovelluksen käyttöohje](documentation/kayttoohje.md)
+
+[Sovelluksen asennusohje](documentation/asennusohje.md)
+
+[Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet](documentation/rajoitteet.md)
+
+[Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt](documentation/userstoryt.md)
+
+[Tietokantarakenteen kuvaus](documentation/tietokantarakenne.md)
 
 
 ## Osan 5 etapit

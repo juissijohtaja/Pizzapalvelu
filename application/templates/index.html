@@ -1,48 +1,79 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<div class="jumbotron card card-image" style="background-image: url('./static/img/texture.jpg'); background-size: cover; background-position: center;">
-    <div class="text-white text-center py-5 px-4">
-      <div>
-        <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Herkullinen Special Pizza avotuliuunissa valmistettuna</strong></h2>
-        <p class="mx-5 mb-5">Päivän erikoistarjous neljällä täytteellä nyt vain 10 €</p>
-        <a href="{{ url_for('orders_form', pizza_id=1) }}" class="btn btn-lg btn-info"><i class="fas fa-pizza-slice"></i> Tilaa Special</a>
-      </div>
-    </div>
-  </div>
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for pizza in pizzas %}
-    <div class="col mb-4">
-      <div class="card h-100">
-        <h5 class="card-header text-capitalize bg-white">{{ pizza.name }}</h5>
-        <div class="card-body">
-          <h5 class="card-title">{{ pizza.price }} €</h5>
-          <p class="card-text text-capitalize">
-            {% for topping in pizza.toppings %}
-              {{ topping.name }}{% if not topping == pizza.toppings[-1] %}, {% endif %}
-            {% endfor %}
-          </p>
-        </div>
-        <div class="card-footer bg-transparent border-light">
-          <a class="btn btn-info btn-block" href="{{ url_for('orders_form', pizza_id=pizza.id) }}" role="button"><i class="fas fa-cart-plus"></i> Tilaa</a>
+  <div class="jumbotron card card-image" style="background-image: url('./static/img/texture.jpg'); background-size: cover; background-position: center;">
+      <div class="text-white text-center py-3 px-4">
+        <div>
+          <h2 class="card-title pt-2 mb-5 display-4"><strong>Herkullinen Special Pizza avotuliuunissa valmistettuna</strong></h2>
+          <p class="mx-5 mb-5">Päivän erikoistarjous neljällä täytteellä nyt vain 10 €</p>
+          <a href="{{ url_for('orders_form', pizza_id=1) }}" class="btn btn-lg btn-info"><i class="fas fa-pizza-slice"></i> Tilaa Special</a>
         </div>
       </div>
     </div>
-    {% endfor %}
+    <div class="row row-cols-1 row-cols-md-3">
+      {% for pizza in pizzas %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <h5 class="card-header text-capitalize bg-white">{{ pizza.name }}</h5>
+          <div class="card-body">
+            <h5 class="card-title">{{ pizza.price }} €</h5>
+            <p class="card-text text-capitalize">
+              {% for topping in pizza.toppings %}
+                {{ topping.name }}{% if not topping == pizza.toppings[-1] %}, {% endif %}
+              {% endfor %}
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-light">
+            <a class="btn btn-info btn-block" href="{{ url_for('orders_form', pizza_id=pizza.id) }}" role="button"><i class="fas fa-cart-plus"></i> Tilaa</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-</div>
 
-  <h2>
-    Ananas Pizzat
-  </h2>
   {% if pineapplePizzas %}
-    <table class="table">
-        {% for pizza in pineapplePizzas %}
-        <tr>
-          <td>{{ pizza.name }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="overflow-hidden my-3 text-center">
+      <div class="d-md-flex flex-md-equal w-100 my-md-3">
+        <div class="bg-dark col text-center text-white overflow-hidden" style="min-height: 350px; background-image: url('./static/img/pineapple-pizza.jpg'); background-size: cover; background-position: center center;">
+          <div class="my-3 py-3">
+          </div>
+        </div>
+        
+        <div class="bg-warning col text-center overflow-hidden" style="min-height: 350px;">
+          <div class="my-3 py-3">
+            <h2 class="mt-4 display-4">Ananas pizzat</h2>
+              <div class="mt-4">
+                  {% for pizza in pineapplePizzas %}
+                    <p class="blockquote"><a class="text-dark" href="{{ url_for('orders_form', pizza_id=pizza.id) }}">{{ pizza.name }}</a></p>
+                  {% endfor %}
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if chiliPizzas %}
+    <div class="overflow-hidden my-3 text-center">
+      <div class="d-md-flex flex-md-equal w-100 my-md-3">
+        <div class="bg-dark col text-center overflow-hidden" style="min-height: 350px;">
+          <div class="my-3 py-3">
+            <h2 class="mt-4 display-4 text-white">Tuliset pizzat</h2>
+              <div class="mt-4">
+                  {% for pizza in chiliPizzas %}
+                    <p class="blockquote"><a class="text-white" href="{{ url_for('orders_form', pizza_id=pizza.id) }}">{{ pizza.name }}</a></p>
+                  {% endfor %}
+              </div>
+          </div>
+        </div>
+        <div class="bg-dark col text-center text-white overflow-hidden" style="min-height: 350px; background-image: url('./static/img/spicy-pizza.jpg'); background-size: cover; background-position: center center;">
+          <div class="my-3 py-3">
+          </div>
+        </div>
+      </div>
+    </div>
   {% endif %}
 
 {% endblock %}

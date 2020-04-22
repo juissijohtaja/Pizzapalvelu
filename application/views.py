@@ -8,5 +8,7 @@ from application.pizzatoppings.models import PizzaTopping
 @app.route("/", methods=["GET"])
 def index():
     pizzas = Pizza.query.all()
-    return render_template("index.html", pizzas = pizzas, pineapplePizzas=Pizza.find_pizzas_with_pineapple())
+    pwp = Pizza.find_pizzas_with_pineapple()
+    pwc = Pizza.find_pizzas_with_chili()
+    return render_template("index.html", pizzas = pizzas, pineapplePizzas = pwp, chiliPizzas = pwc)
     

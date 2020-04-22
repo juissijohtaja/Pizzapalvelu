@@ -77,7 +77,6 @@ def user_delete_item(user_id):
 
     return redirect(url_for("user_index"))
 
-# MyAccount
 @app.route("/oma-tili/<user_id>/", methods=["GET"])
 @login_required(role="USER")
 def user_my_account(user_id):
@@ -89,8 +88,6 @@ def user_my_account(user_id):
         order.dateTimeOrdered = order.date_created.strftime("%H:%M, %d.%m.%Y")
         order.dateTimeUpdated = order.date_modified.strftime("%H:%M, %d.%m.%Y")
       
-
-
     if current_user.get_id() != u.id:
         return redirect(url_for("index"))
 

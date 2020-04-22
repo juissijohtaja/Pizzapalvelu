@@ -38,9 +38,6 @@
                 <a class="nav-link pr-2" href="{{ url_for('auth_login') }}"><i class="fas fa-user-circle"></i> Kirjaudu sisään</a>
               </li>
             {% endif %}
-            <li class="nav-item">
-              <a class="nav-link px-2 disabled" href="#"><i class="fas fa-shopping-cart"></i></a>
-            </li>
           </ul>
       </nav>
       {% if current_user.admin %}

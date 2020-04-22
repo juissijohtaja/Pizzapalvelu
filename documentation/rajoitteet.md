@@ -25,6 +25,12 @@
 - Listaussivut ovat hieman hankalia etenkin mobiililaitteilla, koska kaikki tieto ei mahdu ruudulle samaan aikaan
   - Tietojen taulukkoesitystä voisi parantaa mobiililaitteilla
 
+- Käyttäjän suorittamista toimminnoista pitäisi saada paremmin palautetta
+  - Sovelluksessa pitäisi olla notifikaatiot, joilla voidaan ilmoittaa toiminnon suorittamisesta esim. "Tilaus onnistui"
+
+- Jos käyttäjä ei ole kirjautunut sisään ja hän yrittää mennä sivulle joka vaatii kirjaumista, hänet ohjataan kirjautumissivulle. Sisäänkirjautumisen jälkeen sovellus siirtää käyttäjän etusivulle.
+  - Olisi parempi, jos sovellus muistaisi minne käyttäjä halusi alunperin mennä ja ohjaisi kirjautumisen jälkeen sinne sivulle
+
 ### Tietokanta
 - Käyttäjäroolit on tehty tietokannassa boolean-muuttujalla
   - Tämän johdosta kirjautuneella käyttäjällä on vain kaksi eri roolia

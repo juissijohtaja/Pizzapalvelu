@@ -10,6 +10,8 @@ class Order(Base):
     __tablename__ = "orders"
 
     delivery = db.Column(db.String(144), nullable=False)
+    oregano = db.Column(db.Boolean, unique=False, default=False)
+    garlic = db.Column(db.Boolean, unique=False, default=False)
     received = db.Column(db.Boolean, unique=False, default=False)
     delivered = db.Column(db.Boolean, unique=False, default=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)

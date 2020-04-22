@@ -45,6 +45,35 @@
             </div>  
           {% endif %}
         </div>
+        <p>Lisävalinnat</p>
+        <div class="custom-control custom-switch mb-3">
+          {{ form.oregano }}
+          {{ form.oregano.label(class="custom-control-label") }}
+          <div class="invalid-feedback">
+            Tarkista oregano tila
+          </div>
+          {% if form.oregano.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.oregano.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="custom-control custom-switch mb-3">
+          {{ form.garlic }}
+          {{ form.garlic.label(class="custom-control-label") }}
+          <div class="invalid-feedback">
+            Tarkista valkosipuli tila
+          </div>
+          {% if form.garlic.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.garlic.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
         <div class="form-group">
           <legend class="col-form-label">{{ form.delivery.label }}  <small class="text-muted align-top">*</small></legend>
           {% for subfield in form.delivery %}

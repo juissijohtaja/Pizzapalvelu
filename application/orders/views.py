@@ -21,6 +21,8 @@ def orders_get_item(order_id):
     f = OrdersEditForm()
 
     f.delivery.default = o.delivery
+    f.oregano.default = o.oregano
+    f.garlic.default = o.garlic
     f.process()
     
     return render_template("orders/order.html", order = o, form = f)
@@ -33,6 +35,8 @@ def orders_set_item(order_id):
     o = Order.query.get(order_id)
 
     o.delivery = form.delivery.data
+    o.oregano = form.oregano.data
+    o.garlic = form.garlic.data
     o.received = form.received.data
     o.delivered = form.delivered.data
 
@@ -66,6 +70,8 @@ def orders_form(pizza_id):
 def orders_create():
     form = OrdersForm(request.form)
     o = Order(form.delivery.data)
+    o.oregano = form.oregano.data
+    o.garlic = form.garlic.data
     o.account_id = current_user.id
     p = Pizza.query.get(form.pizza_id.data)
 

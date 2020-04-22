@@ -35,8 +35,37 @@
         </p>
       </div>
       <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_set_item', order_id=order.id) }}">
+        <p>Lisävalinnat</p>
+        <div class="custom-control custom-switch">
+          {{ form.oregano(checked=order.oregano) }}
+          {{ form.oregano.label(class="custom-control-label") }}
+          <div class="invalid-feedback">
+            Tarkista oregano tila
+          </div>
+          {% if form.oregano.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.oregano.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="custom-control custom-switch">
+          {{ form.garlic(checked=order.garlic) }}
+          {{ form.garlic.label(class="custom-control-label") }}
+          <div class="invalid-feedback">
+            Tarkista valkosipuli tila
+          </div>
+          {% if form.garlic.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.garlic.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
         <fieldset class="form-group">
-          <legend class="col-form-label">{{ form.delivery.label }}  <small class="text-muted align-top">*</small></legend>
+          <legend class="col-form-label pt-4">{{ form.delivery.label }}  <small class="text-muted align-top">*</small></legend>
           {% for subfield in form.delivery %}
             <div class="form-check">
                   {{ subfield(class="form-check-input") }}
@@ -54,9 +83,10 @@
             </div>  
           {% endif %}
         </fieldset>
+        <p class="mt-4">Toimituksen tila</p>
         <div class="custom-control custom-switch">
           {{ form.received(checked=order.received) }}
-          {{ form.received.label(class="custom-control-label") }} <small class="text-muted align-top">*</small>
+          {{ form.received.label(class="custom-control-label") }}
           <div class="invalid-feedback">
             Tarkista vastaanotettu tila
           </div>
@@ -70,7 +100,7 @@
         </div>
         <div class="custom-control custom-switch">
           {{ form.delivered(checked=order.delivered) }}
-          {{ form.delivered.label(class="custom-control-label") }} <small class="text-muted align-top">*</small>
+          {{ form.delivered.label(class="custom-control-label") }}
           <div class="invalid-feedback">
             Tarkista toimitettu tila
           </div>
@@ -82,7 +112,7 @@
             </div>  
           {% endif %}
         </div>
-        <button type="submit" class="btn btn-info btn-block mt-4">Tallenna tilaus</button>
+        <button type="submit" class="btn btn-info btn-block mt-5">Tallenna tilaus</button>
       </form>
       <hr>
       <h6>Poista tämä tilaus</h6>

@@ -4,12 +4,12 @@
 
 ### Pizzat
 - Pizzoihin voi valita vain neljä täytettä ja samaa täytettä ei voi valita kahdesti
-  - Täytteiden mahdollinen määrä voisi olla suurempi ja saman voisi valita useamman kerran
-  - Täytteitä ei myöskään voi vaihtaa tilauksen yhteydessä tällä hetkellä
+  - Täytteiden enimmäismäärää voisi kasvattaa
+  - Saman täytteen voisi valita useamman kerran
+  - Pizzoihin voisi valita lisätäytteitä tilauksen yhteydessä
+- Pizzan kokoa ei voi valita
 
-- Pizzapohjia voisi olla useampi vaihtoehto
-
-- Pizzoihin pitäisi voida valita oregano ja valkosipuli
+- Pizzapohjia voisi olla useampi vaihtoehto esim. gluteeniton, kuitu
 
 ### Käyttäjät
 

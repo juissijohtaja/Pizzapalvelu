@@ -6,6 +6,8 @@ from application.pizzas.models import Pizza
 
 class OrdersForm(FlaskForm):
     delivery = RadioField('Toimitustapa', [required()], choices=[('kuljetus','Kuljetus'),('nouto','Nouto'),('paikan päällä','Paikan päällä')])
+    oregano = BooleanField('Oregano', [optional()], render_kw={'class':'custom-control-input'})
+    garlic = BooleanField('Valkosipuli', [optional()], render_kw={'class':'custom-control-input'})
     pizza_id = IntegerField('Pizza id', [required(), NumberRange(min=1, max=999)], render_kw={'class':'form-control form-control-sm', 'pattern':'[0-9]{1,3}', 'readonly':'true', 'type':'hidden'})
 
     class Meta:
@@ -13,6 +15,8 @@ class OrdersForm(FlaskForm):
 
 class OrdersEditForm(FlaskForm):
     delivery = RadioField('Toimitustapa', [required()], choices=[('kuljetus','Kuljetus'),('nouto','Nouto'),('paikan päällä','Paikan päällä')])
+    oregano = BooleanField('Oregano', [optional()], render_kw={'class':'custom-control-input'})
+    garlic = BooleanField('Valkosipuli', [optional()], render_kw={'class':'custom-control-input'})
     received = BooleanField('Vastaanotettu', [optional()], render_kw={'class':'custom-control-input'})
     delivered = BooleanField('Toimitettu', [optional()], render_kw={'class':'custom-control-input'})
 

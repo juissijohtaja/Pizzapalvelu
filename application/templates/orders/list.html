@@ -13,8 +13,10 @@
         <thead>
           <tr>
             <th>Tilaus</th>
-            <th class="text-center">Vastaanotettu</th>
+            <th class="text-center">Oregano</th>
+            <th class="text-center">Valkosipuli</th>
             <th>Toimitustapa</th>
+            <th class="text-center">Vastaanotettu</th>
             <th class="text-center">Toimitettu</th>
             <th>Tilaaja</th>
             <th></th>
@@ -30,13 +32,27 @@
               </a>
             </td>
             <td class="text-center">
-              {% if order.received %}
+              {% if order.oregano %}
+                <i class="far fa-check-circle text-success"></i>
+              {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+              {% endif %}
+            </td>
+            <td class="text-center">
+              {% if order.garlic %}
                 <i class="far fa-check-circle text-success"></i>
               {% else %}
                 <i class="far fa-times-circle text-danger"></i>
               {% endif %}
             </td>
             <td>{{ order.delivery }}</td>
+            <td class="text-center">
+              {% if order.received %}
+                <i class="far fa-check-circle text-success"></i>
+              {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+              {% endif %}
+            </td>
             <td class="text-center">
               {% if order.delivered %}
                 <i class="far fa-check-circle text-success"></i>

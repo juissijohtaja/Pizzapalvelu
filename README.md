@@ -30,8 +30,6 @@ Asiakas
 
 ### Dokumentaatio
 
-Dokumentaatio vastaa sovelluksen todellista tilaa kaikilta osin.
-
 - [Sovelluksen käyttöohje](documentation/kayttoohje.md)
 - [Sovelluksen asennusohje](documentation/asennusohje.md)
 - [Työn ja sovelluksen rajoitteet, puuttuvat ominaisuudet](documentation/rajoitteet.md)

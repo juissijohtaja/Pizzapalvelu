@@ -12,10 +12,7 @@
 - Pizzoihin pitäisi voida valita oregano ja valkosipuli
 
 ### Käyttäjät
-- Uuden käyttäjän lisäys onnistuu ainoastaan rekisteröintilomakkeen kautta "julkisella" puolella
-  - Näin luodusta käyttäjästä tulee automaattisesti "asiakas" roolin omaava käyttäjä
-  - Mikäli käyttäjästä halutaan tehdä ylläpitäjä, se pitää tehdää muokkaamalla käyttäjän tietoja
-  - Ylläpitopuolelle voisi lisätä toiminnon, jolla ylläpitäjä voi lisätä käyttäjän ja tehdä siitä haluttaessaan suoraan ylläpitäjän
+
 
 ### Tilaukset
 - Tilauksen voi tehdä vain yhdelle pizzalle

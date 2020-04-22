@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-md-6 bg-white p-4 rounded border">
+      <div class="row mb-3">
+        <div class="col-auto mr-auto">
+          <h3>Käyttäjä</h3>
+        </div>
+        <div class="col-auto">
+          <a class="btn close" href="{{ url_for('user_index') }}" role="button"><span aria-hidden="true">&times;</span></a>
+        </div>
+      </div>
+      {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ error }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+      <form class="py-4 needs-validation" novalidate method="POST" action="{{ url_for('user_create') }}">
+        <div class="form-group">
+          {{ form.name.label }} <small class="text-muted align-top">*</small>
+          {{ form.name }}
+          <div class="invalid-feedback">
+            Tarkista nimi (2-50 merkkiä)
+          </div>
+          {% if form.name.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.name.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.phone.label }} <small class="text-muted align-top">*</small>
+          {{ form.phone }}
+          <div class="invalid-feedback">
+            Tarkista puhelinnumero (5-20 numeroa)
+          </div>
+          {% if form.phone.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.phone.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.address.label }} <small class="text-muted align-top">*</small>
+          {{ form.address }}
+          <div class="invalid-feedback">
+            Tarkista osoite (2-50 merkkiä)
+          </div>
+          {% if form.address.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.address.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="custom-control custom-switch mb-3">
+          {{ form.admin }}
+          {{ form.admin.label(class="custom-control-label") }} <small class="text-muted align-top">*</small>
+          <div class="invalid-feedback">
+            Tarkista ylläpitäjä tila
+          </div>
+          {% if form.admin.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.admin.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.username.label }} <small class="text-muted align-top">*</small>
+          {{ form.username }}
+          <div class="invalid-feedback">
+            Tarkista käyttäjätunnus (2-50 merkkiä)
+          </div>
+          {% if form.username.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.username.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.password.label }} <small class="text-muted align-top">*</small>
+          {{ form.password }}
+          <div class="invalid-feedback">
+            Tarkista salasana (2-50 merkkiä)
+          </div>
+          {% if form.password.errors %}
+            <div class="alert alert-danger mt-2 py-0" role="alert">
+              {% for error in form.password.errors %}
+                <small>{{ error }}</small>
+              {% endfor %}
+            </div>  
+          {% endif %}
+        </div>
+        <p><small class="text-muted">* Vaadittu tieto</small></p>
+        <button type="submit" class="btn btn-info btn-block mt-4">Tallenna käyttäjä</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

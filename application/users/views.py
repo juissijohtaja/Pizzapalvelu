@@ -1,6 +1,6 @@
 from application import app, db, login_required
 from application.auth.models import User
-from application.users.forms import UserEditForm
+from application.users.forms import UserForm, UserEditForm
 
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, current_user
@@ -9,6 +9,35 @@ from flask_login import login_user, logout_user, current_user
 @login_required(role="ADMIN")
 def user_index():
     return render_template("users/list.html", users = User.query.all())
+
+@app.route("/kayttajat/uusi/")
+@login_required(role="ADMIN")
+def user_form():
+    return render_template("users/new.html", form = UserForm())
+
+@app.route("/kayttajat/uusi/", methods=["POST"])
+@login_required(role="ADMIN")
+def user_create():
+    form = UserForm(request.form)
+    
+    if not form.validate():
+        return render_template("users/new.html", form = form, error = "Tarkista lomake.")
+
+    newuser = User.query.filter_by(username=form.username.data).first()
+    if newuser:
+        return render_template("users/new.html", form = form, error = "Käyttäjä on jo olemassa.")
+                                
+    u = User(form.name.data)
+    u.phone = form.phone.data
+    u.address = form.address.data
+    u.admin = form.admin.data
+    u.username = form.username.data
+    u.password = form.password.data
+
+    db.session().add(u)
+    db.session().commit()
+  
+    return redirect(url_for("user_index"))
 
 @app.route("/kayttajat/<user_id>/", methods=["GET"])
 @login_required(role="ADMIN")

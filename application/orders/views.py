@@ -60,7 +60,6 @@ def orders_delete_item(order_id):
 
 # order as user
 @app.route("/tilaa/<pizza_id>", methods=["GET"])
-@login_required(role="USER")
 def orders_form(pizza_id):
     p = Pizza.query.get(pizza_id)
     return render_template("orders/new.html", form = OrdersForm(), pizza = p, toppings = Topping.query.all())

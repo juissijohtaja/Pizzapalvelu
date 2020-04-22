@@ -20,6 +20,11 @@
           </button>
         </div>
       {% endif %}
+      {% if not current_user.is_authenticated %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          Tehdäksesi tilauksen <a href="{{ url_for('auth_login') }}"><strong>kirjaudu sisään</strong></a>
+        </div>
+      {% endif %}
       <div class="bg-light px-4 pt-3 pb-2 border rounded">
         <address>
           <i class="fas fa-user-circle text-muted pr-1"></i> <strong>{{ current_user.name }}</strong><br>
@@ -98,7 +103,12 @@
           {% endif %}
         </div>
         <p><small class="text-muted">* Vaadittu tieto</small></p>
-        <button type="submit" class="btn btn-info btn-block mt-4">Lähetä tilaus</button>
+        {% if current_user.is_authenticated %}
+          <button type="submit" class="btn btn-info btn-block mt-4">Lähetä tilaus</button>
+        {% else %}
+          <button type="submit" class="btn btn-info btn-block mt-4 disabled" disabled>Lähetä tilaus</button>
+        {% endif %}
+        
       </form>
       
     </div>

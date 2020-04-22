@@ -24,7 +24,11 @@
                   <i class="fas fa-user-circle"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="position: absolute !important;">
-                  <small><a class="dropdown-item disabled" href="#"> Asiakastiedot</a></small>
+                  {% if current_user.admin %}
+                  <small><a class="dropdown-item" href="{{ url_for('user_get_item', user_id=current_user.get_id()) }}"> Käyttäjätiedot</a></small>
+                  {% else %}
+                    <small><a class="dropdown-item" href="{{ url_for('user_my_account', user_id=current_user.get_id()) }}"> Asiakastiedot</a></small>
+                  {% endif %}
                   <div class="dropdown-divider"></div>
                   <span class="dropdown-item"><small>Kirjautuneena: {{ current_user.name }} | <a class="text-dark" href="{{ url_for('auth_logout') }}"><strong>Kirjaudu ulos</strong></a></small></span>
                 </div>

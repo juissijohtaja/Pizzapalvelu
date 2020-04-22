@@ -1,9 +1,12 @@
 from application import app, db, login_required
 from application.auth.models import User
 from application.users.forms import UserForm, UserEditForm
+from application.orders.models import Order
 
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, current_user
+
+from datetime import datetime
 
 @app.route("/kayttajat/", methods=["GET"])
 @login_required(role="ADMIN")
@@ -74,3 +77,21 @@ def user_delete_item(user_id):
 
     return redirect(url_for("user_index"))
 
+# MyAccount
+@app.route("/oma-tili/<user_id>/", methods=["GET"])
+@login_required(role="USER")
+def user_my_account(user_id):
+
+    u = User.query.get(user_id)
+    my_orders = Order.query.filter_by(account_id = u.id).all()
+
+    for order in my_orders:
+        order.dateTimeOrdered = order.date_created.strftime("%H:%M, %d.%m.%Y")
+        order.dateTimeUpdated = order.date_modified.strftime("%H:%M, %d.%m.%Y")
+      
+
+
+    if current_user.get_id() != u.id:
+        return redirect(url_for("index"))
+
+    return render_template("users/my-account.html", user = u, orders = my_orders)

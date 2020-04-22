@@ -59,6 +59,10 @@
   - SELECT * FROM account WHERE account.username = ? AND account.password = ? LIMIT ? OFFSET ?
 - asiakkaana/ylläpitäjänä voin kirjautua ulos
   - SELECT * FROM account WHERE account.id = ?
+- asiakkaana voin katsella tilitietojani sekä tilauksiani
+  - SELECT * FROM account WHERE account.id = ?
+  - SELECT * FROM orders WHERE orders.account_id = ?
+  - SELECT * FROM pizza, order_pizza WHERE ? = order_pizza.order_id AND pizza.id = order_pizza.pizza_id
 
 #### Muut
 - kirjautunut ylläpitäjä / asiakas käyttäjärooleilla on eri oikeudet katsoa ja muokata sisältöä
@@ -68,5 +72,3 @@
 
 - asiakkaana voin lisätä yhden tai useamman pizzan ostoskoriin
 - asiakkaana voin katsella ostoskorin sisältöä
-- asiakkaana voin seurata tilaukseni statusta
-- asiakkaana voin valita pizzaan oreganon ja/tai valkosipulin

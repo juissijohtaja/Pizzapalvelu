@@ -10,19 +10,19 @@ Hae sovelluksen tiedostot GitHubin repositoriosta:
 git clone https://github.com/juissijohtaja/Pizzapalvelu.git
 
 Siirry äskeen luotuun Pizzpalvelu-kansioon:
-> cd Pizzapalvelu
+- `cd Pizzapalvelu`
 
 Luodaan hakemiston sisälle Python-virtuaaliympäristö:
-> python3 -m venv venv
+- `python3 -m venv venv`
 
 Aktivoidaan tämän jälkeen virtuaaliympäristö:
-> source venv/bin/activate
+- source venv/bin/activate
 
 Sovelluksen riippuvuudet on määritelty tiedostossa requirements.txt. Lataa riippuvuudet:
-> pip install -r requirements.txt
+- pip install -r requirements.txt
 
 Käynnistä sovellus:
-> python run.py
+- python run.py
 
 ##### [Selain]
 

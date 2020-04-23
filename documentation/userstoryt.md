@@ -66,6 +66,7 @@
 
 #### Muut
 - kirjautunut ylläpitäjä / asiakas käyttäjärooleilla on eri oikeudet katsoa ja muokata sisältöä
+  - SELECT * FROM account WHERE account.id = ?
 - asiakkaana voin nähdä ananasta sisältäviä pizzoja etusivulla
   - SELECT P.id, P.name, T.id, T.name FROM pizza P, topping T, pizza_topping PT WHERE P.id = PT.pizza_id AND T.id = PT.topping_id GROUP BY P.id, T.id HAVING T.name = 'ananas' LIMIT 5 
 - asiakkaana voin nähdä chiliä tai jalapenoa sisältäviä pizzoja etusivulla

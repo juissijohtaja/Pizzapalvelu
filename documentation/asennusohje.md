@@ -12,6 +12,8 @@ Hae sovelluksen tiedostot GitHubin repositoriosta:
 Siirry äskeen luotuun Pizzpalvelu-kansioon:
 - `cd Pizzapalvelu`
 
+(Tästä alkaen kaikki komennot suoritetaan tässä kansiossa.)
+
 Luodaan hakemiston sisälle Python-virtuaaliympäristö:
 - `python3 -m venv venv`
 
@@ -61,7 +63,11 @@ Lisää aiheesta:
 
 ## Sovelluksen asennus Herokuun
 
+(Asenna ensin sovellus lokaalisti yllä olevien ohjeiden avulla.)
+
 Avaa Pizzapalvelu-hakemisto komentoterminaalissa.
+
+(Tästä alkaen kaikki komennot suoritetaan tässä kansiossa.)
 
 Herokun (sovelluksen käynnistämistä varten) tarvitsema Procfile-tiedosto on jo olemassa, joten voimme suoraan luoda sovellukselle paikan Herokuun.
 

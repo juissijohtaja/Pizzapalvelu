@@ -33,7 +33,8 @@ class Pizza(Base, Name):
         stmt = text("SELECT P.id, P.name, T.id, T.name"
                         " FROM pizza P, topping T, pizza_topping PT"
                         " WHERE P.id = PT.pizza_id AND T.id = PT.topping_id AND T.name IN ('chili', 'jalapeno')"
-                        " GROUP BY P.id, T.id LIMIT 5")
+                        " GROUP BY P.id, T.id"
+                        " LIMIT 5")
         res = db.engine.execute(stmt)
 
         response = []

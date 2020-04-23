@@ -32,10 +32,8 @@
             {{ current_user.phone }}
           </address>
         {% endif %}
-        <hr>
-        <p><i class="fas fa-pizza-slice text-muted pr-1"></i> 
-          {{ pizza.name }}
-        </p>
+        <p><i class="fas fa-pizza-slice text-muted pr-1"></i> {{ pizza.name }}</p>
+        <p><i class="far fa-credit-card text-muted pr-1"></i> {{ pizza.price }} €</p>
       </div>
       <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_create') }}">
         <div class="form-group">

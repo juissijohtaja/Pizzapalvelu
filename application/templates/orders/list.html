@@ -13,6 +13,7 @@
         <thead>
           <tr>
             <th>Tilaus</th>
+            <th>Hinta</th>
             <th class="text-center">Oregano</th>
             <th class="text-center">Valkosipuli</th>
             <th>Toimitustapa</th>
@@ -24,13 +25,14 @@
         </thead>
         {% for order in orders %}
           <tr class="border-top">
+            {% for pizza in order.pizzas %}
             <td>
-              <a class="text-dark" title="{{ order.delivery }}" href="{{ url_for('orders_get_item', order_id=order.id) }}">
-                {% for pizza in order.pizzas %}
-                  {{ pizza.name }}
-                {% endfor %}
-              </a>
+              <a class="text-dark" title="{{ order.delivery }}" href="{{ url_for('orders_get_item', order_id=order.id) }}">{{ pizza.name }}</a>
             </td>
+            <td>
+              {{ pizza.price }} €
+            </td>
+            {% endfor %}
             <td class="text-center">
               {% if order.oregano %}
                 <i class="far fa-check-circle text-success"></i>

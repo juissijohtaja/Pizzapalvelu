@@ -143,3 +143,14 @@ Tallennetut muutokset näkyvät Tilaukset-listauksessa
 
 Klikkaa navigaatiopalkin oikeasta reunasta "käyttäjä" ikonia
 - tästä aukeaa valikko, josta voi klikata Kirjaudu ulos -nappia
+
+### Etusivun nostot
+
+Etusivulla on muutama sisältönosto, joiden käyttäminen hieman poikkeaa muusta sisällöstä. Ylhäällä on iso "jumbotron" ja alempana sivulla on "ananaspizzat" ja "tuliset pizzat" promopaikat.
+
+Jumbotronin sisältö sekä linkki haluttuun pizzaan määritellään manuaalisesti. Linkki haluttuun pizzaan määritellään linkki-elementin sisällä eli pizza_id kohtaan laitetaan halutun pizzan id-numero:
+- `<a href="{{ url_for('orders_form', pizza_id=1) }}" ... > `
+
+Ananaspizzat-nostossa näkyvät sellaiset pizzat, joissa on täytteenä valittu "ananas". Nostoa ei näytetä, mikäli tällaisia pizzoja ei ole luotu. Luo siis ensin täyte nimeltä "ananas" ja sen jälkeen luo pizza, johon valitaan täytteeksi ananas.
+
+Tuliset pizzat -nostossa näkyvät sellaiset pizzat, joissa on täytteenä valittu "chili" ja/tai "jalapeno". Nostoa ei näytetä, mikäli tällaisia pizzoja ei ole luotu. Luo siis ensin täyte nimeltä "chili" ja/tai "jalapeno" ja sen jälkeen luo pizza, johon valitaan täytteeksi toinen tai molemmat em. täytteistä.

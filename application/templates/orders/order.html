@@ -27,12 +27,10 @@
           {{ order.account.address }}<br>
           {{ order.account.phone }}
         </address>
-        <hr>
-        <p><i class="fas fa-pizza-slice text-muted pr-1"></i> 
-          {% for pizza in order.pizzas %}
-            {{ pizza.name }}
-          {% endfor %}
-        </p>
+        {% for pizza in order.pizzas %}
+          <p><i class="fas fa-pizza-slice text-muted pr-1"></i> {{ pizza.name }}</p>
+          <p><i class="far fa-credit-card text-muted pr-1"></i> {{ pizza.price }} €</p>
+        {% endfor %}
       </div>
       <form class="py-3 needs-validation" novalidate method="POST" action="{{ url_for('orders_set_item', order_id=order.id) }}">
         <p>Lisävalinnat</p>

@@ -36,8 +36,6 @@ Tämän jälkeen sinulla on tavallinen käyttäjätili (USER), jonka voi muuttaa
 
 ##### [Komentoterminaali]
 
-(Tässä vaiheessa kannattaa avata uusi komentoterminaali ja mennä sillä Pizzapalvelu-hakemistoon, jotta voit ottaa sillä yhteyden tietokantaan ja sovellusta voi edelleen pitää käynnissä alkuperäisessä terminaalissa. Vaihtoehtoisesti voit sammuttaa sovelluksen ja käynnistää sen uudelleen tietokantakomentojen jälkeen.)
-
 Luo yhteys paikalliseen tietokantaan:
 - `sqlite3 application/pizzapalvelu.db`
 
@@ -51,6 +49,8 @@ Voit halutessasi sulkea yhteyden tietokantaan:
 - `.quit`
 
 ##### [Selain]
+
+(Varmista, että sovellus on käynnissä.)
 
 Nyt voit kirjautua valitsemallasi käyttäjätilillä uudelleen sisään ja pääset ylläpitopuolelle.
 Tämän jälkeen voit käyttää sovellusta, hallinnoida sisältöjä ja antaa haluamillesi käyttäjille ylläpitäjän oikeudet ylläpitosivujen kautta.

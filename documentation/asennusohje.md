@@ -4,11 +4,7 @@
 
 Avaa komentoterminaali ja siirry kansioon, jonne haluat asentaa sovelluksen.
 
-#### [Komentoterminaali]
 ##### [Komentoterminaali]
-###### (Komentoterminaali)
-[Komentoterminaali]
-(Komentoterminaali)
 
 Hae sovelluksen tiedostot GitHubin repositoriosta:
 git clone https://github.com/juissijohtaja/Pizzapalvelu.git
@@ -28,7 +24,7 @@ Sovelluksen riippuvuudet on määritelty tiedostossa requirements.txt. Lataa ri
 Käynnistä sovellus:
 > python run.py
 
-#### Selain
+##### [Selain]
 
 Mene selaimella osoitteeseen:
 - http://localhost:5000/
@@ -38,7 +34,7 @@ Luo käyttäjätili menemällä selaimella osoitteeseen:
 
 Tämän jälkeen sinulla on tavallinen käyttäjätili (USER), jonka voi muuttaa ylläpitäjän (ADMIN) tiliksi seuraavalla tavalla.
 
-#### Komentoterminaali
+##### [Komentoterminaali]
 
 (Tässä vaiheessa kannattaa avata uusi komentoterminaali ja mennä sillä Pizzapalvelu-hakemistoon, jotta voit ottaa sillä yhteyden tietokantaan ja sovellusta voi edelleen pitää käynnissä alkuperäisessä terminaalissa. Vaihtoehtoisesti voit sammuttaa sovelluksen ja käynnistää sen uudelleen tietokantakomentojen jälkeen.)
 
@@ -54,7 +50,7 @@ Anna haluamallesi käyttäjätilille (id) ylläpitäjän oikeudet. Tee muutos ti
 Voit halutessasi sulkea yhteyden tietokantaan:
 - .quit
 
-#### Selain
+##### [Selain]
 
 Nyt voit kirjautua valitsemallasi käyttäjätilillä uudelleen sisään ja pääset ylläpitopuolelle.
 Tämän jälkeen voit käyttää sovellusta, hallinnoida sisältöjä ja antaa haluamillesi käyttäjille ylläpitäjän oikeudet ylläpitosivujen kautta.
@@ -69,7 +65,7 @@ Avaa Pizzapalvelu-hakemisto komentoterminaalissa.
 
 Herokun (sovelluksen käynnistämistä varten) tarvitsema Procfile-tiedosto on jo olemassa, joten voimme suoraan luoda sovellukselle paikan Herokuun.
 
-#### Komentoterminaali
+##### [Komentoterminaali]
 
 Luo sovellukselle paikka Herokuun: 
 - heroku create
@@ -83,11 +79,11 @@ https://afternoon-tundra-13408.herokuapp.com/ | https://git.heroku.com/afternoon
 Lähetä projekti Herokuun:
 - git push heroku master
 
-#### Selain
+##### [Selain]
 
 Operaation valmistuttua voit mennä edellisessä vaiheessa saamaasi osoitteeseen (pävitä sivu tarvittaessa) ja huomaat, että sovellus pyörii nyt Herokun palvelimella.
 
-#### Komentoterminaali
+##### [Komentoterminaali]
 
 Sovelluksella ei ole vielä Herokussa tietokantaa, joten korjataan tilanne.
 
@@ -99,13 +95,13 @@ Ota käyttöön Herokun PostgreSQL-tietokanta:
 
 Tietokanta onnyt käytössä.
 
-#### Selain
+##### [Selain]
 
 Luo uusi käyttäjätili sovelluksessa.
 
 Nyt sinulla on tavallinen käyttäjätili (USER), jonka voi muuttaa ylläpitäjän (ADMIN) tiliksi seuraavalla tavalla.
 
-#### Komentoterminaali
+##### [Komentoterminaali]
 
 Luo yhteys Herokun tietokantaan:
 - heroku pg:psql
@@ -119,7 +115,7 @@ Anna haluamallesi käyttäjätilille (id) ylläpitäjän oikeudet. Tee muutos ti
 Voit halutessasi sulkea yhteyden tietokantaan:
 - \q
 
-#### Selain
+##### [Selain]
 
 Nyt voit kirjautua valitsemallasi käyttäjätilillä uudelleen sisään ja pääset ylläpitopuolelle.
 Tämän jälkeen voit käyttää sovellusta, hallinnoida sisältöjä ja antaa haluamillesi käyttäjille ylläpitäjän oikeudet ylläpitosivujen kautta.

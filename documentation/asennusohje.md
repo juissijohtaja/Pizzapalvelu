@@ -76,8 +76,8 @@ Herokun (sovelluksen käynnistämistä varten) tarvitsema Procfile-tiedosto on j
 Luo sovellukselle paikka Herokuun: 
 - `heroku create`
 
-Nyt sovellukselle on paikka Herokussa. Samalla saat Herokuun luodun sivuston osoitteen esim.
-- `Creating app... done, ⬢ afternoon-tundra-13408 https://afternoon-tundra-13408.herokuapp.com/ | https://git.heroku.com/afternoon-tundra-13408.git`
+Prosessin valmistuttua Heroku ilmoittaa komentorivillä sivuston osoitteen, joka on muotoa:
+- `https://joku-ihme-nimi.herokuapp.com/`
 
 (Mikäli avaat osoitteen selaimella, huomaat että sovellus ei ole vielä siellä.)
 

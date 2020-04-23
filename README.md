@@ -37,7 +37,7 @@ Asiakas
 - [Tietokantarakenteen kuvaus](documentation/tietokantarakenne.md)
 
 
-## Osan 5 etapit
+## Osien 5 ja 6 etapit
 
 - Autorisointi 
   - kirjauneella asiakkaalla (USER) ja ylläpitäjällä (ADMIN) on eri oikeudet sisältöihin
@@ -49,6 +49,7 @@ Asiakas
   - visuaalisuutta sekä käytettävyyttä parannettu
   - navigaatiota muokattu
   - lomakkeet muotoiltu uudelleen ja ne reagoivat täytettyyn tietoon
+  - käyttäjä saa notifikaatiot onnistuneista toiminnosta
 
 - Toiminnallisuuden täydentäminen (uusia ominaisuuksia)
   - pizzalomakkeet saavat täytteet dynaamisesti ja käyttöliittymä reagoi tehtyhin valintoihin

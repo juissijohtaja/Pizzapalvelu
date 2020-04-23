@@ -4,7 +4,7 @@
   <div class="jumbotron card card-image" style="background-image: url('./static/img/texture.jpg'); background-size: cover; background-position: center;">
       <div class="text-white text-center py-3 px-4">
         <div>
-          <h2 class="card-title pt-2 mb-5 display-4"><strong>Herkullinen Special Pizza avotuliuunissa valmistettuna</strong></h2>
+          <h2 class="card-title pt-2 mb-5">Herkullinen Special Pizza avotuliuunissa valmistettuna</h2>
           <p class="mx-5 mb-5">Päivän erikoistarjous neljällä täytteellä nyt vain 10 €</p>
           <a href="{{ url_for('orders_form', pizza_id=1) }}" class="btn btn-lg btn-info"><i class="fas fa-pizza-slice"></i> Tilaa Special</a>
         </div>
@@ -39,10 +39,9 @@
           <div class="my-3 py-3">
           </div>
         </div>
-        
         <div class="bg-warning col text-center overflow-hidden" style="min-height: 350px;">
           <div class="my-3 py-3">
-            <h2 class="mt-4 display-4">Ananas pizzat</h2>
+            <h2 class="mt-4">Ananas pizzat</h2>
               <div class="mt-4">
                   {% for pizza in pineapplePizzas %}
                     <p class="blockquote"><a class="text-dark" href="{{ url_for('orders_form', pizza_id=pizza.id) }}">{{ pizza.name }}</a></p>
@@ -58,18 +57,18 @@
   {% if chiliPizzas %}
     <div class="overflow-hidden my-3 text-center">
       <div class="d-md-flex flex-md-equal w-100 my-md-3">
-        <div class="bg-dark col text-center overflow-hidden" style="min-height: 350px;">
+        <div class="bg-dark col text-center text-white overflow-hidden order-2" style="min-height: 350px; background-image: url('./static/img/spicy-pizza.jpg'); background-size: cover; background-position: center center;">
           <div class="my-3 py-3">
-            <h2 class="mt-4 display-4 text-white">Tuliset pizzat</h2>
+          </div>
+        </div>
+        <div class="bg-dark col text-center overflow-hidden order-1" style="min-height: 350px;">
+          <div class="my-3 py-3">
+            <h2 class="mt-4 text-white">Tuliset pizzat</h2>
               <div class="mt-4">
                   {% for pizza in chiliPizzas %}
                     <p class="blockquote"><a class="text-white" href="{{ url_for('orders_form', pizza_id=pizza.id) }}">{{ pizza.name }}</a></p>
                   {% endfor %}
               </div>
-          </div>
-        </div>
-        <div class="bg-dark col text-center text-white overflow-hidden" style="min-height: 350px; background-image: url('./static/img/spicy-pizza.jpg'); background-size: cover; background-position: center center;">
-          <div class="my-3 py-3">
           </div>
         </div>
       </div>

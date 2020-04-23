@@ -1,8 +1,10 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required  
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm, SignupForm
+
+app.secret_key = 'pizzapalvelu'
 
 @app.route("/auth/login/", methods = ["GET", "POST"])
 def auth_login():
@@ -18,11 +20,13 @@ def auth_login():
         return render_template("auth/loginform.html", form = form, error = "Käyttäjätunnus tai salasana on väärin.")
 
     login_user(user)
+    flash('Sisäänkirjautuminen onnistui.')
     return redirect(url_for("index"))
 
 @app.route("/auth/logout")
 def auth_logout():
     logout_user()
+    flash('Uloskirjautuminen onnistui.')
     return redirect(url_for("index"))
 
 @app.route("/auth/signup/", methods = ["GET", "POST"])
@@ -47,4 +51,5 @@ def auth_signup():
     db.session().add(u)
     db.session().commit()
 
+    flash('Käyttäjätilin luominen onnistui.')
     return redirect(url_for("index"))

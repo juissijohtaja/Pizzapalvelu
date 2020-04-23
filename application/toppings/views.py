@@ -2,7 +2,7 @@ from application import app, db, login_required
 from application.toppings.models import Topping
 from application.toppings.forms import ToppingsForm, ToppingsEditForm
 
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import current_user
 
 @app.route("/taytteet/", methods=["GET"])
@@ -32,7 +32,8 @@ def toppings_set_item(topping_id):
         return render_template("toppings/topping.html", form = form, topping = t, error = "Tarkista lomake.")
 
     db.session().commit()
-  
+
+    flash('Täytteen tallennus onnistui.')
     return redirect(url_for("toppings_index"))
 
 @app.route("/taytteet/delete/<topping_id>/", methods=["POST"])
@@ -43,6 +44,7 @@ def toppings_delete_item(topping_id):
     db.session().delete(t)
     db.session().commit()
 
+    flash('Täytteen poistaminen onnistui.')
     return redirect(url_for("toppings_index"))
 
 @app.route("/taytteet/uusi/", methods=["POST"])
@@ -57,5 +59,6 @@ def toppings_create():
 
     db.session().add(t)
     db.session().commit()
-  
+    
+    flash('Täytteen lisääminen onnistui.')
     return redirect(url_for("toppings_index"))

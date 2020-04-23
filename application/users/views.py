@@ -3,7 +3,7 @@ from application.auth.models import User
 from application.users.forms import UserForm, UserEditForm
 from application.orders.models import Order
 
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user
 
 from datetime import datetime
@@ -39,7 +39,8 @@ def user_create():
 
     db.session().add(u)
     db.session().commit()
-  
+
+    flash('Käyttäjätilin luominen onnistui.')
     return redirect(url_for("user_index"))
 
 @app.route("/kayttajat/<user_id>/", methods=["GET"])
@@ -64,7 +65,8 @@ def user_set_item(user_id):
         return render_template("users/user.html", form = form, user = u, error = "Tarkista lomake.")
 
     db.session().commit()
-  
+
+    flash('Käyttäjätilin muokkaus onnistui.')
     return redirect(url_for("user_index"))
 
 @app.route("/kayttajat/poista/<user_id>/", methods=["POST"])
@@ -75,6 +77,7 @@ def user_delete_item(user_id):
     db.session().delete(u)
     db.session().commit()
 
+    flash('Käyttäjätilin poistaminen onnistui.')
     return redirect(url_for("user_index"))
 
 @app.route("/oma-tili/<user_id>/", methods=["GET"])
@@ -90,5 +93,5 @@ def user_my_account(user_id):
       
     if current_user.get_id() != u.id:
         return redirect(url_for("index"))
-
+    
     return render_template("users/my-account.html", user = u, orders = my_orders)

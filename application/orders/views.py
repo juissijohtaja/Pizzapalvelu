@@ -5,7 +5,7 @@ from application.orders.models import Order
 from application.orders.forms import OrdersForm, OrdersEditForm
 
 
-from flask import redirect, render_template, request, url_for
+from flask import redirect, render_template, request, url_for, flash
 from flask_login import current_user
 
 # orders admin
@@ -45,7 +45,8 @@ def orders_set_item(order_id):
 
     db.session().add(o)
     db.session().commit()
-  
+    
+    flash('Tilauksen tallennus onnistui.')
     return redirect(url_for("orders_index"))
 
 @app.route("/tilaukset/delete/<order_id>/", methods=["POST"])
@@ -56,6 +57,7 @@ def orders_delete_item(order_id):
     db.session().delete(o)
     db.session().commit()
 
+    flash('Tilauksen poistaminen onnistui.')
     return redirect(url_for("orders_index"))
 
 # order as user
@@ -82,5 +84,6 @@ def orders_create():
 
     db.session().add(o)
     db.session().commit()
-  
+    
+    flash('Tilauksen lähetys onnistui.')
     return redirect(url_for("index"))

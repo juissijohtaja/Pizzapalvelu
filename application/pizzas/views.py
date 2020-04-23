@@ -3,7 +3,7 @@ from application.pizzas.models import Pizza
 from application.pizzas.forms import PizzasForm, PizzasEditForm
 from application.toppings.models import Topping
 
-from flask import redirect, render_template, request, url_for
+from flask import redirect, render_template, request, url_for, flash
 from flask_login import current_user
 
 @app.route("/pizzat/", methods=["GET"])
@@ -66,7 +66,8 @@ def pizzas_set_item(pizza_id):
 
     db.session().add(p)
     db.session().commit()
-  
+    
+    flash('Pizzan tallennus onnistui.')
     return redirect(url_for("pizzas_index"))
 
 @app.route("/pizzat/uusi/", methods=["POST"])
@@ -110,10 +111,10 @@ def pizzas_create():
         if topping is not None:
             p.toppings.append(topping)
     
-    
     db.session().add(p)
     db.session().commit()
-  
+    
+    flash('Pizzan lisääminen onnistui.')
     return redirect(url_for("pizzas_index"))
 
 @app.route("/pizzat/delete/<pizza_id>/", methods=["POST"])
@@ -124,4 +125,5 @@ def pizzas_delete_item(pizza_id):
     db.session().delete(p)
     db.session().commit()
 
+    flash('Pizzan poistaminen onnistui.')
     return redirect(url_for("pizzas_index"))

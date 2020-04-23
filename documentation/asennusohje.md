@@ -77,8 +77,7 @@ Luo sovellukselle paikka Herokuun:
 - `heroku create`
 
 Nyt sovellukselle on paikka Herokussa. Samalla saat Herokuun luodun sivuston osoitteen esim.
-Creating app... done, ⬢ afternoon-tundra-13408
-https://afternoon-tundra-13408.herokuapp.com/ | https://git.heroku.com/afternoon-tundra-13408.git
+- `Creating app... done, ⬢ afternoon-tundra-13408 https://afternoon-tundra-13408.herokuapp.com/ | https://git.heroku.com/afternoon-tundra-13408.git`
 
 (Mikäli avaat osoitteen selaimella, huomaat että sovellus ei ole vielä siellä.)
 

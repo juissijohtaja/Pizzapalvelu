@@ -30,8 +30,7 @@ class Order(Base):
                         " LEFT JOIN pizza P ON P.id = OP.pizza_id"
                         " LEFT JOIN account A ON A.id = O.account_id"
                         " GROUP BY O.account_id, A.name"
-                        " ORDER BY total DESC"
-                        " LIMIT 3")
+                        " ORDER BY total DESC")
         res = db.engine.execute(stmt)
 
         response = []

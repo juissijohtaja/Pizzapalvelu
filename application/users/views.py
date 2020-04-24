@@ -11,7 +11,8 @@ from datetime import datetime
 @app.route("/kayttajat/", methods=["GET"])
 @login_required(role="ADMIN")
 def user_index():
-    return render_template("users/list.html", users = User.query.all())
+    fus = Order.find_user_spend()
+    return render_template("users/list.html", users = User.query.all(), userSpend = fus)
 
 @app.route("/kayttajat/uusi/")
 @login_required(role="ADMIN")

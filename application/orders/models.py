@@ -21,3 +21,24 @@ class Order(Base):
 
     def __init__(self, delivery):
         self.delivery = delivery
+
+    @staticmethod
+    def find_user_spend():
+        stmt = text("SELECT O.account_id, COUNT(P.id), SUM(P.price) as total, A.name"
+                        " FROM orders O"
+                        " LEFT JOIN order_pizza OP ON O.id = OP.order_id"
+                        " LEFT JOIN pizza P ON P.id = OP.pizza_id"
+                        " LEFT JOIN account A ON A.id = O.account_id"
+                        " GROUP BY O.account_id, A.name"
+                        " ORDER BY total DESC"
+                        " LIMIT 3")
+        res = db.engine.execute(stmt)
+
+        response = []
+        seen_titles = set()
+        for row in res:
+            if row[1] not in seen_titles:
+                response.append({"accountId":row[0], "orderCount":row[1], "orderSum":row[2], "userName":row[3]})
+                seen_titles.add(row[1])
+
+        return response

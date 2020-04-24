@@ -21,16 +21,20 @@
         </div>
       {% endif %}
       <div class="bg-light px-4 pt-3 pb-2 border rounded">
-        {% if not current_user.is_authenticated %}
-          <div class="alert alert-danger" role="alert">
-            Tehdäksesi tilauksen <a class="alert-link" href="{{ url_for('auth_login') }}">kirjaudu sisään</a>
-          </div>
-        {% else %}
+        {% if current_user.is_authenticated and not current_user.admin %}
           <address>
             <i class="fas fa-user-circle text-muted pr-1"></i> <strong>{{ current_user.name }}</strong><br>
             {{ current_user.address }}<br>
             {{ current_user.phone }}
           </address>
+        {% else %}
+          <div class="alert alert-danger" role="alert">
+            {% if current_user.admin %}
+              Ylläpitäjä ei voi tehdä tilausta. <a class="alert-link" href="{{ url_for('auth_login') }}">Kirjaudu sisään</a> asiakkaana.
+            {% else %}
+              Tehdäksesi tilauksen <a class="alert-link" href="{{ url_for('auth_login') }}">kirjaudu sisään</a>.
+            {% endif %}
+          </div>
         {% endif %}
         <p><i class="fas fa-pizza-slice text-muted pr-1"></i> {{ pizza.name }}</p>
         <p><i class="far fa-credit-card text-muted pr-1"></i> {{ pizza.price }} €</p>
@@ -102,7 +106,7 @@
           {% endif %}
         </div>
         <p><small class="text-muted">* Vaadittu tieto</small></p>
-        {% if current_user.is_authenticated %}
+        {% if current_user.is_authenticated and not current_user.admin %}
           <button type="submit" class="btn btn-info btn-block mt-4">Lähetä tilaus</button>
         {% else %}
           <button type="submit" class="btn btn-info btn-block mt-4 disabled" disabled>Lähetä tilaus</button>

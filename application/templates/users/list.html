@@ -10,6 +10,28 @@
         <a class="btn btn-info" href="{{ url_for('user_create') }}" role="button"><i class="fas fa-plus"></i> Lisää käyttäjä</a>
     </div>
   </div>
+  <h5 class="mt-4 mb-3">Top 3 asiakkaat</h5>
+  <div class="row bg-white p-4 my-4 rounded border">
+    <div class="table-responsive">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th>Tilausten määrä</th>
+            <th>Tilausten summa</th>
+          </tr>
+        </thead>
+        {% for row in userSpend %}
+          <tr class="border-top">
+            <td>{{ row.userName }}</td>
+            <td>{{ row.orderCount }}</td>
+            <td>{{ row.orderSum }} €</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <h5 class="mt-4 mb-3">Käyttäjätilit</h5>
   <div class="row bg-white p-4 rounded border">
     <div class="table-responsive">
       <table class="table table-borderless">

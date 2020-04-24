@@ -34,10 +34,7 @@ class Order(Base):
         res = db.engine.execute(stmt)
 
         response = []
-        seen_titles = set()
         for row in res:
-            if row[1] not in seen_titles:
-                response.append({"accountId":row[0], "orderCount":row[1], "orderSum":row[2], "userName":row[3]})
-                seen_titles.add(row[1])
+            response.append({"accountId":row[0], "orderCount":row[1], "orderSum":row[2], "userName":row[3]})
 
         return response

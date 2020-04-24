@@ -24,16 +24,16 @@ class Order(Base):
 
     @staticmethod
     def find_user_spend():
-        stmt = text("SELECT O.account_id, COUNT(P.id), SUM(P.price) as total, A.name"
+        stmt = text("SELECT O.account_id, COUNT(P.id) as amount, SUM(P.price) as spend, A.name"
                         " FROM orders O"
                         " LEFT JOIN order_pizza OP ON O.id = OP.order_id"
                         " LEFT JOIN pizza P ON P.id = OP.pizza_id"
                         " LEFT JOIN account A ON A.id = O.account_id"
                         " GROUP BY O.account_id, A.name"
-                        " ORDER BY total DESC"
+                        " ORDER BY spend, amount DESC"
                         " LIMIT 3")
         res = db.engine.execute(stmt)
-        
+
         response = []
         for row in res:
             response.append({"accountId":row[0], "orderCount":row[1], "orderSum":row[2], "userName":row[3]})

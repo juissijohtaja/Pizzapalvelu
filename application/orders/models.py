@@ -30,7 +30,7 @@ class Order(Base):
                         " LEFT JOIN pizza P ON P.id = OP.pizza_id"
                         " LEFT JOIN account A ON A.id = O.account_id"
                         " GROUP BY O.account_id, A.name"
-                        " ORDER BY spend, amount DESC"
+                        " ORDER BY spend DESC, amount DESC"
                         " LIMIT 3")
         res = db.engine.execute(stmt)
 

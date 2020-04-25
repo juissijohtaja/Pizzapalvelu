@@ -45,7 +45,7 @@ Huom. mikäli olet jo luonut useampia kuin yhden käyttäjätilin, tarkista tiet
 - `SELECT * FROM account;`
 
 Anna haluamallesi käyttäjätilille (id) ylläpitäjän oikeudet. Tee muutos tietokantaan:
-- `UPDATE account SET admin = True WHERE id = 1;`
+- `UPDATE account SET admin = 1 WHERE id = 1;`
 
 Voit halutessasi sulkea yhteyden tietokantaan:
 - `.quit`

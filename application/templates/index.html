@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <h3 class="my-4 pl-2">Keittiön suositukset</h3>
+  <h3 class="mt-5 mb-4 text-center pl-2">Suosittelemme</h3>
   <div class="row row-cols-1 row-cols-md-3">
     {% for pizza in pizzasRecommended %}
     <div class="col mb-4">
@@ -71,31 +71,28 @@
       </div>
     </div>
   {% endif %}
-  <div class="row">
-    <div class="col-auto mr-auto">
-      <h3 class="my-3 pl-2">Menu</h3>
-    </div>
-  </div>
+  <h3 class="mt-5 mb-4 text-center pl-2">Menu</h3>
   <div class="row bg-white p-4 m-0 rounded border">
     <div class="table-responsive">
       <table class="table table-borderless text-capitalize">
         <thead>
           <tr>
-            <th>Nimi</th>
-            <th>Täytteet</th>
+            <th>Pizza</th>
             <th>Hinta</th>
             <th></th>
           </tr>
         </thead>
         {% for pizza in pizzas %}
           <tr class="border-top">
-            <td><a class="text-dark" title="{{ pizza.name }}" href="{{ url_for('orders_form', pizza_id=pizza.id) }}">{{ pizza.name }}</a></td>
             <td>
-              {% for topping in pizza.toppings %}
-                {{ topping.name }}{% if not topping == pizza.toppings[-1] %}, {% endif %}
-              {% endfor %}
+              <a class="text-dark font-weight-bold" title="{{ pizza.name }}" href="{{ url_for('orders_form', pizza_id=pizza.id) }}">{{ pizza.name }}</a><br>
+              <small>
+                {% for topping in pizza.toppings %}
+                  {{ topping.name }}{% if not topping == pizza.toppings[-1] %}, {% endif %}
+                {% endfor %}
+              </small>
             </td>
-            <td>{{ pizza.price }}</td>
+            <td>{{ pizza.price }} €</td>
             <td class="text-right">
               <a class="btn btn-info" href="{{ url_for('orders_form', pizza_id=pizza.id) }}" role="button"><i class="fas fa-cart-plus"></i> Tilaa</a>
             </td>

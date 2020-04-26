@@ -1,5 +1,13 @@
 # Asennusohje
 
+Sovelluksen asennusta ja käyttämistä varten tarvitset ainakin: 
+- tuen Python-kielisten ohjelmien suorittamiseen. Käytössäsi tulee olla vähintään Pythonin versio 3.5
+- tuen Python-kirjastojen lataamiseen. Käytössäsi tulee olla Pythonin pip, jonka avulla saat ladattua apukirjastoja
+- tuen Python-"virtuaaliympäristöjen" luomiseen. Käytössäsi tulee olla Pythonin venv-kirjasto
+- työvälineet git-repojen käsittelyyn
+- käyttäjätunnukset Herokuun ja työvälineet työvälineet Herokussa sijaitsevien palvelujen käsittelyyn (Heroku CLI)
+- sopivan ohjelmointiympäristön Python-kehitykselle esim. Visual Studio Code
+
 ## Sovelluksen asennus lokaalisti
 
 Avaa komentoterminaali ja siirry kansioon, jonne haluat asentaa sovelluksen.

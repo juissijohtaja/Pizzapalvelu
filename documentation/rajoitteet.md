@@ -5,9 +5,6 @@
   - Tämän johdosta kirjautuneella käyttäjällä on vain kaksi eri roolia
   - Mikäli haluaisi useamman roolin, pitäisi rakentaa oma taulu käyttäjärooleille
 
-- Salasanat tallennetaan selkokielisenä tietokantaan
-  - Salasanojen tallennuksessa tulisi käyttää "hashingia"
-
 - Tässä sovelluksessa tarvittavat tietomäärät ovat melko pieniä (suuruusluokka enintään satoja rivejä)
   - Tietokannan hallinnassa ei ole huomioitu suurien tietomäärien käsittelyä esim. pitäisi hakea/tallentaa "miljoonia" rivejä tietoa
   - Tämä vaatisi sovelluksen ja käyttöliittymän toteutukseen vielä runsaasti lisätyötä, joten lisätään ne backlogiin

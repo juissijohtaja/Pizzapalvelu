@@ -37,7 +37,7 @@ def user_create():
     u.address = form.address.data
     u.admin = form.admin.data
     u.username = form.username.data
-    u.password = form.password.data
+    u.password = pbkdf2_sha256.hash(form.password.data)
 
     db.session().add(u)
     db.session().commit()

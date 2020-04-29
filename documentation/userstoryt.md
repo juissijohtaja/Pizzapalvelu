@@ -211,3 +211,4 @@
 - asiakkaana voin lisätä yhden tai useamman pizzan ostoskoriin
 - asiakkaana voin katsella ostoskorin sisältöä
 - asiakkaana voin tilata ostoskorin sisällön
+- ylläpitäjänä voin selata suuria määriä täytteitä/pizzoja/käyttäjiä/tilauksia sivutettuina taulukoina

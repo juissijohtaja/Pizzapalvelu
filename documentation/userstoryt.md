@@ -28,7 +28,16 @@
   ```
 
 #### Pizzat
-- asiakkaana/ylläpitäjänä voin selata pizzoja
+- asiakkaana voin selata pizzoja
+  ```
+  SELECT * FROM pizza
+
+  SELECT * FROM topping, pizza_topping 
+  WHERE ? = pizza_topping.pizza_id AND topping.id = pizza_topping.topping_id
+  LIMIT ? OFFSET ?
+  ```
+
+- ylläpitäjänä voin selata pizzoja
   ```
   SELECT * FROM pizza
 

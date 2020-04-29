@@ -8,7 +8,7 @@ from application.pizzatoppings.models import PizzaTopping
 
 @app.route("/", methods=["GET"])
 def index():
-    pizzas = Pizza.query.all()
+    pizzas = Pizza.query.limit(30).all()
     pizzasRecommended = islice(pizzas, 3)
     pizzas.sort(key=lambda x: x.price)
     pwp = Pizza.find_pizzas_with_pineapple()

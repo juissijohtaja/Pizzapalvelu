@@ -36,28 +36,13 @@ Asiakas
 - [Käyttötapaukset / user storyt ja niihin liittyvät SQL-kyselyt](documentation/userstoryt.md)
 - [Tietokantarakenteen kuvaus](documentation/tietokantarakenne.md)
 
+### Omat kokemukset
 
-## Osien 5 ja 6 etapit
-
-- Autorisointi 
-  - kirjauneella asiakkaalla (USER) ja ylläpitäjällä (ADMIN) on eri oikeudet sisältöihin
-  - ylläpitäjälle näytetään navigaatiossa linkit hallinnointisivuille
-  - sisältöjen lisäys/muokkaus/poisto onnistuu vain ylläpitäjäroolilla
-
-- Käytettävyyden viilausta
-  - Bootstrap käytössä koko sivustolla
-  - visuaalisuutta sekä käytettävyyttä parannettu
-  - navigaatiota muokattu
-  - lomakkeet muotoiltu uudelleen ja ne reagoivat täytettyyn tietoon
-  - käyttäjä saa notifikaatiot onnistuneista toiminnosta
-
-- Toiminnallisuuden täydentäminen (uusia ominaisuuksia)
-  - pizzalomakkeet saavat täytteet dynaamisesti ja käyttöliittymä reagoi tehtyhin valintoihin
-  - lomakkeiden validointia parannettu, nyt tarkistukset sekä front- että backendissä
-  - käyttäjärooleihin reagoiva käyttöliittymä
-  - Tilaukset-osion alustava versio olemassa, mutta siitä puuttuu vielä paljon ominaisuuksia
-
-- Kirjoita työhösi alustava asennusohje ja käyttöohje
-  - työstö aloitettu
-  - tietokantakaavio ja backlog päivitetty
-
+- Kurssi on ollut erittäin mielenkiintoinen ja opettavainen
+- En ollut ennen tätä kurssia tehnyt mitään Pythonilla, nyt sekin tuli tutuksi
+- Tietokantojen käyttö sovelluksen taustalla oli mielenkiintoista. Erilaisten liitostaulujen rakentaminen ja niiden hyödyntäminen sovelluksessa oli haastavaa
+- SQliten ja PostgreSql:n erilainen toiminta aiheutti jonkin verran harmaita hiuksia. Ongelmien ratkaisussa auttoi, kun oppi tulkitsemaan Herokun logeja
+- Flask Forms ja lomakkeiden huolellinen validointi tuli tutuksi ja osoittautui tärkeäksi työvaiheeksi (frontend ja backend)
+- Bootstrap oli myös käytössä ensimmäistä kertaa ja siihenkin pääsi hyvin sisälle
+- Tiedon ja ratkaisujen hakeminen netistä oli iso osa tätä prosessia
+- Tietynlaisten kompromissien tekeminen oli tarpeen sovellusta suunnitellessa, jotta paketti pysyi kasassa huomioiden aikataulu ja potentiaalinen työmäärä

@@ -5,6 +5,7 @@ from application.orders.models import Order
 
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user
+from passlib.hash import pbkdf2_sha256
 
 from datetime import datetime
 
@@ -60,7 +61,8 @@ def user_set_item(user_id):
     u.address = form.address.data
     u.admin = form.admin.data
     u.username = form.username.data
-    u.password = form.password.data
+    if form.password.data:
+        u.password = pbkdf2_sha256.hash(form.password.data)
 
     if not form.validate():
         return render_template("users/user.html", form = form, user = u, error = "Tarkista lomake.")

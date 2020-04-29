@@ -93,8 +93,8 @@
           {% endif %}
         </div>
         <div class="form-group">
-          {{ form.password.label }} <small class="text-muted align-top">*</small>
-          {{ form.password(value=user.password) }}
+          {{ form.password.label }}
+          {{ form.password() }}
           <div class="invalid-feedback">
             Tarkista salasana (2-50 merkkiä)
           </div>

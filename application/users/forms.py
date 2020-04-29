@@ -21,7 +21,7 @@ class UserEditForm(FlaskForm):
     address = StringField('Osoite', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
     admin = BooleanField('Ylläpitäjä', [optional()], render_kw={'class':'custom-control-input'})
     username = StringField('Käyttäjätunnus', [required(), Length(min=2, max=50)], render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
-    password = StringField('Salasana', [required(), Length(min=2, max=50)], widget=PasswordInput(hide_value=False), render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
+    password = StringField('Vaihda salasana', [optional(), Length(min=2, max=50)], widget=PasswordInput(hide_value=False), render_kw={'class':'form-control form-control-sm', 'pattern':'.{2,50}'})
 
     class Meta:
         csrf = False

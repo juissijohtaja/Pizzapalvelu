@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, login_required
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm, SignupForm
+from passlib.hash import pbkdf2_sha256
 
 app.secret_key = 'pizzapalvelu'
 
@@ -14,9 +15,10 @@ def auth_login():
     form = LoginForm(request.form)
     if not form.validate():
         return render_template("auth/loginform.html", form = form, error = "Tarkista lomake.")
-
-    user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
-    if not user:
+    
+    user = User.query.filter_by(username=form.username.data).first()
+    verifyPassword = pbkdf2_sha256.verify(form.password.data, user.password)
+    if not verifyPassword:
         return render_template("auth/loginform.html", form = form, error = "Käyttäjätunnus tai salasana on väärin.")
 
     login_user(user)
@@ -46,7 +48,7 @@ def auth_signup():
     u.phone = form.phone.data
     u.address = form.address.data
     u.username = form.username.data
-    u.password = form.password.data
+    u.password = pbkdf2_sha256.hash(form.password.data)
 
     db.session().add(u)
     db.session().commit()

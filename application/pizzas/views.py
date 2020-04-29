@@ -51,7 +51,7 @@ def pizzas_set_item(pizza_id):
 
     toppingList = []
     toppingList.extend((topping1, topping2, topping3, topping4))
-    toppingList.remove("")
+    toppingList = list(filter(None, toppingList))
     topping_ids = sorted(set(toppingList))
 
     for id in topping_ids:
@@ -83,7 +83,7 @@ def pizzas_create():
 
     toppingList = []
     toppingList.extend((topping1, topping2, topping3, topping4))
-    toppingList.remove("")
+    toppingList = list(filter(None, toppingList))
     topping_ids = sorted(set(toppingList))
 
     for id in topping_ids:

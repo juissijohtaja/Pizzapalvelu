@@ -41,7 +41,6 @@ def pizzas_set_item(pizza_id):
     p.price = request.form.get("price")
     p.toppings = []
 
-    topping_ids = []
     topping1 = form.topping1.data
     topping2 = form.topping2.data
     topping3 = form.topping3.data
@@ -50,14 +49,9 @@ def pizzas_set_item(pizza_id):
     if not form.validate():
         return render_template("pizzas/pizza.html", pizza = p, form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
-    if topping1 not in topping_ids and topping1 > 0:
-        topping_ids.append(topping1)
-    if topping2 not in topping_ids and topping1 > 0:
-        topping_ids.append(topping2)
-    if topping3 not in topping_ids and topping1 > 0:
-        topping_ids.append(topping3)
-    if topping4 not in topping_ids and topping1 > 0:
-        topping_ids.append(topping4)
+    toppingList = []
+    toppingList.extend((topping1, topping2, topping3, topping4))
+    topping_ids = sorted(set(toppingList))
 
     for id in topping_ids:
         topping=Topping.query.get(id)
@@ -86,26 +80,10 @@ def pizzas_create():
     if not form.validate():
         return render_template("pizzas/new.html", form = form, toppings = Topping.query.all(), error = "Tarkista lomake.")
 
-    topping_ids = []
-    if topping1:
-        topping1_id = int(topping1)
-        if topping1_id not in topping_ids:
-            topping_ids.append(topping1_id)
-    if topping2:
-        topping2_id = int(topping2)
-        if topping2_id not in topping_ids:
-            topping_ids.append(topping2_id)
-    if topping3:
-        topping3_id = int(topping3)
-        if topping3_id not in topping_ids:
-            topping_ids.append(topping3_id)
-    if topping4:
-        topping4_id = int(topping4)
-        if topping4_id not in topping_ids:
-            topping_ids.append(topping4_id)
+    toppingList = []
+    toppingList.extend((topping1, topping2, topping3, topping4))
+    topping_ids = sorted(set(toppingList))
 
-    
-    topping_ids.sort()
     for id in topping_ids:
         topping=Topping.query.get(id)
         if topping is not None:

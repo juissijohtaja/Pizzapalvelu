@@ -55,7 +55,8 @@ def toppings_create():
     if not form.validate():
         return render_template("toppings/new.html", form = form, error = "Tarkista lomake.")
 
-    t = Topping(form.name.data)
+    toppingName = form.name.data
+    t = Topping(toppingName.lower())
 
     db.session().add(t)
     db.session().commit()

@@ -23,7 +23,7 @@
         </thead>
         {% for topping in toppings %}
         <tr class="border-top">
-          <td><a class="text-dark text-capitalize" title="{{ topping.name }}" href="{{ url_for('toppings_get_item', topping_id=topping.id) }}">{{ topping.name }}</a></td>
+          <td><a class="text-dark" title="{{ topping.name }}" href="{{ url_for('toppings_get_item', topping_id=topping.id) }}">{{ topping.name }}</a></td>
           <td class="text-right">
             <a class="btn btn-sm btn-outline-info" role="button" title="Muokkaa" href="{{ url_for('toppings_get_item', topping_id=topping.id) }}"><i class="fas fa-pen"></i></a>
           </td>

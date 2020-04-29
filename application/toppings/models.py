@@ -3,7 +3,6 @@ from application.models import Base, Name
 from sqlalchemy.orm import relationship
 
 class Topping(Base, Name):
-
     __tablename__ = "topping"
 
     pizzas = relationship("Pizza", secondary="pizza_topping")

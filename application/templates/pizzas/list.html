@@ -25,7 +25,7 @@
         {% for pizza in pizzas %}
           <tr class="border-top">
             <td>
-              <a class="text-dark" title="{{ pizza.name }}" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}">{{ pizza.name }}</a><br>
+              <a class="text-dark font-weight-bold" title="{{ pizza.name }}" href="{{ url_for('pizzas_get_item', pizza_id=pizza.id) }}">{{ pizza.name }}</a><br>
               <small>
                 {% for topping in pizza.toppings %}
                   {{ topping.name }}{% if not topping == pizza.toppings[-1] %}, {% endif %}

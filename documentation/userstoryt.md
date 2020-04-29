@@ -109,6 +109,17 @@
   SELECT * FROM account WHERE account.id = ?
   ```
 
+- ylläpitäjänä voin nähdä top 3 tilatuimmat pizzat
+  ```
+  SELECT COUNT(O.id) as amount, P.name 
+  FROM orders O 
+  LEFT JOIN order_pizza OP ON O.id = OP.order_id 
+  LEFT JOIN pizza P ON P.id = OP.pizza_id 
+  GROUP BY P.name 
+  ORDER BY amount DESC, P.name 
+  LIMIT 3
+  ```
+
 - asiakkaana voin tehdä tilauksen
   ```
   INSERT INTO orders (date_created, date_modified, delivery, received, delivered, account_id) 

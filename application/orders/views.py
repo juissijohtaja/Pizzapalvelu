@@ -12,7 +12,8 @@ from flask_login import current_user
 @app.route("/tilaukset/", methods=["GET"])
 @login_required(role="ADMIN")
 def orders_index():
-    return render_template("orders/list.html", orders = Order.query.all())
+    ftp = Order.find_top_pizzas()
+    return render_template("orders/list.html", orders = Order.query.all(), topPizzas = ftp)
 
 @app.route("/tilaukset/<order_id>/", methods=["GET"])
 @login_required(role="ADMIN")

@@ -1,12 +1,33 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
 <div class="container">
   <div class="row">
     <div class="col-auto mr-auto">
       <h3>Tilaukset</h3>
     </div>
   </div>
+  <h5 class="mt-4 mb-3">Top 3 pizzat</h5>
+  <div class="row bg-white p-4 my-4 rounded border">
+    <div class="table-responsive">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th>Tilausten määrä</th>
+          </tr>
+        </thead>
+        {% for row in topPizzas %}
+          <tr class="border-top">
+            <td>{{ row.pizzaName }}</td>
+            <td>{{ row.orderCount }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <h5 class="mt-4 mb-3">Tilatut pizzat</h5>
   <div class="row bg-white p-4 my-4 rounded border">
     <div class="table-responsive">
       <table class="table table-borderless">

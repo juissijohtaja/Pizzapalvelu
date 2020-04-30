@@ -19,7 +19,7 @@
 - Pizzapohjia voisi olla useampi vaihtoehto esim. gluteeniton, kuitu
 
 ### Käyttäjät
-- Salasanan muodolle ei ole vaatimuksia
+- Salasanan ja muidenkaan tietojen muodolle ei ole vaatimuksia
 
 ### Tilaukset
 - Tilauksen voi tehdä vain yhdelle pizzalle
@@ -28,7 +28,7 @@
 ### Käyttöliittymä
 - Listaussivut ovat hieman hankalia etenkin mobiililaitteilla, koska kaikki tieto ei mahdu ruudulle samaan aikaan
   - Tietojen taulukkoesitystä voisi parantaa mobiililaitteilla
-  - Taulukoissa ei ole sivutusta
+  - Taulukoissa ei ole sivutusta, tosin tämän sovelluksen pienillä tietomäärillä se ei juurikaan haittaa
 
 - Jos käyttäjä ei ole kirjautunut sisään ja hän yrittää mennä sivulle joka vaatii kirjaumista, hänet ohjataan kirjautumissivulle. Sisäänkirjautumisen jälkeen sovellus siirtää käyttäjän etusivulle.
   - Olisi parempi, jos sovellus muistaisi minne käyttäjä halusi alunperin mennä ja ohjaisi kirjautumisen jälkeen sinne sivulle

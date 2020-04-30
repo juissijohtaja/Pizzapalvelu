@@ -29,9 +29,9 @@ Klikkaa Kirjaudu sisään -nappia
 Voit halutessasi luoda omat käyttäjätunnukset
 - [Luo tunnukset](https://desolate-bayou-52025.herokuapp.com/auth/signup/)
 - täytä kenttiin käyttäjätunnus ja salasana
-  - Huom. salasanalla ei ole muita vaatimuksia kuin pituus (2-50 merkkiä)
+  - salasanat tallennetaan tietokantaan kryptattuna
+  - salasanalla ei ole muita muotovaatimuksia kuin pituus (2-50 merkkiä)
 - klikkaa Luo tunnukset -nappia
-
 
 ## Kirjautunut asiakas
 
@@ -44,11 +44,10 @@ Klikkaa haluamasi pizzan kohdalla Tilaa-nappia
 
 ### Katsele asiakastietoja
 
-- (toiminnallisuus kehityksessä)
+Klikkaa navigaatiopalkin oikeasta reunasta "käyttäjä" ikonia
+- tästä aukeaa valikko, josta voi klikata Asiakastiedot-linkkiä
 
-### Katsele tilauksia
-
-- (toiminnallisuus kehityksessä)
+Asiakastiedo-sivulla näkyvät kirjautuneen käyttäjän yhteystiedot sekä tehdyt tilaukset ja niiden toimituksen tila.
 
 ### Kirjaudu ulos
 
@@ -91,7 +90,7 @@ Klikkaa jonkin täytteen kohdalta sen nimeä tai sivun oikeassa reunassa olevaa 
 - mikäli haluat poistaa täytteen, klikkaa Poista täyte -nappia sekä vahvista poisto avautuvasta ilmoituksesta
 - mikäli haluat poistua täytesivulta ilman tallennusta, klikkaa lomakkeen oikeassa yläkulmassa X-nappia
 
-Tallennetut muutokset näkyvät Täytteet-listauksessa
+Tallennetut muutokset näkyvät Täytteet-listauksessa.
 
 ### Pizzat
 
@@ -109,7 +108,7 @@ Klikkaa jonkin pizaan kohdalta sen nimeä tai sivun oikeassa reunassa olevaa Muo
 - mikäli haluat poistaa pizzan, klikkaa Poista pizza -nappia sekä vahvista poisto avautuvasta ilmoituksesta
 - mikäli haluat poistua pizzasivulta ilman tallennusta, klikkaa lomakkeen oikeassa yläkulmassa X-nappia
 
-Tallennetut muutokset näkyvät Pizzat-listauksessa
+Tallennetut muutokset näkyvät Pizzat-listauksessa.
 
 ### Käyttäjät
 
@@ -123,7 +122,7 @@ Klikkaa jonkin käyttäjän kohdalta sen nimeä tai sivun oikeassa reunassa olev
 - mikäli haluat poistaa käyttäjän, klikkaa Poista käyttäjä -nappia sekä vahvista poisto avautuvasta ilmoituksesta
 - mikäli haluat poistua käyttäjäsivulta ilman tallennusta, klikkaa lomakkeen oikeassa yläkulmassa X-nappia
 
-Tallennetut muutokset näkyvät Käyttäjät-listauksessa
+Tallennetut muutokset näkyvät Käyttäjät-listauksessa.
 
 ### Tilaukset
 
@@ -137,7 +136,14 @@ Klikkaa jonkin tilauksen kohdalta sen nimeä tai sivun oikeassa reunassa olevaa 
 - mikäli haluat poistaa käyttäjän, klikkaa Poista käyttäjä -nappia sekä vahvista poisto avautuvasta ilmoituksesta
 - mikäli haluat poistua tilaussivulta ilman tallennusta, klikkaa lomakkeen oikeassa yläkulmassa X-nappia
 
-Tallennetut muutokset näkyvät Tilaukset-listauksessa
+Tallennetut muutokset näkyvät Tilaukset-listauksessa.
+
+### Katsele käyttäjätietoja
+
+Klikkaa navigaatiopalkin oikeasta reunasta "käyttäjä" ikonia
+- tästä aukeaa valikko, josta voi klikata Käyttäjätiedot-linkkiä
+
+Käyttäjätiedot-sivulla ylläpitäjä voi muokata ja tallentaa käyttäjätietonsa.
 
 ### Kirjaudu ulos
 

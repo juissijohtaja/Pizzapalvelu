@@ -92,9 +92,17 @@
               <nav class="nav flex-column">
                 <h6 class="text-dark text-uppercase pl-3"><small>Pizzeria</small></h6>
                 <small><a class="nav-link text-dark" href="{{ url_for('index') }}">Etusivu</a></small>
-                <small><a class="nav-link text-dark" href="{{ url_for('auth_login') }}">Kirjaudu sisään</a></small>
-                <small><a class="nav-link text-dark" href="{{ url_for('auth_signup') }}">Luo tili</a></small>
-                <small><a class="nav-link text-muted disabled" href="#">Tilaus</a></small>
+                {% if current_user.is_authenticated %}
+                  {% if current_user.admin %}
+                    <small><a class="nav-link text-dark" href="{{ url_for('user_get_item', user_id=current_user.get_id()) }}">Käyttäjätiedot</a></small>
+                    {% else %}
+                      <small><a class="nav-link text-dark" href="{{ url_for('user_my_account', user_id=current_user.get_id()) }}">Asiakastiedot</a></small>
+                  {% endif %}
+                {% else %}
+                  <small><a class="nav-link text-dark" href="{{ url_for('auth_login') }}">Kirjaudu sisään</a></small>
+                  <small><a class="nav-link text-dark" href="{{ url_for('auth_signup') }}">Luo tili</a></small>
+                {% endif %}
+                
               </nav>
             </div>
             {% if current_user.admin %}

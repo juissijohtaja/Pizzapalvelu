@@ -11,6 +11,9 @@ class User(Base, Name):
     password = db.Column(db.String(144), nullable=False)
     admin = db.Column(db.Boolean, unique=False, default=False)
 
+    orders = db.relationship('Order', backref='account', lazy=True, cascade="all, delete-orphan")
+
+
     def __init__(self, name):
         self.name = name
   

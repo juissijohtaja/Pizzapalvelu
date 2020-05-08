@@ -16,7 +16,6 @@ class Order(Base):
     delivered = db.Column(db.Boolean, unique=False, default=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
-    account = db.relationship(User, foreign_keys=account_id, backref='orders')
     pizzas = relationship("Pizza", secondary="order_pizza")
 
     def __init__(self, delivery):

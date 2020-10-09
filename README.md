@@ -1,8 +1,8 @@
 # Pizzapalvelu
 
-### Aiheen kuvaus
-
 ![Pizzapalvelu Design](documentation/PizzaPalvelu-design.jpg)
+
+### Aiheen kuvaus
 
 Aiheena on tehdä yhden ravintolan pizzatilauspalvelu. Ravintolassa on tarjolla useita eri pizzoja, jotka koostuvat eri täytteistä. Pizzoilla on eri hinnat ja niitä voidaan lisätä tilaukseen haluttu määrä.
 

@@ -2,6 +2,8 @@
 
 ### Aiheen kuvaus
 
+![Pizzapalvelu Design](docs/Pizzapalvelu-design.jpg)
+
 Aiheena on tehdä yhden ravintolan pizzatilauspalvelu. Ravintolassa on tarjolla useita eri pizzoja, jotka koostuvat eri täytteistä. Pizzoilla on eri hinnat ja niitä voidaan lisätä tilaukseen haluttu määrä.
 
 Asiakas voi valita pizzat valikosta ja tehdä tilauksen. Asiakkaan tulee rekisteröityä ja olla kirjautunut, jotta voi tehdä tilauksen. Rekistöitymisessä asiakas täyttää yhteystietonsa ja tekee käyttäjätunnukset.

@@ -1,4 +1,4 @@
-# Pizzapalvelu
+# Pizzapalvelu - Python, PostgreSQL, Bootstrap
 
 ![Pizzapalvelu Design](documentation/PizzaPalvelu-design.jpg)
 
